@@ -1,0 +1,8 @@
+# Tax documents with PII — MUST NEVER be committed anywhere.
+output/
+PNG/
+
+# C++ compile scratch
+cpp/compile_*.txt
+cpp/compile_*.log
+cpp/err*.txt

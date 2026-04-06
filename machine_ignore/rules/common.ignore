@@ -1,0 +1,48 @@
+# Common rules applied on every machine.
+
+# Python byte-compiled caches
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Windows shell redirect accidents:
+# `cmd > nul` in bash (MINGW/Git Bash) creates a file literally called "nul"
+# because /dev/null isn't honored. Catch them everywhere.
+nul
+**/nul
+nul.*
+
+# Node
+node_modules/
+
+# Python envs
+.venv/
+venv/
+env/
+ENV/
+
+# Editor / IDE scratch
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Claude Code per-clone settings (varies by machine, not meaningful to share)
+.claude/settings.local.json
+
+# OAuth tokens / secrets / keys. NEVER commit these.
+token.json
+verify_token.json
+*_token.json
+*.pem
+*.key
+encryption.key
+credentials.json
+.env
+.env.*
+
+# OS junk
+.DS_Store
+Thumbs.db
+desktop.ini

@@ -1,1 +1,6 @@
 sync_memory.log
+
+# Python byte-compiled caches
+__pycache__/
+*.pyc
+*.pyo

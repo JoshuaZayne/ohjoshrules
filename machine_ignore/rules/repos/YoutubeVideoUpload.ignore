@@ -1,0 +1,5 @@
+# OAuth tokens (covered by common but pinned here for clarity).
+token.json
+verify_token.json
+upload_log.json
+upload_errors.json

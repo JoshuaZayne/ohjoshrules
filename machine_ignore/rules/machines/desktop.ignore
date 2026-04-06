@@ -1,0 +1,3 @@
+# Rules specific to the desktop (Windows, D:\Code workspace).
+# Currently DimaskusPC maps here via device_registry.json.
+# Add rules if this machine ever produces artifacts no other machine does.

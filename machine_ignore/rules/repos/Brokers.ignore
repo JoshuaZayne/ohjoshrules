@@ -1,0 +1,14 @@
+# Kill switch + local CI artifact
+data/.kill_switch
+.ci-local-result.json
+
+# Per-broker data caches (regenerated from broker APIs)
+data/ibkr/csv/
+data/ibkr/downloads/
+data/analytics/
+data/tastytrade/
+data/schwab/csv/
+data/schwab/json/
+data/ironbeam/
+data/strategy_improvement/sessions/
+data/strategy_improvement/models/*.pt
