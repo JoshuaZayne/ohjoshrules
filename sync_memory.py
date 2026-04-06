@@ -115,7 +115,7 @@ def detect_device() -> str:
 
 
 def _running_from_external_drive() -> bool:
-    """Heuristic: is this script being executed from F:\ / D:\ / E:\?"""
+    r"""Heuristic: is this script being executed from F:\ / D:\ / E:\?"""
     try:
         here = Path(__file__).resolve()
         drive = str(here)[:2].upper()
@@ -172,12 +172,17 @@ def git_pull():
 
 
 def git_commit_and_push(message: str):
-    status = git("status", "--porcelain", "memory/", capture=True).stdout.strip()
-    if not status:
-        print("[sync] nothing to commit in memory/")
-        return
     print("[sync] staging memory/ changes")
     git("add", "memory/")
+
+    # Check if there's anything STAGED (not just modified in the working tree).
+    # `git status --porcelain` can report files that autocrlf will normalize
+    # back to identical once staged, leading to a spurious commit attempt.
+    staged = git("diff", "--cached", "--name-only", "memory/", capture=True, check=False).stdout.strip()
+    if not staged:
+        print("[sync] nothing new to commit in memory/")
+        return
+
     print(f"[sync] committing: {message}")
     git("commit", "-m", message)
     branch = _current_branch()
