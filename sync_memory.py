@@ -267,15 +267,23 @@ def push_from_local(device: str, dry_run: bool = False) -> None:
 
 
 def _pick_target_folder(src: Path, device: str) -> Path:
-    """Decide which memory subfolder a file belongs in when pushing up."""
+    """Decide which memory subfolder a file belongs in when pushing up.
+
+    A memory is routed to a device subfolder only if the file contains a line
+    whose entire content (after stripping whitespace) equals
+    ``<!-- device: desktop -->`` (or laptop / raspie). Matches inside inline
+    code spans or prose are ignored so that documentation can describe the
+    marker without triggering routing.
+    """
     try:
         text = src.read_text(encoding="utf-8", errors="ignore")
     except Exception:
         text = ""
-    lowered = text.lower()
-    for candidate in ("desktop", "laptop", "raspie"):
-        if f"<!-- device: {candidate} -->" in lowered:
-            return MEMORY_SRC / candidate
+    for raw_line in text.splitlines():
+        line = raw_line.strip().lower()
+        for candidate in ("desktop", "laptop", "raspie"):
+            if line == f"<!-- device: {candidate} -->":
+                return MEMORY_SRC / candidate
     return SHARED_DIR
 
 
