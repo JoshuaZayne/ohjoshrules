@@ -1,0 +1,7 @@
+{
+  "_comment": "Maps hostnames to device names. Add each machine's hostname here once. Run sync_memory.py --status on a new device to see its hostname if you're not sure.",
+  "hostnames": {
+    "DimaskusPC": "desktop"
+  },
+  "fallback_order": ["desktop", "laptop", "raspie"]
+}
