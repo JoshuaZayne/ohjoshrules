@@ -1,6 +1,6 @@
 # D: Drive - Python Code Master Index
 
-> **Last updated:** 2026-04-20
+> **Last updated:** 2026-04-22
 > **Total Python files:** ~3,228 (user-written, excluding libraries/venvs)
 >
 > **See also:** [C: Drive Master](C:/Users/ohjos/PYTHON_CODE_MASTER.md) | [F: Drive Master](F:/PYTHON_CODE_MASTER.md)
@@ -143,6 +143,7 @@ Production multi-broker trading platform with Docker orchestration, InfluxDB tim
 | `watchdog_monitor.py` | Health monitoring loop and pre-launch checks |
 | `watchdog_persistence.py` | State persistence and signal handling |
 | `watchdog_state.py` | State persistence and instance locking |
+| `health_checks.py` | Watchdog health checks for silent failure modes (stale containers, token corruption) |
 
 ---
 
@@ -303,7 +304,7 @@ Production multi-broker trading platform with Docker orchestration, InfluxDB tim
 | `streaming.py` | NinjaTrader data streaming via polling |
 | `symbol_adapter.py` | NinjaTrader symbol format adapter |
 
-#### brokers/schwab/ (8 files)
+#### brokers/schwab/ (9 files) (8 files)
 
 | File | Description |
 |------|-------------|
@@ -314,7 +315,7 @@ Production multi-broker trading platform with Docker orchestration, InfluxDB tim
 | `constants.py` | Schwab-specific constants and endpoints |
 | `streaming.py` | Schwab WebSocket real-time streaming |
 | `symbol_adapter.py` | Schwab symbol format adapter |
-| `watchlists.py` | Schwab watchlist management |
+| `watchlists.py`, `token_guard.py` | Schwab watchlist management |
 
 #### brokers/tastytrade/ (7 files)
 
@@ -921,7 +922,29 @@ Production multi-broker trading platform with Docker orchestration, InfluxDB tim
 | `refresh_cron.py` | Schwab token refresh cron job |
 | `tick_tracker.py` | Schwab tick data tracker |
 
-#### scripts/setup/ (2 files): `__init__.py`, `bootstrap_influx_tokens.py`
+#
+### scripts/alerts/ (4 files) - NEW Apr 22
+| File | Description |
+|------|-------------|
+| `__init__.py` | Package marker for alerts module |
+| `alerts_engine.py` | YAML-driven Telegram alerts on symbol + indicator triggers with cooldown and oneshot support |
+| `thinkorswim_alerts.py` | ThinkOrSwim alert bridge firing Telegram notifications on TOS-detected trading signals |
+| `reset_oneshot.py` | CLI utility to re-arm oneshot alert rules that have already fired |
+
+### scripts/ops/architecture_audit/ (3 files) - NEW Apr 22
+| File | Description |
+|------|-------------|
+| `_build_section17.py` | Generates section 17 markdown from docstrings.json and curated intro text |
+| `_extract_docs.py` | Extracts and curates docstrings from broker_platform modules |
+| `_import_counts.py` | Counts import frequency and dependency chains across the broker platform |
+
+### scripts/schwab/ additional files - NEW Apr 22
+| File | Description |
+|------|-------------|
+| `scanner.py` | Bulk quote + option-chain filtering with custom metrics, mirrors ThinkOrSwim Scan UX |
+| `currency_futures_poller.py` | Dedicated 1-minute poller for 6 currency-futures contracts (6E, 6B, 6J, 6C, 6A, 6S) |
+
+### scripts/setup/ (2 files): `__init__.py`, `bootstrap_influx_tokens.py`
 
 #### scripts/tastyfx/ (3 files): `__init__.py`, `oauth_setup.py`, `tastyfx_account.py`
 
@@ -1013,8 +1036,15 @@ Production multi-broker trading platform with Docker orchestration, InfluxDB tim
 | `test_today_soak_runner.py` | Soak runner tests |
 | `test_today_storage_sync.py` | Storage sync tests |
 | `test_today_write_tracker.py` | Write tracker tests |
+| `test_gpu_helper.py` | Unit tests for GPU device selection across vendors |
+| `test_health_checks.py` | Unit tests for watchdog health check system |
+| `test_schwab_token_guard.py` | Unit tests for OAuth token guard (backup/restore/validation) |
+| `test_resampler_math.py` | Unit tests for resampler mathematical correctness |
+| `test_tos_alerts_and_scanner.py` | Integration tests for ThinkOrSwim alerts + Schwab scanner |
+| `test_alerts_and_orders.py` | Alert + order execution tests |
 
 #### tests/integration/ (4 files): `__init__.py`, `conftest.py`, `test_cli_commands.py`, `test_paper_trading.py`
+| `test_gpu_end_to_end.py` | End-to-end GPU integration tests for DirectML factor_mining strategies |
 
 ---
 
