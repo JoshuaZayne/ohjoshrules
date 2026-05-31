@@ -27,8 +27,19 @@ User is building out a van AC system using a 48V house battery bank to run a min
 - https://www.youtube.com/watch?v=7iGNl0Vmz7A
 - https://www.youtube.com/watch?v=OwcgNvBUPic
 
-**Generated artifacts (2026-05-31):**
-- `C:\Users\ohjos\Desktop\van_48v_build_2026\Van_48V_Build_Report_2026-05-31.xlsx` — full workbook (README, Vehicle, Roof & Solar, Mini Split Options, Charging Architecture, BOM, Energy Budget, Sources). Re-runnable via the sibling `generate_report.py` (openpyxl).
+**Generated artifacts (2026-05-31, rev 2):**
+- `C:\Users\ohjos\Desktop\van_48v_build_2026\Van_48V_Build_Report_2026-05-31.xlsx` — full workbook. Rev 2 sheets: README, Vehicle, Roof & Solar, Plan A — Mini Split (door-mount rejected; engineered as head-above-door + condenser on hitch swing-arm), Plan B — 48V Rooftop AC (Velit/Nomadic/RecPro comparison), Charging Architecture, BOM — Plan A ($17,093), BOM — Plan B ($16,613), Energy Budget (both plans), Sources. Re-runnable via the sibling `generate_report.py` (openpyxl).
+
+**Door-mount mini split was REJECTED.** Owner originally wanted the indoor head and outdoor condenser both attached to the rear door. Engineering blocker: 9k mini split adds ~80-100 lb to a ~35-45 lb factory door, exceeding hinge design load 2-3x → door sag, hinge wear, latch failure within 6-12 months. Compressor vibration during door slams also fatigues refrigerant lines and shortens compressor life. Engineered alternative (Plan A): head mounted ABOVE the door header on rear sheet metal (with steel backing plate), condenser on a Class III hitch + swing-arm carrier (Wilco Hitchgate Solo ~$750), refrigerant/drain/power lines through a sealed grommet in the lower rear panel with a 6-ft service loop.
+
+**Most powerful 48V rooftop ACs surveyed (Plan B sheet):**
+- RecPro 48V 13.5k BTU heat pump — $1,999 — MOST POWERFUL, but oversized for 127 cu ft Connect
+- Velit 3000R 48V — 12k BTU — $2,449
+- Nomadic Cooling X3 Helix 48V — 11.8k BTU — $2,800-3,200
+- Velit 2000R 48V — 10k BTU — $1,900-2,200
+- Nomadic Cooling X2 Helix 48V — 9.5k BTU — $2,200-2,700 — BEST FIT for Connect (44 lb, 6.9" tall)
+- RecPro 48V 9.5k BTU heat pump — $1,849
+- Velit 2000R Mini 48V — 7.5k BTU — $1,500 — BUDGET FIT for Connect
 
 **Open follow-ups for next conversation:**
 - Confirm SWB vs LWB (NHTSA VIN decoder didn't return wheelbase).
