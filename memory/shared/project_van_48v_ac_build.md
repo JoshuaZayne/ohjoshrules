@@ -52,6 +52,12 @@ User is building out a van AC system using a 48V house battery bank to run a min
 
 **Door-mount mini split REVISITED — owner went with welded bracket on driver-side rear door (v9, 2026-05-31).** After being walked through the weight concerns (~65 lb on stock hinges = ~150% overload), owner decided to commit to the door-mount approach. Plan A updated to use the Senville 2-piece outdoor wall-mount bracket ($39.99) welded to driver-side rear door, with REQUIRED hinge reinforcement (Avatar Offroad HD hinges or welded third-hinge plate). NO hitch needed. Saves ~$1,255 vs the rejected swing-arm path. Engineering risks (door sag, hinge wear, latch alignment failure within 6-12 months without reinforcement) flagged explicitly in the Plan A sheet with a WARN-styled section.
 
+**PURCHASED (v12, 2026-05-31):** Owner placed Senville Order #269641 for $715.60 (w/ tax) covering:
+- Senville LETO 9k SENL/09CD mini split (MSRP $699)
+- Senville 2-piece outdoor wall-mount bracket (MSRP $39.99)
+
+Both items are now LOCKED constraints in the build. The Plan A BOM shows them at $0 unit price with "★ OWNED" markers and sunk-cost notes. Remaining BOM total = $11,490 (down from $12,230). Design specs from these items the rest of the build plans around: 720W cool/1,000W heat input, 6.26A cool/8.7A heat current, 20A max fuse, R-454B refrigerant, indoor 28.43×7.36×11.42 in, outdoor 30.12×11.93×21.85 in / ~55 lb, bracket 19×22 in supports 6-12k BTU.
+
 **Most powerful 48V rooftop ACs surveyed (Plan B sheet):**
 - RecPro 48V 13.5k BTU heat pump — $1,999 — MOST POWERFUL, but oversized for 127 cu ft Connect
 - Velit 3000R 48V — 12k BTU — $2,449
