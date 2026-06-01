@@ -17,7 +17,9 @@ User is building out a van AC system using a 48V house battery bank to run a min
 - Target AC runtime: 9 hours/day (5.4 kWh @ 600W avg).
 - Shore power: Victron MultiPlus-II 48/3000 120V handles invert + charge + transfer + PowerAssist in one box.
 
-**Why the 2nd-alt path is dead for this vehicle:** Nations, Balmar, Arco, American Power all skip the Transit Connect platform — the transverse 2.0L Duratec engine bay is too tight. Custom fab would be $1,500-3,000 with no guarantee of working. The 270XP + stacked DC-DC path is the right answer.
+**Why the 2nd-alt path is dead for this vehicle:** Nations, Balmar, Arco, American Power all skip the Transit Connect platform off-the-shelf — the transverse 2.0L Duratec engine bay is too tight for their stock brackets. The 270XP + stacked DC-DC path is the practical answer ($2,000 all-in for 3.6 kW @ 48V).
+
+**One theoretical 48V alternator option exists:** Arco Zeus A8000-48V is the smallest/lightest 48V alternator on the market and Arco/Trek Systems will fabricate custom brackets. For the Connect's 2.0L Duratec they'd need a one-off bracket (no MK1201-equivalent exists — that's for the 3.5L EcoBoost Transit). Cost estimate $4,500-7,000 all-in including custom fab and Litens overrunning pulley (recommended for 4-cyl engines). Contact: support@trek.systems with the VIN. Only worth pursuing if the owner drives < 1 hr/day routinely.
 
 **BOM total (baseline build):** ~$15,000-16,000 hardware-only, before labor/install. Documented in detail in the workbook below.
 
@@ -27,8 +29,26 @@ User is building out a van AC system using a 48V house battery bank to run a min
 - https://www.youtube.com/watch?v=7iGNl0Vmz7A
 - https://www.youtube.com/watch?v=OwcgNvBUPic
 
-**Generated artifacts (2026-05-31, rev 2):**
-- `C:\Users\ohjos\Desktop\van_48v_build_2026\Van_48V_Build_Report_2026-05-31.xlsx` — full workbook. Rev 2 sheets: README, Vehicle, Roof & Solar, Plan A — Mini Split (door-mount rejected; engineered as head-above-door + condenser on hitch swing-arm), Plan B — 48V Rooftop AC (Velit/Nomadic/RecPro comparison), Charging Architecture, BOM — Plan A ($17,093), BOM — Plan B ($16,613), Energy Budget (both plans), Sources. Re-runnable via the sibling `generate_report.py` (openpyxl).
+**Generated artifacts (2026-05-31, rev 3):**
+- `C:\Users\ohjos\Desktop\van_48v_build_2026\Van_48V_Build_Report_v3.xlsx` — current workbook (12 sheets). Re-runnable via `generate_report.py`. Note: when Excel has the file open, the script gets a PermissionError; write to a new versioned filename or close Excel first.
+- `C:\Users\ohjos\Desktop\van_48v_build_2026\charging_architecture.png` — matplotlib-generated diagram (1100×690 @ 150 DPI). Embedded in the Charging Architecture sheet. Re-runnable via `generate_diagram.py`.
+- Rev 3 sheets: README, Vehicle (SWB), Roof & Solar (20+ product links), Plan A — Mini Split (door-mount rejected; engineered as head-above-door + condenser on hitch swing-arm), Plan B — 48V Rooftop AC (with startup/cooldown/steady/ECO wattage columns), Mini Split Comparison (35 units), 9k BTU — 15 Sources, Charging Architecture (with embedded PNG diagram + 48V alternator section), BOM — Plan A, BOM — Plan B, Where to Buy (3 retailers per item), Energy Budget, Sources.
+
+**Rev 3 confirmed user inputs (2026-05-31):**
+- ~80" measurement from back of front seat to rear door → SWB inferred (cargo 72.6").
+- Bare roof (no factory rails).
+- Full-time vanlife 5 days/week → bank upsized to 15 kWh.
+- NO existing Class III hitch receiver. If Plan A is chosen, must add Curt **C13167** (~$280 parts, eTrailer custom-fit for 2019 Connect) + ~$225 shop install = ~$500 extra. Plan B doesn't need a hitch. NOTE: Earlier revisions used wrong part number "13134" — corrected throughout to C13167.
+
+**Rev 6 high-wattage solar panel research (2026-05-31):**
+- Verified rigid panel dimensions for 300W-600W class. Key finding: **EcoFlow 400W (67.8 × 44.6 × 1.4 in, 48 lb, $499) FITS the Connect SWB roof** — single-panel 400W option with fewer roof penetrations than 2× 200W. 
+- 500-550W panels (90 × 44 in) are at the absolute length limit of the SWB roof (~90" usable) — RISKY.
+- 590-600W class (94 × 45 in or 85.5 × 51.3 in for Trina) — does NOT fit (Renogy 590W too long, Trina 600W too wide).
+- Updated Roof & Solar sheet has all major sections with TWO vendor link columns (Primary + Alt) for cross-shopping.
+
+**Rev 3 corrections from prior revisions:**
+- MPPT bug fix: SmartSolar 100/30 is 12/24V ONLY. Use SmartSolar 150/35 ($194) for 48V systems. Updated in BOM and Where to Buy.
+- Battle Born does NOT make a 48V/100Ah module — it's 4× 12V/100Ah in series. EG4 LL-S 48V/100Ah ($1,500 each) is a real 48V battery and cheaper per kWh; included as the recommended budget alternative.
 
 **Door-mount mini split was REJECTED.** Owner originally wanted the indoor head and outdoor condenser both attached to the rear door. Engineering blocker: 9k mini split adds ~80-100 lb to a ~35-45 lb factory door, exceeding hinge design load 2-3x → door sag, hinge wear, latch failure within 6-12 months. Compressor vibration during door slams also fatigues refrigerant lines and shortens compressor life. Engineered alternative (Plan A): head mounted ABOVE the door header on rear sheet metal (with steel backing plate), condenser on a Class III hitch + swing-arm carrier (Wilco Hitchgate Solo ~$750), refrigerant/drain/power lines through a sealed grommet in the lower rear panel with a 6-ft service loop.
 
