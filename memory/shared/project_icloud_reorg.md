@@ -15,7 +15,7 @@ User is reorganizing **F:\iCloudDrive** (~90 GB, 55k files). Direct edits in iCl
 Phased plan (gated — build+run one phase at a time):
 - **Phase 0 DONE**: `1_scan.ps1` (metadata-only, no downloads) → `2_analyze.py`. Output in `inventory\` + `reports\`.
 - **Phase 1 DONE (2026-07-03)**: `3_mirror.ps1` (has `-ReportOnly` pre-flight) mirrored 54,559 files / 88.59 GB → `stage_raw_mirror_v1`, robocopy exit 1, ZERO failures. `.Trash` excluded. Gotcha fixed: inside `$list.Add("..." -f a, b)` the method-call commas swallow the `-f` args — wrap the format expr in its own parens.
-- Phase 2: `4_verify.py` confirm mirror complete before any iCloud deletion.
+- **Phase 2 DONE (2026-07-03)**: `4_verify.py` (full SHA-256 both sides) = GATE PASS, 54,559/54,559 byte-identical, 0 missing/mismatch/error. Mirror is a proven bit-perfect backup; iCloud deletion now recoverable (still deferred). Produced `inventory\mirror_hashes_*.csv` for Phase 3 reuse. GOTCHA: the tree contains 2 files literally named `nul` (Windows reserved device name, from `> nul` redirects, under IL_work\...\ProjectTwo_LocalLLM and \Personal\Resume). Python `os.path.abspath`/`relpath`/`normpath` resolve `nul` to the `\\.\nul` device and crash. Fix: use the `\\?\` extended prefix WITHOUT normalizing, and build relative paths by string-slicing the root, never relpath. Phase 3 hashing must do the same.
 - Phase 3: `5_dedupe_reorg.py` on `stage_working_v1`; exact-content-hash dupes → `quarantine_duplicates_v1` (move only, never auto-delete).
 - Phase 4 (not yet written): delete iCloud + re-upload in batches — only after user reviews results.
 
