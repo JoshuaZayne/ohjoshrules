@@ -1,77 +1,34 @@
 ---
 name: Van 48V mini split AC build
-description: User is designing a van conversion with a 48V house bank powering a mini split AC system; weighing alternator charging options
-type: project
+description: 48V off-grid build — PIVOTED from a Transit Connect van to a HOUSE build; real sunk cost $17,165.43 reconstructed from receipts
+metadata:
+  node_type: memory
+  type: project
 originSessionId: 9c745779-d480-4af5-87ef-8c4358f22e22
 ---
-User is building out a van AC system using a 48V house battery bank to run a mini split (chosen for efficiency).
 
-**VEHICLE IS A TRANSIT CONNECT, NOT A FULL-SIZE TRANSIT.** VIN NM0LS7E28K1399891 decoded via NHTSA (2026-05-31): 2019 Ford Transit Connect XL Cargo Van, 2.0L 4-cyl GDI, built in Valencia Spain, Class 1D GVWR (5,001–6,000 lb). This is a compact van, ~127 cu ft cargo (LWB), ~1,570 lb payload — totally different platform than what I assumed in the first conversation.
+**PIVOT (2026-07-09): this is now a HOUSE / off-grid structure build, NOT the van.** The user cancelled the 2019 Transit Connect van build and is repurposing all hardware into a house 48V system. The pivot resolves the old roof-fit problem — 5.25 kW solar + 16 kWh battery are house-scale.
 
-**Locked decisions (post-VIN-decode):**
-- Van: 2019 Ford Transit Connect XL (LWB assumed; confirm SWB vs LWB).
-- Mini split: 9k BTU 120VAC (NOT 12k — 12k oversizes ~127 cu ft cargo space). Senville LETO 9k as baseline pick.
-- House bank: 2× Battle Born 48V/100Ah LFP = ~10 kWh, ~200 lb (15 kWh = 3 batteries listed as upgrade).
-- Charging path: NOT a second alternator — no commercial kit exists for the Transit Connect 2.0L. Instead: upgrade stock alternator to DC Power 270XP 12V (~$850), then stack 2× Victron Orion XS 12/48-25 DC-DC chargers (2.4 kW total, 3rd optional for 3.6 kW).
-- Solar: 400W baseline (2× Renogy 200W rigid). 600W achievable but tight. 800W NOT REALISTIC on Connect LWB roof (~35-42 sq ft usable after MaxxFan).
-- Target AC runtime: 9 hours/day (5.4 kWh @ 600W avg).
-- Shore power: Victron MultiPlus-II 48/3000 120V handles invert + charge + transfer + PowerAssist in one box.
+**Repo/workbook:** `C:\Users\ohjos\Desktop\van_48v_build_2026\` — generator `generate_report.py` writes `Van_48V_Build_Report_v26.xlsx` (current). `OUT` is hardcoded (no auto-bump) — bump the version in the script when Excel has the file open (PermissionError otherwise). The `sunk_items` list at the top of `generate_report.py` is now the SINGLE SOURCE OF TRUTH for owned cost (total computed as `SUNK_TOTAL`, referenced in README sheet, BOM header, BOM total cell, and final prints).
 
-**Why the 2nd-alt path is dead for this vehicle:** Nations, Balmar, Arco, American Power all skip the Transit Connect platform off-the-shelf — the transverse 2.0L Duratec engine bay is too tight for their stock brackets. The 270XP + stacked DC-DC path is the practical answer ($2,000 all-in for 3.6 kW @ 48V).
+**REAL SUNK COST = $17,165.43** (was mis-recorded as $2,633.88 — workbook only knew 2 of the purchases). 7 owned line items, confirmed from receipts:
+1. Senville #269641 — $715.60 — LETO 9k mini split + bracket (in ohjoshrules@gmail)
+2. Voltaico Invoice VO-20585 — $1,918.28 — MultiPlus-II 48/5000, Lynx Distributor M10, Orion-Tr Smart 48/12-30A, SmartSolar MPPT 150/35, Cerbo GX MK2 (in ojoshrules@hotmail)
+3. Off Grid Stores #OGS27520 — $3,355.81 — **RuiXU Lithi2-16, 51.2V/314Ah = ~16 kWh LiFePO4 UL9540 server-rack battery** + LTL freight (300+ lb, signature delivery) (in ojoshrules@hotmail / utah.edu)
+4. Amazon shore parts — $175.74 — Camco 30A cord, Kohree 30A inlet, solar disconnect (in u0773052@utah.edu)
+5. Solar panels — 15 × 350W @ $450 = $6,750.00 (5.25 kW array)
+6. Solar mounting brackets — 15 × $250 = $3,750.00
+7. Solar wiring — $500.00
 
-**One theoretical 48V alternator option exists:** Arco Zeus A8000-48V is the smallest/lightest 48V alternator on the market and Arco/Trek Systems will fabricate custom brackets. For the Connect's 2.0L Duratec they'd need a one-off bracket (no MK1201-equivalent exists — that's for the 3.5L EcoBoost Transit). Cost estimate $4,500-7,000 all-in including custom fab and Litens overrunning pulley (recommended for 4-cyl engines). Contact: support@trek.systems with the VIN. Only worth pursuing if the owner drives < 1 hr/day routinely.
+**How the receipts were found (reusable):** Gmail connector only sees `ohjoshrules@gmail.com`. The rest were scattered across **Classic Outlook COM** accounts: `ojoshrules@hotmail.com`, `ohjoshrules@hotmail.com`, `joshua.a.zayne@hotmail.com`, `joshua.a.zayne@gmail.com`, `u0773052@utah.edu`, plus iCloud/others. Search method that worked: warm up Outlook COM (retry loop, see [[project_email_cleanup_outlook_com]]), then **DASL index restrict** (`@SQL` with `urn:schemas:httpmail:subject/fromname/fromemail LIKE '%token%'`) — walking every item folder-by-folder TIMES OUT (10 min); DASL restrict only touches matches and is fast.
 
-**BOM total (baseline build):** ~$15,000-16,000 hardware-only, before labor/install. Documented in detail in the workbook below.
+**Owned hardware carries to the house.** Key open gaps flagged in the workbook:
+- **Solar controller gap:** 5.25 kW of panels vs one SmartSolar 150/35 (~2 kW at 48V). Needs 2-3 more MPPTs (e.g. 250/100) or a bigger unit.
+- **JS Alternators DECLINED** the alternator job ("unable to offer an alternator for your vehicle") — moot now anyway (house, not van).
+- **BOM re-architecture still pending:** the `BOM — Plan A` sheet + `generate_diagram.py` still contain LEGACY van picks (Eco-Worthy battery, EcoFlow 400W, alternator, DC-DC, door-mount, hitch). Remaining-to-buy (~$12k) reflects the van plan, not the house. README + Build-facts + sheet index were updated for the house pivot; the deep BOM/diagram were NOT yet rebuilt.
 
-**Daily energy budget:** ~7.8 kWh/day load. 400W solar = 1.5 kWh; 1 hr driving via 2× Orion = 2.4 kWh; shore = 1.7 kWh/hr. Sustainable off-grid needs ~2 hr driving daily OR 600W solar + 1.5 hr OR shorter AC use. Shore power makes everything trivial.
+**Vehicle (legacy, for reference):** 2019 Ford Transit Connect XL, VIN NM0LS7E28K1399891, SWB, bare roof, 2.0L Duratec.
 
-**Reference videos user is drawing from:**
-- https://www.youtube.com/watch?v=7iGNl0Vmz7A
-- https://www.youtube.com/watch?v=OwcgNvBUPic
+**Why:** The user was right that the recorded cost was way off; the gap was entirely in non-Gmail inboxes. Always check the full Outlook account set via COM+DASL, not just the Gmail connector.
 
-**Generated artifacts (2026-05-31, rev 3):**
-- `C:\Users\ohjos\Desktop\van_48v_build_2026\Van_48V_Build_Report_v3.xlsx` — current workbook (12 sheets). Re-runnable via `generate_report.py`. Note: when Excel has the file open, the script gets a PermissionError; write to a new versioned filename or close Excel first.
-- `C:\Users\ohjos\Desktop\van_48v_build_2026\charging_architecture.png` — matplotlib-generated diagram (1100×690 @ 150 DPI). Embedded in the Charging Architecture sheet. Re-runnable via `generate_diagram.py`.
-- Rev 3 sheets: README, Vehicle (SWB), Roof & Solar (20+ product links), Plan A — Mini Split (door-mount rejected; engineered as head-above-door + condenser on hitch swing-arm), Plan B — 48V Rooftop AC (with startup/cooldown/steady/ECO wattage columns), Mini Split Comparison (35 units), 9k BTU — 15 Sources, Charging Architecture (with embedded PNG diagram + 48V alternator section), BOM — Plan A, BOM — Plan B, Where to Buy (3 retailers per item), Energy Budget, Sources.
-
-**Rev 3 confirmed user inputs (2026-05-31):**
-- ~80" measurement from back of front seat to rear door → SWB inferred (cargo 72.6").
-- Bare roof (no factory rails).
-- Full-time vanlife 5 days/week → bank upsized to 15 kWh.
-- NO existing Class III hitch receiver. If Plan A is chosen, must add Curt **C13167** (~$280 parts, eTrailer custom-fit for 2019 Connect) + ~$225 shop install = ~$500 extra. Plan B doesn't need a hitch. NOTE: Earlier revisions used wrong part number "13134" — corrected throughout to C13167.
-
-**Rev 6 high-wattage solar panel research (2026-05-31):**
-- Verified rigid panel dimensions for 300W-600W class. Key finding: **EcoFlow 400W (67.8 × 44.6 × 1.4 in, 48 lb, $499) FITS the Connect SWB roof** — single-panel 400W option with fewer roof penetrations than 2× 200W. 
-- 500-550W panels (90 × 44 in) are at the absolute length limit of the SWB roof (~90" usable) — RISKY.
-- 590-600W class (94 × 45 in or 85.5 × 51.3 in for Trina) — does NOT fit (Renogy 590W too long, Trina 600W too wide).
-- Updated Roof & Solar sheet has all major sections with TWO vendor link columns (Primary + Alt) for cross-shopping.
-
-**Rev 3 corrections from prior revisions:**
-- MPPT bug fix: SmartSolar 100/30 is 12/24V ONLY. Use SmartSolar 150/35 ($194) for 48V systems. Updated in BOM and Where to Buy.
-- Battle Born does NOT make a 48V/100Ah module — it's 4× 12V/100Ah in series. EG4 LL-S 48V/100Ah ($1,500 each) is a real 48V battery and cheaper per kWh; included as the recommended budget alternative.
-
-**Door-mount mini split REVISITED — owner went with welded bracket on driver-side rear door (v9, 2026-05-31).** After being walked through the weight concerns (~65 lb on stock hinges = ~150% overload), owner decided to commit to the door-mount approach. Plan A updated to use the Senville 2-piece outdoor wall-mount bracket ($39.99) welded to driver-side rear door, with REQUIRED hinge reinforcement (Avatar Offroad HD hinges or welded third-hinge plate). NO hitch needed. Saves ~$1,255 vs the rejected swing-arm path. Engineering risks (door sag, hinge wear, latch alignment failure within 6-12 months without reinforcement) flagged explicitly in the Plan A sheet with a WARN-styled section.
-
-**PURCHASED (v12, 2026-05-31):** Owner placed Senville Order #269641 for $715.60 (w/ tax) covering:
-- Senville LETO 9k SENL/09CD mini split (MSRP $699)
-- Senville 2-piece outdoor wall-mount bracket (MSRP $39.99)
-
-Both items are now LOCKED constraints in the build. The Plan A BOM shows them at $0 unit price with "★ OWNED" markers and sunk-cost notes. Remaining BOM total = $11,490 (down from $12,230). Design specs from these items the rest of the build plans around: 720W cool/1,000W heat input, 6.26A cool/8.7A heat current, 20A max fuse, R-454B refrigerant, indoor 28.43×7.36×11.42 in, outdoor 30.12×11.93×21.85 in / ~55 lb, bracket 19×22 in supports 6-12k BTU.
-
-**Most powerful 48V rooftop ACs surveyed (Plan B sheet):**
-- RecPro 48V 13.5k BTU heat pump — $1,999 — MOST POWERFUL, but oversized for 127 cu ft Connect
-- Velit 3000R 48V — 12k BTU — $2,449
-- Nomadic Cooling X3 Helix 48V — 11.8k BTU — $2,800-3,200
-- Velit 2000R 48V — 10k BTU — $1,900-2,200
-- Nomadic Cooling X2 Helix 48V — 9.5k BTU — $2,200-2,700 — BEST FIT for Connect (44 lb, 6.9" tall)
-- RecPro 48V 9.5k BTU heat pump — $1,849
-- Velit 2000R Mini 48V — 7.5k BTU — $1,500 — BUDGET FIT for Connect
-
-**Open follow-ups for next conversation:**
-- Confirm SWB vs LWB (NHTSA VIN decoder didn't return wheelbase).
-- Confirm whether the van has factory roof rails or bare roof — affects panel mounting hardware.
-- Confirm typical use case: full-time vanlife / weekend / work van — drives final bank size.
-
-**Why:** Decisions cascade into BOM, wire/fuse sizing, and bus architecture. The biggest lesson from this conversation: ALWAYS run the VIN before assuming platform. The user said "Transit, small roof" which I read as full-size Transit low-roof; the VIN revealed Transit Connect, which is an entirely different vehicle.
-
-**How to apply:** When user returns, refer to the workbook for current state — don't re-derive. If they decide to change a major variable (battery count, AC type, solar size), regenerate the workbook by editing `generate_report.py` and re-running it. Always cross-check vehicle identity with VIN decode before recommending parts.
+**How to apply:** For further cost questions, `sunk_items` in generate_report.py is authoritative. If the user resumes the house design, the next real task is the BOM/diagram re-architecture (strip van-only lines, add MPPT capacity, house AC distribution). See [[user_github_and_devices]] and [[project_email_cleanup_outlook_com]].
