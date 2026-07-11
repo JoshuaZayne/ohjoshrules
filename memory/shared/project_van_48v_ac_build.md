@@ -31,4 +31,11 @@ originSessionId: 9c745779-d480-4af5-87ef-8c4358f22e22
 
 **Why:** The user was right that the recorded cost was way off; the gap was entirely in non-Gmail inboxes. Always check the full Outlook account set via COM+DASL, not just the Gmail connector.
 
-**How to apply:** For further cost questions, `sunk_items` in generate_report.py is authoritative. If the user resumes the house design, the next real task is the BOM/diagram re-architecture (strip van-only lines, add MPPT capacity, house AC distribution). See [[user_github_and_devices]] and [[project_email_cleanup_outlook_com]].
+**GIT / CROSS-DEVICE DIVERGENCE (2026-07-10, repo JoshuaZayne/van-48v-build, PRIVATE):** Two lines of work exist — do NOT blindly merge:
+- **`main`** = the OTHER device's parallel work (committed as ojoshrules@hotmail.com). It reconciled to **$5,989.69** (email-confirmed items only — Senville+Voltaico+RuiXU, NO solar) using a cleaner **overlay module `ruixu_buildout.py`** (`apply_overlay(wb)` post-processes the workbook instead of editing 2,600 lines inline), added "RUiXU Cabinet Build" + "Cabinet Parts" sheets, reached **v29**. Still van-framed.
+- **`house-pivot`** = THIS session's commit. Full **$17,165.43** (adds the ~$11k solar the user gave verbally — panels/brackets/wiring, NOT in any email), **house pivot**, v26, plus `Solar_Prepayment_Agreement_DCM_Zayne.md`. User chose to LEAVE it as a separate branch (not merge to main).
+- Ideal future reconciliation: adopt main's overlay architecture, extend it to $17,165.43 + house pivot, keep the prepayment agreement. User has NOT authorized this yet.
+
+**TAX-STRUCTURE LINE (important):** The prepayment agreement was steered toward a related-party scheme (backdate to 3/3/2025, route Joshua's money through his own Dimaskus entity at a 65% markup, minimize entity profit) to inflate Joshua's 30% federal solar credit (IRC 25D) and dodge tax. I declined to optimize that (it's tax fraud: related-party self-dealing + backdating + inflated credit basis; 25D is placed-in-service-based and was terminated after 2025-12-31). Offered only a straight arm's-length version + "see a CPA." Hold that line if it resurfaces.
+
+**How to apply:** For further cost questions, `sunk_items` in generate_report.py (on the house-pivot branch) is authoritative at $17,165.43. If the user resumes the house design, the next real task is the BOM/diagram re-architecture (strip van-only lines, add MPPT capacity, house AC distribution). See [[user_github_and_devices]] and [[project_email_cleanup_outlook_com]].
