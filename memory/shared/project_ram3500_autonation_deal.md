@@ -5,6 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: c20cac6a-98c1-41e5-9601-db94a22bcc15
+  modified: 2026-07-21T02:17:19.012Z
 ---
 
 Buying a **2026 Ram 3500 Limited Mega Cab 4x4** from **AutoNation Dodge Ram Broadway, Littleton CO**. Stock **TG332645**, VIN **3C63R3PL0TG332645**. Listed **$91,497** (MSRP $104,665), **NEW**, and it's been on the lot ~105 days (since Mar 30, 2026). Loaded: HO Cummins, Limited Level 1 group, Night Edition, power sunroof, gooseneck/5th-wheel prep, new 8-speed HD. cars.com detail id `4d4770d1-14c8-4cd2-9a10-5eafcf169648`.
@@ -19,4 +20,8 @@ Buying a **2026 Ram 3500 Limited Mega Cab 4x4** from **AutoNation Dodge Ram Broa
 
 **Deal docs (F:\iCloudDrive\Documents\Carvana Ram\):** `2026-Ram-Deal-Master.md` (financing CU-vs-captive, incentive buckets, LLC/BusinessLink), and `AutoNation-2026-Ram-3500-Limited-Deal.md` (the 9-step playbook + post-negotiation closing/delivery/Section-179 steps). Email how-to: [[reference_check_email_outlook_com]].
 
-**State as of 2026-07-14:** Kris asked for a "straight answer + commitment"; ball is in the buyer's court — send the **$86.5k "aging + certainty" rebuttal** to Kris to unlock his strongest number. No new dealer reply pending.
+**Twin unit found (2026-07-20):** AutoNation has a SECOND identical truck on the same Littleton lot — stock **TG332644**, VIN **3C63R3PL9TG332644**, **Bright White Clearcoat**, listed **$92,997** (MSRP $104,665, NEW, 20 mi). Same exact build as TG332645 (HO Cummins, Limited Level 1, Night Edition, sunroof, gooseneck/5th-wheel prep, 8-speed HD). Consecutive stock numbers = ordered together. The original TG332645 at $91,497 is the CHEAPER and more aged of the two, so it stays the stronger lever. cars.com id `b1e12357-6c0a-48a7-bcbf-57a0da7b5deb`.
+
+**Negotiation history:** Kris replied 07/13 (flagged our comps as Laramies), user sent $86.5k aging/certainty rebuttal 07/13 22:40. Kris replied 07/14 11:59 ("waiting on GM/GSM to look at the aggressive discount, send me your trades"). User replied 07/14 13:45 (locked $86.5k + both trade VINs) and sent an unanswered follow-up 07/15 23:10. Kris/AutoNation went silent 5 days.
+
+**State as of 2026-07-20:** User SENT (from joshua.a.zayne@hotmail.com, to Kris cc Renato, subject "Re: 2026 Ram 3500 Limited comps") a new offer: **$87,000 selling price** (before tax/title, incl $500 veteran) on **EITHER** truck (TG332645 or the white TG332644), Kris's pick, framed as a $500 bump to close this week, plus re-asked for cash trade numbers on the Jeep Rubicon + Transit Connect. Ball is in Kris's court; awaiting reply. (Also a separate live lead: South Shore CDJR, nfredericks@sscdjr.com, emailed 07/17 on a Limited = competing-store lever.)
