@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: c20cac6a-98c1-41e5-9601-db94a22bcc15
-  modified: 2026-07-21T02:17:19.012Z
+  modified: 2026-07-21T13:25:53.405Z
 ---
 
 Buying a **2026 Ram 3500 Limited Mega Cab 4x4** from **AutoNation Dodge Ram Broadway, Littleton CO**. Stock **TG332645**, VIN **3C63R3PL0TG332645**. Listed **$91,497** (MSRP $104,665), **NEW**, and it's been on the lot ~105 days (since Mar 30, 2026). Loaded: HO Cummins, Limited Level 1 group, Night Edition, power sunroof, gooseneck/5th-wheel prep, new 8-speed HD. cars.com detail id `4d4770d1-14c8-4cd2-9a10-5eafcf169648`.
@@ -24,4 +24,6 @@ Buying a **2026 Ram 3500 Limited Mega Cab 4x4** from **AutoNation Dodge Ram Broa
 
 **Negotiation history:** Kris replied 07/13 (flagged our comps as Laramies), user sent $86.5k aging/certainty rebuttal 07/13 22:40. Kris replied 07/14 11:59 ("waiting on GM/GSM to look at the aggressive discount, send me your trades"). User replied 07/14 13:45 (locked $86.5k + both trade VINs) and sent an unanswered follow-up 07/15 23:10. Kris/AutoNation went silent 5 days.
 
-**State as of 2026-07-20:** User SENT (from joshua.a.zayne@hotmail.com, to Kris cc Renato, subject "Re: 2026 Ram 3500 Limited comps") a new offer: **$87,000 selling price** (before tax/title, incl $500 veteran) on **EITHER** truck (TG332645 or the white TG332644), Kris's pick, framed as a $500 bump to close this week, plus re-asked for cash trade numbers on the Jeep Rubicon + Transit Connect. Ball is in Kris's court; awaiting reply. (Also a separate live lead: South Shore CDJR, nfredericks@sscdjr.com, emailed 07/17 on a Limited = competing-store lever.)
+**State as of 2026-07-21:** The **$87,000-on-either-truck** offer (before tax/title, incl $500 veteran; TG332645 or white TG332644, Kris's pick; framed as a $500 bump to close this week; re-asked for Jeep Rubicon + Transit Connect cash trade numbers) is now **SENT** to Kris cc Renato (subject "Re: 2026 Ram 3500 Limited comps", delivered 07/21 07:25). Awaiting Kris's reply. (Separate live lever: South Shore CDJR, nfredericks@sscdjr.com, emailed 07/17 on a Limited.)
+
+**GOTCHA — Outlook stuck-Outbox on COM-created mail:** the 07/20 send sat in the Outbox unsent for a day. Cause: a mail item created via `CreateItem` + **`.Save()`** (the draft/`.Display()` flow) lands in the Outbox WITHOUT the submit flag, so Send/Receive skips it forever (Outlook was online, not Work Offline, no open inspector). Fix that worked: recreate a fresh `CreateItem`, set body/To/CC + `SendUsingAccount`, call **`.Send()`** (not Save), delete the stuck copy, then start SyncObjects. Lesson: to actually SEND from COM use `.Send()`; `.Save()`+`.Display()` only drafts, and if the user hits Send on that draft it can still get stuck. There was a second identical stuck item (07/03 spend email) confirming the pattern.
