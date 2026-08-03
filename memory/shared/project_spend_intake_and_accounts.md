@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: a9e289a4-d2cb-453d-8b06-5e7ae5ca6722
-  modified: 2026-08-03T07:01:11.421Z
+  modified: 2026-08-03T14:44:57.552Z
 ---
 
 Repo: `C:\Users\ohjos\repos\Yearly_and_monthly_spend_per_CC` (private GitHub JoshuaZayne/…, default branch **master**, runs on **Python 3.13** only — the Windows Store install; conda base 3.14/3.9 lack pyarrow / are too old).
@@ -33,6 +33,8 @@ Fidelity names every statement `Statement<MMDDYYYY>.pdf`, so downloads collide a
 - **TSP** (`documents/TSP/`): the InvestmentActivityDetail CSVs are contributions (`tsp_csv`); the participant-statement PDFs carry the BALANCE (`tsp_statement_pdf`) — Uniformed Services (military) + Civilian plans.
 - **Fidelity brokerage** (`fidelity_investment_pdf`, added 2026-08-02): ONE "INVESTMENT REPORT" PDF covers MANY accounts — Z28-754409, Z32-368439 (cash mgmt), Z35-177267, Z40-457979 in `accounts/Fidelity Investments (Joshua portfolio)/`, plus the joint Z31-887703 in its own folder. Dormant/no-activity: IRAs 244-968051, 244-968071, 249-671391, HSA 259-199580, UTMA Z29-743185 (Alaira), Z29-743190 (Agreius), Z34-206237 (Zavier).
 - **Fidelity Crypto** (`fidelity_crypto_pdf`): accounts 8291498726 (Joshua) and 8065197254 (Olivia) — both **$0.00 in every statement**, dormant.
+- **VA.gov payment history** (`va_payments_csv`, `source_documents/VA Payments/`): the AUTHORITATIVE record of every VA benefit payment 2018-2026 and the only source for 2018-2021. **FILL-ONLY** — `load_va_payments` runs LAST and adds a payment only when no VA-benefit deposit was already captured within ±10 days / 2%, and each captured deposit is CONSUMED by the first match (two genuine payments a day apart, retroactive + recurring, must both survive). Ledger reconciles to the file at **$0.00 in all 9 years**.
+- **AMEX National Bank savings** (`amex_bank_pdf`, accounts 8069 + 2574): the PDFs in `accounts/AMEX (Joshua & Olivia)/statements/` are BANK statements, not card statements. Deposits are booked as `transfer_in` (parking), NOT income — VA money lands here and is already counted via the VA.gov record.
 - **NavyFed ANNUAL SUMMARY** (`navyfed_annual_pdf`, added 2026-08-03): NFCU mails a yearly summary under the SAME `*_VISASTMT.pdf` / `*_MCSTMT.pdf` name as the monthlies, but with a "Transaction Detail" layout instead of a monthly activity block. `navyfed_cc_pdf` found no anchor and returned **0 rows**, silently losing whole years. Cards seen only here: **9538** (2023-2024), **5893** (Mastercard, 2022), plus 7084 (2022) and 7531 (2025). Parsing them added **1,584 rows / +$155K card spend** and filled the 2022-2024 hole. Gotchas: a negative category total prints as `-$673.01` (sign BEFORE the `$`), and rows end in `CR` (credit) or `PY` (payment).
 
 ## Net Worth sheet (the rollup that ties balances together)
