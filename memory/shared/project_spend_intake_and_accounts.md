@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: a9e289a4-d2cb-453d-8b06-5e7ae5ca6722
-  modified: 2026-08-03T01:46:33.251Z
+  modified: 2026-08-03T07:01:11.421Z
 ---
 
 Repo: `C:\Users\ohjos\repos\Yearly_and_monthly_spend_per_CC` (private GitHub JoshuaZayne/…, default branch **master**, runs on **Python 3.13** only — the Windows Store install; conda base 3.14/3.9 lack pyarrow / are too old).
@@ -33,6 +33,7 @@ Fidelity names every statement `Statement<MMDDYYYY>.pdf`, so downloads collide a
 - **TSP** (`documents/TSP/`): the InvestmentActivityDetail CSVs are contributions (`tsp_csv`); the participant-statement PDFs carry the BALANCE (`tsp_statement_pdf`) — Uniformed Services (military) + Civilian plans.
 - **Fidelity brokerage** (`fidelity_investment_pdf`, added 2026-08-02): ONE "INVESTMENT REPORT" PDF covers MANY accounts — Z28-754409, Z32-368439 (cash mgmt), Z35-177267, Z40-457979 in `accounts/Fidelity Investments (Joshua portfolio)/`, plus the joint Z31-887703 in its own folder. Dormant/no-activity: IRAs 244-968051, 244-968071, 249-671391, HSA 259-199580, UTMA Z29-743185 (Alaira), Z29-743190 (Agreius), Z34-206237 (Zavier).
 - **Fidelity Crypto** (`fidelity_crypto_pdf`): accounts 8291498726 (Joshua) and 8065197254 (Olivia) — both **$0.00 in every statement**, dormant.
+- **NavyFed ANNUAL SUMMARY** (`navyfed_annual_pdf`, added 2026-08-03): NFCU mails a yearly summary under the SAME `*_VISASTMT.pdf` / `*_MCSTMT.pdf` name as the monthlies, but with a "Transaction Detail" layout instead of a monthly activity block. `navyfed_cc_pdf` found no anchor and returned **0 rows**, silently losing whole years. Cards seen only here: **9538** (2023-2024), **5893** (Mastercard, 2022), plus 7084 (2022) and 7531 (2025). Parsing them added **1,584 rows / +$155K card spend** and filled the 2022-2024 hole. Gotchas: a negative category total prints as `-$673.01` (sign BEFORE the `$`), and rows end in `CR` (credit) or `PY` (payment).
 
 ## Net Worth sheet (the rollup that ties balances together)
 `analyze.net_worth_summary()` shows every account's LATEST balance — from the PARSED statement where we have one (`Source = statement`), else the accounts.json Dec-2025 snapshot (`Source = accounts.json`). accounts.json is grouped by category (`checking/savings/investment/business/kids/retirement_tsp_hsa`, no flat `accounts` key). To make a snapshot account live: add its statement + parse its balance (like TSP/086 were) and add its number to `parsed_numbers`. See [[project_spend_analysis_cc]].
