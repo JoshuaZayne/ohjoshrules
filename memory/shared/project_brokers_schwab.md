@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: b4172c67-98c7-4893-b78b-d46ae378a41f
-  modified: 2026-08-09T08:49:35.383Z
+  modified: 2026-08-09T18:35:43.943Z
 ---
 
 Repo: `F:\GitHub Repos\Brokers` (private, `JoshuaZayne/Brokers`). Multi-broker platform (Schwab, IBKR, IronBeam, TastyTrade, MooMoo, etc.) with one CLI entry point `run.py`.
@@ -17,6 +17,17 @@ Schwab auth entry point is **`scripts/schwab/auto_auth.py`** (Selenium + persist
 **`.env` gotcha:** `.env` is git-tracked and holds only `${PLACEHOLDER}` references; the real credentials live in gitignored `.env.secrets`. A short "value length" in `.env` means a placeholder, not a truncated key. Do not conclude credentials are malformed from `.env` alone.
 
 **Local checkouts drift badly.** On 2026-08-09 the F: checkout was 83 commits behind `origin/main` and was missing the entire Schwab auth subsystem. Always `git fetch` and compare against origin before concluding code does not exist. Note `.env` being tracked means a pull can clobber local credentials, so stash or back it up first.
+
+**The daily token refresh task is BROKEN (found 2026-08-09).** Scheduled task
+`BrokersPlatform-SchwabTokenRefresh` runs
+`anaconda3\python.exe "D:\code\brokers\scripts\schwab\refresh_cron.py"` with working
+directory `D:\code\brokers` — the **USB stick path, which is not mounted**. Last run
+2026-08-08 15:00 failed with `2147942667` (0x8007010B, "The directory name is
+invalid"). This is why tokens keep going stale. Fix = re-point the task at
+`F:\GitHub Repos\Brokers` (or re-run `install_refresh_task.ps1` from the current
+checkout). Same class of breakage as [[project_f_drive_github_repos_reorg]].
+As of 2026-08-09 there is no live token: only `~/.schwab_token.json.old`
+(808 bytes, 17-Mar-26) remains, so a fresh `auto_auth.py` run is required.
 
 Data lands in `data/<broker>/csv/` and `data/<broker>/json/` plus InfluxDB (org `trading`, bucket `market_raw`). **Parquet is not implemented** anywhere despite the CLI advertising `data export --format parquet`. As of 2026-08-09 `data/schwab/` held only `watchlists.json`; the ~4 GB under `data/ibkr/` is git-tracked and arrived with the clone rather than being collected locally.
 

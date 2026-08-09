@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: 4bab8f0e-4cff-416f-9d8c-704913e26353
-  modified: 2026-08-09T08:32:01.288Z
+  modified: 2026-08-09T18:35:34.741Z
 ---
 
 **BoxSpreadAnalysis** (created 2026-08-09) lives at `F:\GitHub Repos\BoxSpreadAnalysis`,
@@ -35,10 +35,31 @@ CLI: `python -m boxspread.cli {box,scan,product,bond,futures,convert}`.
 - ZB is called the 30-year contract but its basket has been 15 to under 25 years
   since the 2011 UB split.
 
-**Schwab adapter** (`boxspread/brokers/schwab_client.py`) is wired but unconfigured:
-uses the `schwab-py` already installed in Anaconda, reads creds from a gitignored
-`.env` (see `.env.example`). Needs an app at developer.schwab.com in "Ready For Use"
-state; keys from a still-pending app authenticate then 401 on data.
+**MEASURED Schwab commissions (2026-08-09)** — extracted from 76 option trades in
+the Schwab brokerage statements (`Yearly_and_monthly_spend_per_CC`, accounts
+765/620/604/060, 2025-12..2026-07). Statement rows annotate each trade
+`Commission$0.65;IndustryFee$0.01`:
+- **Options: flat $0.65/contract commission + ~$0.0113/contract IndustryFee = ~$0.66
+  all-in.** ($1.30/2 contracts, $1.95/3 — commission is strictly per contract.)
+  Schwab bundles the ORF into "IndustryFee"; there is no separate ORF line.
+- **CRITICAL CAVEAT: zero index-option trades on record.** All 76 were single-name
+  equity options, so there is NO evidence whether Schwab passes a Cboe index
+  licence fee on SPX/RUT/NDX. Repo ships a matched pair to bracket it:
+  `schwab_index` (default, $0.6613, no surcharge) and `schwab_index_conservative`
+  ($1.1113, +$0.45 assumed). Difference = 0.4 bp on a 10-lot 1000-wide SPXW box,
+  ~14 bp on a 1-lot 25-pt XSP box.
+- **Futures: $2.25 commission + $1.60 exchange + $0.02 NFA per contract per side
+  = $3.87/side, $7.74 round turn.** Observed fills were energy contracts, NOT
+  ZN/ZB — exchange fee varies by exchange (Treasuries clear CBOT), so treat $1.60
+  as indicative.
+
+**Schwab auth reuses the Brokers repo** (see [[project_brokers_schwab]]) — no second
+app needed. `schwab_client.py` loops candidate credential files: this repo's `.env`,
+then `Brokers/.env.secrets` (real values), then `Brokers/.env` (config + placeholders),
+matching Brokers' own load order. The loader **skips `${PLACEHOLDER}` values** or it
+would authenticate with the literal string. Check state with
+`python -m boxspread.cli schwab-status` (prints no secrets; exits non-zero if the
+token is stale).
 
 Design decisions worth remembering: exercise style is a first-class type (copied from
 QuantLib) so no code path can price a box without seeing it; `universe.get_product()`
