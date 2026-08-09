@@ -5,8 +5,10 @@ metadata:
   node_type: memory
   type: project
   originSessionId: 468393e6-4a1e-4823-b465-9c38783b1153
-  modified: 2026-07-21T14:04:04.819Z
+  modified: 2026-08-09T01:08:50.193Z
 ---
+
+**>>> READ `docs/FINDINGS.md` FIRST (added 2026-08-08). <<<** It is the consolidated, measured record of what is actually broken vs only apparently broken: the parseability-vs-reachability bug class (`SUPPORTS_HUMAN=False` barring a source from the only tier that could reach it, then demoting it for yielding nothing — hit TrueCar States, iSeeCars States, Cars.com States), why the challenge taxonomy was recording nothing (`challenges.json` did not exist; `safe_get` discarded every non-200 body so only 200-served walls were ever diagnosed), the TWO different cars.com walls (fast tier 403 `ip_block` wants a new exit IP; browser tier 200 "Just a moment" `js_challenge` wants a cleared session), how to read a wall out of `output/cache/html_cache/*.json` via `fp_len` + `fingerprint` (visible text, no HTML stored), and the environment gotchas (PowerShell 5.1, .NET relative paths resolving to the process CWD, `"cars.com" in url` matching `iseecars.com`). Prefer updating that file over growing this memory.
 
 Repo: `F:\GitHub Repos\RamMegaCabDataScrapper` (GitHub JoshuaZayne/RamMegaCabDataScrapper). **MOVED 2026-07-20** from `C:\Users\ohjos\repos\RamMegaCabDataScrapper` to the F-drive repos folder (`F:\GitHub Repos\` is where all the user's git repos live). Full tree incl `.git`/`.env`/`secrets/`/`output/` robocopied, git fsck clean, same HEAD `46defcf`, branch `fix/vin-trim-decode` still ahead 2; C: original deleted. The daily Scheduled Task "RamMegaCabScraper Daily" was repointed to the F `scheduled-run.ps1` (scripts use `$PSScriptRoot`, no hardcoded repo paths inside). Docker-sandboxed scraper; hunts RAM 2500/3500 Mega Cab in Limited / Limited Longhorn nationwide, buckets results per state.
 
