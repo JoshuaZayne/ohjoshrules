@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: 866729e7-342d-4b93-bc80-546234a59ff2
-  modified: 2026-08-07T06:32:00.896Z
+  modified: 2026-08-12T01:55:18.084Z
 ---
 
 **The "Texas home" repo is `C:\Users\ohjos\ThicketHillProperty`** (git, private) for **1725 Thicket Hill Drive, Van Alstyne, TX 75495** - Highland Homes **Leyland / Elevation CB**, Job **00896-087**, Thompson Farm 60s, Grayson County. Buyers Joshua and Olivia Zayne plus co-borrower Kevin Peccorini. Sales counselor **Pat Boyd (she/her)**, lender Hank Jackson at Highland HomeLoans.
@@ -17,6 +17,10 @@ metadata:
 **Cost per square foot is blocked on one input:** no Highland document states the square footage and the Sales Agreement disclaims it ("Buyer may rely only on engineered plan dimensions"). Highland's public page says the base Leyland is about 3,308 sq ft, but this job swaps Bedroom 4 / Lifestyle Room for the FlexGen Suite (1000-86) and adds the bay window (1350-50). TODO-27 tracks getting the engineered number; set `plan.square_feet` in pricing.json and rerun `pricing.py report`.
 
 **Design Gallery designer is DESTINY GARCIA**, and her mail lands in **joshua.a.zayne@gmail.com** (also Tami Schow for scheduling, Robin Stevens earlier). On 2026-08-06 she sent Highland's own option-pricing screens: **WOOD Levels 1/2/3** (option # FLRW....-30/-31/-32) and **LVP Levels 3/4/5** (FLRV....-82/-83/-84), per room. This proves the spreadsheet's "LAMENENT" is **LVP LEVEL 3**, not laminate level 1. Whole-house hard surface: LVP L3 $8,764 (only complete grade), Wood L1 $7,470, Wood L3 $10,856, Tile L4 $13,332; as-chosen mix $9,407. Each screenshot is **cut off below Closet Under Stairs**, so PRIMARY ROOM is missing for five of six grades. Saved to `documents/design_gallery/`.
+
+**MAIL ACCESS IS BROKEN AS OF 2026-08-11 (supersedes the "force a sync" advice below).** The 2026-08-07 MAPI exhaustion did NOT heal when Outlook restarted on 2026-08-09: **8 of 10 stores return a null `.Folders`** and cannot be opened by COM at all, including all three property-mail accounts (`joshua.a.zayne@hotmail.com`, `joshua.a.zayne@gmail.com`, `u0773052@utah.edu`). Their .ost files are frozen at **2026-08-07 01:13**; only `ohjoshrules@hotmail.com` still syncs. So no sweep, forced or not, can see mail newer than Aug 7. The working path is **`scripts/read_dropped_mail.py`** over files dragged into `documents/inbox_drop/`. Run mail/PDF tooling with **`py -3.12`** — `pypff` and `extract_msg` are installed there, NOT in the default Anaconda 3.9 python (PyMuPDF is in Anaconda). Diagnosing store health: never call `Clear-ComGarbage` inside a `foreach` over `$session.Mailboxes`, it collects the enumerator's wrappers and every later mailbox then fakes a "null-valued expression" failure that looks identical to a dead store; use `Get-OutlookRootFolder` by name instead.
+
+**Not every Highland PDF is image-only:** the Sales Agreement ("Agreement Zayne 1725 Thicket Hill Drive.pdf") is 53 pages WITH a 128k-character text layer, so signature blocks can be found by text search. `scripts/render_pdf.py` (added 2026-08-11) rasterizes any page at 3.5x for the ones that need eyes. **Unsigned baseline to diff against:** page 5's execution block has `BUYER:`/`DATE:` lines entirely blank, only `Docusign Envelope ID: 0DCA8B72-6041-8A64-81F7-F84B979A704E` plus two 6/28/2026 stamps, and no Certificate of Completion in the file.
 
 **TWO MAIL GOTCHAS (both cost a lot of time):**
 1. `scripts/search_outlook_all.ps1` filters on builder keywords, so documents the user **emails to themselves from their phone** are invisible (the floor plan PDF and the BOM xlsx). Added `leyland`, `design gallery`, `bom for texas`, `highland homes pricing` to the term list.
