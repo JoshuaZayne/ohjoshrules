@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: c0a9b32a-21ae-4389-a4d6-78da8cd26041
-  modified: 2026-08-12T01:57:04.870Z
+  modified: 2026-08-12T04:50:27.673Z
 ---
 
 Desktop rig used for running local coding LLMs (set up July 2026).
@@ -27,4 +27,6 @@ Desktop rig used for running local coding LLMs (set up July 2026).
 
 **Also done this setup:** installed **Google Antigravity 2.2.1** (`%LOCALAPPDATA%\Programs\Antigravity`).
 
-**Gemini CLI (reinstalled 2026-08-11, working):** `@google/gemini-cli` v0.55.1 via npm. The reason it looked "broken" in July was never the package: a personal wrapper script at `F:\Josh's Stuff\Coding Folder\AI_folder\ai_studio\gemini.ps1` was shadowing the command. PowerShell resolves `.ps1` by name even though `.PS1` is not in PATHEXT, so `gemini` hit the script. npm's shim dir (PATH index 41) actually sorts *before* the ai_studio dir (index 45), so the real CLI now wins; the wrapper was renamed to `gask.ps1` to end the collision. Auth is configured as Google OAuth via `~/.gemini/settings.json` -> `security.auth.selectedType: "oauth-personal"` (v0.55 uses this nested key; `selectedAuthType` is the legacy flat form). Note `~/.gemini` is shared with Antigravity, which owns the `antigravity/` and `config/` subdirs. Original small `gemma-4-e4b` model was deleted. See [[user_github_and_devices]] for the machine, [[feedback_cross_device_paths]] for path handling.
+**Gemini CLI (reinstalled 2026-08-11, working):** `@google/gemini-cli` v0.55.1 via npm. The reason it looked "broken" in July was never the package: a personal wrapper script at `F:\Josh's Stuff\Coding Folder\AI_folder\ai_studio\gemini.ps1` was shadowing the command. PowerShell resolves `.ps1` by name even though `.PS1` is not in PATHEXT, so `gemini` hit the script. npm's shim dir (PATH index 41) actually sorts *before* the ai_studio dir (index 45), so the real CLI now wins; the wrapper was renamed to `gask.ps1` to end the collision. Auth is configured as Google OAuth via `~/.gemini/settings.json` -> `security.auth.selectedType: "oauth-personal"` (v0.55 uses this nested key; `selectedAuthType` is the legacy flat form). Note `~/.gemini` is shared with Antigravity, which owns the `antigravity/` and `config/` subdirs.
+
+**ai_studio script folder (`F:\Josh's Stuff\Coding Folder\AI_folder\ai_studio`):** all 6 personal Gemini scripts had the same live API key hardcoded. As of 2026-08-11 they all read `$env:GEMINI_ASK_API_KEY` instead, which is set in the User environment scope. Because Windows child processes inherit the parent's environment block, an already-running shell will NOT see a newly set User variable, so these scripts appear broken until the shell is restarted. `run_gemini_twopointzeroflash.ps1` still fails, but for an unrelated pre-existing reason: `gemini-2.0-flash` was retired by Google and now returns 404. Original small `gemma-4-e4b` model was deleted. See [[user_github_and_devices]] for the machine, [[feedback_cross_device_paths]] for path handling.
