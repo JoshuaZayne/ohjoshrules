@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: 0637b3ac-9ee1-4b8c-8b48-57545ee8f74d
-  modified: 2026-08-09T20:02:27.894Z
+  modified: 2026-08-12T01:57:09.191Z
 ---
 
 Installing NVIDIA NemoClaw (github.com/NVIDIA/NemoClaw), an agent sandbox stack, on the desktop. Started 2026-08-09.
@@ -34,7 +34,11 @@ This box has similar leftover Block rules for chrome, python, PyCharm, iTunes, N
 
 **Model tag note:** NemoClaw wants the tag `qwen3.6:35b` but the pulled tag was `qwen3.6:latest`. Use `ollama cp qwen3.6:latest qwen3.6:35b` to alias it. Both tags then share one ID and no blobs are duplicated, avoiding a 24 GB re-download.
 
-**Install command once unblocked** (run in the Ubuntu shell):
+**STATUS 2026-08-11: installed.** `nemoclaw v0.0.103` at `/home/josh/.local/bin/nemoclaw`, plus sibling agents `nemo-deepagents` and `nemohermes` linked from `~/.npm-global/bin` -> `~/.nemoclaw/source`. The blockers below were cleared.
+
+**Probing gotcha:** `wsl -d Ubuntu-24.04 -- bash -lc 'command -v nemoclaw'` returns NOTHING even though the tool works fine in a real terminal. `~/.bashrc` line 120 exports `$HOME/.npm-global/bin` onto PATH, but that line sits after bashrc's standard non-interactive early-return guard, so `bash -lc` never reaches it. Use `bash -ic` when checking for WSL tools this way, or the absence looks like a failed install.
+
+**Original install command** (run in the Ubuntu shell):
 `curl -fsSL https://www.nvidia.com/nemoclaw.sh | NEMOCLAW_AGENT=openclaw NEMOCLAW_PROVIDER=ollama NEMOCLAW_MODEL=qwen3.6:35b NEMOCLAW_CONTEXT_WINDOW=65536 NEMOCLAW_ACCEPT_THIRD_PARTY_SOFTWARE=1 bash`
 
 **Known upstream gotchas:** use the native `ollama` provider, not the generic compatible-endpoint one, because the latter ignores `NEMOCLAW_LOCAL_INFERENCE_TIMEOUT` and leaks a 60s default that cuts off slow reasoning models (NemoClaw issue #2403). NVIDIA's own docs rate Ollama "Risky" for multi-tool agent loops versus vLLM with a tool-call parser, so expect some tool-dispatch flakiness.

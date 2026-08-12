@@ -5,7 +5,10 @@ metadata:
   node_type: memory
   type: reference
   originSessionId: c20cac6a-98c1-41e5-9601-db94a22bcc15
+  modified: 2026-08-12T02:42:08.763Z
 ---
+
+**BROKEN SINCE 2026-08-07, still broken 2026-08-11 — check this before trusting anything below.** A MAPI shared-resource exhaustion left **8 of the 10 stores unopenable by COM** (`.Folders` reads back null), and an Outlook restart on 2026-08-09 did NOT fix it. Dead: `joshua.a.zayne@hotmail.com`, `joshua.a.zayne@gmail.com`, `u0773052@utah.edu`, `dimaskusllc@gmail.com`, `ojoshrules@hotmail.com`, `zaynesbot@`, `zaynebots@`. Only **`ohjoshrules@hotmail.com`** still syncs; the other .ost files are frozen at 2026-08-07 01:13, so **offline .ost parsing cannot see recent mail either**. Until repaired, the only reliable route is having the user drag messages into a folder and parsing the `.msg`/`.eml` off disk (`extract_msg`, or stdlib `email` — remember `iter_attachments()`, and note `py -3.12` is the interpreter with `pypff`/`extract_msg`). Diagnostic trap: do **not** call GC/`Clear-ComGarbage` inside a `foreach` over `$ns.Folders` — it kills the enumerator and every later mailbox then fakes a dead-store error; fetch each mailbox **by name** instead. See [[project_thicket_hill_texas_home]].
 
 The user reads email in **Classic Outlook (desktop)**. Accounts: **joshua.a.zayne@hotmail.com** (Outlook/hotmail, the one used for the Ram deal) and **ohjoshrules@gmail.com** (Gmail, connected via the claude.ai Gmail MCP). Also has ohjoshrules@hotmail.com.
 
