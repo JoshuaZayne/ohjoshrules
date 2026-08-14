@@ -5,24 +5,34 @@ metadata:
   node_type: memory
   type: project
   originSessionId: 14d8c2e4-2676-420c-84f6-9a0d482f370a
-  modified: 2026-08-14T07:46:53.722Z
+  modified: 2026-08-14T09:21:11.438Z
 ---
 
-The resume repo is `github.com/JoshuaZayne/resumes`, and it exists as TWO working
-copies on the desktop:
+The resume repo is `github.com/JoshuaZayne/resumes` (PRIVATE). It lives at
+**`F:\GitHub Repos\resumes`** and is fully pushed.
 
-- **`F:\iCloudDrive\IL_work\Python_code\Personal\Resume\`** is the LIVE one. 34
-  company/role folders, `main` is ~15 commits ahead of origin with most role
-  folders untracked. Work here.
-- **`F:\GitHub Repos\resumes\`** is a stale thinner snapshot from the 2026-07-20
-  F: drive reorg (see [[project_f_drive_github_repos_reorg]]). Only 6 company
-  folders. Do not edit; it will confuse you into thinking content is missing.
+**Moved out of iCloud on 2026-08-14.** It used to live at
+`F:\iCloudDrive\IL_work\Python_code\Personal\Resume`; that path no longer
+exists. iCloud was syncing `.git` and resolving conflicts by duplicating files,
+which corrupted refs (a stray `refs/remotes/origin/main 2` broke `git fetch`
+outright), deleted `README.md` / `_docs/ARCHITECTURE.md` / `_docs/TODO.md` /
+`_src/resume_generator.py` by renaming them to numbered copies, and left 50+
+duplicate `resume_generator N.py` scripts in `_src`. Never put a git repo back
+under iCloud. See [[project_f_drive_github_repos_reorg]].
+
+Generated `.docx` and `.pdf` outputs ARE tracked deliberately (~270 files, the
+repo is ~10 MB); the `.gitignore` exclusion for them was removed on request.
 
 ## resume_builder (added 2026-08-14)
 
 New data-driven system at `_src/resume_builder/`, documented in
 `_docs/RESUME_BUILDER.md`. Content is YAML under `content/`, layout is code.
-Run from `_src`: `python -m resume_builder.cli build futu_clearing_vp`.
+Run from `_src`: `python -m resume_builder.cli build futu_director_tsfcc`
+(or `cover futu_director_cover` for the cover letter; `list` shows all).
+
+**He edits the generated .docx directly in Word.** ALWAYS read the saved Word
+file and sync its changes into the YAML before rebuilding, or his edits are
+silently overwritten. This has already happened once.
 Prints page count and warns when over target. Trim with `enabled: false` on any
 section or bullet rather than deleting wording.
 
