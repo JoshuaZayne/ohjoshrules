@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: c0a9b32a-21ae-4389-a4d6-78da8cd26041
-  modified: 2026-08-12T04:50:27.673Z
+  modified: 2026-09-19T19:17:52.993Z
 ---
 
 Desktop rig used for running local coding LLMs (set up July 2026).
@@ -26,6 +26,8 @@ Desktop rig used for running local coding LLMs (set up July 2026).
 **Big Ollama gotcha:** the Ollama desktop app stores its own settings in `%LOCALAPPDATA%\Ollama\db.sqlite` (table `settings`, columns `expose` and `models`), and **those override the `OLLAMA_HOST` / `OLLAMA_MODELS` environment variables entirely**. Setting the env vars does nothing. Stop the app, edit the DB, restart. `expose=1` makes it bind `0.0.0.0`; `models` is the blobs/manifests parent dir. This is how 22.3 GB of blobs ended up dumped loose in `C:\Users\ohjos\blobs` despite the machine env var pointing at F:.
 
 **Also done this setup:** installed **Google Antigravity 2.2.1** (`%LOCALAPPDATA%\Programs\Antigravity`).
+
+**Antigravity gets Claude memory (2026-09-19):** `~/.gemini/config/skills/claude-memory/scripts/sync_from_claude.ps1` mirrors this memory folder into an Antigravity skill (`references/`) plus an always-on core (feedback + user memories + index) at `~/.gemini/config/rules/claude-memory.md` and `~/.gemini/GEMINI.md`. Runs automatically from SessionStart (async) and SessionEnd hooks in `~/.claude/settings.json`. Antigravity global customizations live in `~/.gemini/config/`; its rules budget is 20K tokens, 24 KB per file.
 
 **Gemini CLI (reinstalled 2026-08-11, working):** `@google/gemini-cli` v0.55.1 via npm. The reason it looked "broken" in July was never the package: a personal wrapper script at `F:\Josh's Stuff\Coding Folder\AI_folder\ai_studio\gemini.ps1` was shadowing the command. PowerShell resolves `.ps1` by name even though `.PS1` is not in PATHEXT, so `gemini` hit the script. npm's shim dir (PATH index 41) actually sorts *before* the ai_studio dir (index 45), so the real CLI now wins; the wrapper was renamed to `gask.ps1` to end the collision. Auth is configured as Google OAuth via `~/.gemini/settings.json` -> `security.auth.selectedType: "oauth-personal"` (v0.55 uses this nested key; `selectedAuthType` is the legacy flat form). Note `~/.gemini` is shared with Antigravity, which owns the `antigravity/` and `config/` subdirs.
 
