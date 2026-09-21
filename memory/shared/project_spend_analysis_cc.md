@@ -5,10 +5,12 @@ metadata:
   node_type: memory
   type: project
   originSessionId: 6a2630be-b2cc-47a1-892a-0fa2a7eeee2c
-  modified: 2026-08-03T14:45:07.762Z
+  modified: 2026-09-21T15:17:54.027Z
 ---
 
 Repo `Yearly_and_monthly_spend_per_CC` (cloned at `C:\Users\ohjos\repos\Yearly_and_monthly_spend_per_CC`) parses AMEX + Fidelity + Schwab statements into an Excel spend/income workbook.
+
+**Layout changed (pulled 2026-09-21, origin/master 0c9b948):** root `validate.py` is gone; entry points are now under `scripts/` (`run_pipeline.py` / `run_pipeline.bat` master runner, plus `build/ intake/ sync/ validate/`), with `CLI_REFERENCE.md` documenting all CLIs. Local branch `review-fixes-2026-07-12` still holds one UNPUSHED commit `18ac3fa` (replace duplicated helpers with imports) not yet on master.
 
 **Python gotcha:** the code uses 3.10+ syntax (`str | None`), but this machine's default `python` is 3.9. Run everything with **`py -3.13`** — pandas/openpyxl/pdfplumber are installed there. `build_report.py` builds the workbook + trends md; `validate.py` runs the reconciliation suite (should be all-pass).
 
