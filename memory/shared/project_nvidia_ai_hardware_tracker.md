@@ -5,7 +5,7 @@ metadata:
   type: project
 ---
 
-Repo `F:\GitHub Repos\NvidiaAIHardwareTracker` (local git only, first commit b1f5254, NOT on GitHub yet). Built 2026-09-27 as "the Ram 3500 + trailers code, but for NVIDIA DGX Spark / GX10 (GB10 chip) and RTX PRO 6000".
+Repo `F:\GitHub Repos\NvidiaAIHardwareTracker` (GitHub: JoshuaZayne/NvidiaAIHardwareTracker, PRIVATE, pushed 2026-09-28). Built 2026-09-27 as "the Ram 3500 + trailers code, but for NVIDIA DGX Spark / GX10 (GB10 chip) and RTX PRO 6000".
 
 - `compare_hardware.py` = trailer-comparison pattern (DumpTruckBusinessBuildout): every option evaluated against the user's own models + owned RX 7900 XTX; data in `data/*.csv` with price confidence labels; speeds labeled measured / same_silicon / estimated (bandwidth ceiling x efficiency calibrated per family, spilled runs excluded).
 - `track_prices.py` = UsedCarPriceTracker pattern: `snapshots/<item>/YYYY-MM-DD.txt` (`CONDITION | $PRICE | SELLER | URL`) -> `prices.db`; `analyze`, `alerts` vs `watchlist.json` targets ("Beat My Offer" idea from [[project_ram_megacab_scraper]]).
@@ -18,3 +18,6 @@ Repo `F:\GitHub Repos\NvidiaAIHardwareTracker` (local git only, first commit b1f
 - Run with `python` (3.9 has requests/bs4/playwright); py -3.12 lacks requests. Full run ~10 min fetch + ~2.5 min extraction.
 - First full run: 60/133 hosts reachable, 19 yielded matches, 34 walled, 21 robots-disallowed. Live data CONTRADICTED the earlier search-summary prices: GX10 4TB ~$8,300 (not $4,150), Gigabyte ATOM ~$6,000 (not $3,900); snapshots flagged OUTLIER.
 - Search engines/deal sites (category price_tracker) only corroborate; never best price. Multi-packs/accessory banners forbidden in items.csv.
+
+**2026-09-28 - independent test + comparison sheets (commit 6e66e3e, pushed).** `python scripts/independent_capture_test.py` (stdlib only, reuses none of nvtracker's extract/identify code) = coverage + page recall + precision-vs-fetched-page + best-price replay; latest PASS, precision 100% (60/60), recall 82%. It found real bugs (now regression-tested): one SSD size per item (items.csv now 26 items incl 1/2/4 TB + *_storage_unstated), HP "ZGX G1n" w/o Nano, Acer "Veriton AI Mini Workstation" w/o GN100, text extractor borrowing a neighbour card's price, merged listings publishing a MEDIAN price no page showed (listing price must be an observed price), no reader for single-product pages. Workbook now has Device Specs (data/device_specs.csv) + Model Performance (generation + prompt tok/s per platform x 12 models, labelled measured/same_silicon/scaled_from_sibling/scaled_by_bandwidth/estimated). Calibration per device+architecture (median) with measured MoE penalty; Max-Q scaled from WS by measured 0.79 gen / 0.65 prompt; Server by bandwidth. Audit 30 checks.
+- GOTCHA: the Bash tool turns "\b" into a literal backspace inside heredocs; build backslashes with chr(92) or write the file with the Write tool.
