@@ -75,6 +75,11 @@ Stored maintenance ZN $2,062 / ZB $4,070 came from AMP Futures' table (CME and S
 not load), so always override with the thinkorswim figure via `--margin`. Market on 2026-09-28:
 10y 5.24%, 30y mortgages above 7%, so the July LE's 5.25% is stale unless it was locked.
 Result for $632k at 7%: sell 6 ZN or 3 ZB, about $13.5k initial, about $30k recommended cash.
+Also added (same day): `--puts` mode (ratelock_puts.py; American puts on the future, CME option-expiry
+rule, premiums in 64ths), `verify` command (verify.py: 19 formulas x 7-15 independent methods, 177 runs),
+and `web/ratelock.html` + `web/ratelock_engine.js` (JS port; `node web/test_engine.js` cross-checks every
+value against Python). Gotcha: Git Bash heredocs mangle `\n` inside Python string literals; edit
+Python/JS source with Write/Edit, not heredoc scripts.
 
 Related: [[user_github_and_devices]], [[feedback_cross_device_paths]],
 [[project_thinkscript_version_tracking]]
