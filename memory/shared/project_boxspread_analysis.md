@@ -67,5 +67,14 @@ QuantLib) so no code path can price a box without seeing it; `universe.get_produ
 for the open-source survey (py_vollib test patterns, FinancePy conversion factor,
 and the five things ibkrbox/chiaolun box calculators leave out).
 
+**`ratelock` command (added 2026-09-28, uncommitted at the time):** `boxspread/treasury/ratelock.py`
+sizes a SHORT ZN/ZB hedge for an unlocked mortgage (the Texas home, see
+[[project_thicket_hill_texas_home]]). Loan DV01 = PV of extra payments + payoff balance over
+`--horizon` (default 7y). Futures DV01 = proxy-CTD DV01 / CF. Initial margin = maintenance x 1.10.
+Stored maintenance ZN $2,062 / ZB $4,070 came from AMP Futures' table (CME and Schwab pages would
+not load), so always override with the thinkorswim figure via `--margin`. Market on 2026-09-28:
+10y 5.24%, 30y mortgages above 7%, so the July LE's 5.25% is stale unless it was locked.
+Result for $632k at 7%: sell 6 ZN or 3 ZB, about $13.5k initial, about $30k recommended cash.
+
 Related: [[user_github_and_devices]], [[feedback_cross_device_paths]],
 [[project_thinkscript_version_tracking]]
