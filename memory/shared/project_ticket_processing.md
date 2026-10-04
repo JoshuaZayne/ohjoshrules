@@ -11,6 +11,7 @@ Private repo github.com/JoshuaZayne/TicketProcessing at `F:\GitHub Repos\TicketP
 - `footage_request.py` builds the DA pro-se discovery email (notarized form, DArecords@mesacounty.us) and CSP GovQA portal text.
 - Expanded 2026-10-04 to 21 Western Slope + statewide lawyers (region tiers). Win rate: `court_data_request.py` writes a CJD 05-01 sec 4.40 Addendum A request (courtdatarequests@judicial.state.co.us; T and R case classes releasable incl. attorney, agency, charges, findings, scheduled events); `attorneys/outcomes.py` scores CSVs in gitignored data/court_outcomes/ (Addendum A forbids putting data online). Trooper badge 1579 (name spelling unconfirmed, "Coontt?"), CSP Troop 4A Fruita.
 - Officer no-show at FINAL hearing = dismissal with prejudice, C.R.C.I. 10(a); 6-month rule 10(b); counsel may appear for defendant 7(b). 40-day pay window likely lapsed ~2026-10-02. See docs/LEGAL_GUIDE.md.
+- `count_dockets.py`: court docket export (coloradojudicial.gov/dockets/export, params attorneyBarNumber, caseClass T/R, courtType=C REQUIRED, courtLocations[0]) is today-forward only (~6 mo; past = HTTP 204) and has no attorney column, so it is queried per bar number. 2026-10-04 Mesa leaders: Acker 13, Tyler 8, Rubinstein/Luna/Nolan 5.
 - `agy/` = a parallel Antigravity pipeline (keeps changing; commit only own paths, never `git add -A`) that appeared mid-session; unreviewed by Claude.
 
 **Why:** User is deciding whether to hire a Mesa County traffic lawyer and wants the stop video.
