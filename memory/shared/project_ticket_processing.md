@@ -16,3 +16,4 @@ Private repo github.com/JoshuaZayne/TicketProcessing at `F:\GitHub Repos\TicketP
 
 **Why:** User is deciding whether to hire a Mesa County traffic lawyer and wants the stop video.
 **How to apply:** Court is Mesa County Court, Grand Junction, **2026-10-30 at 8:15**. There is no free "win rate" source (docket search shows only future hearings). User typed repo name "TitcketProcessing"; created as TicketProcessing.
+- 2026-10-04 15:12-15:19 the user emailed 13 lawyers from **joshua.a.zayne@hotmail.com** (Outlook Classic); logged in `attorneys/outreach.py` (EMAILED/REPLIES), which feeds the spreadsheet's Emailed column. Not emailed: Acker (form only), Martin, Knifer, McElyea, Smith, Distefano, Ditlow, Troxell, Hernandez. Outlook COM works again (all stores open) but needs `SendAndReceive` before Sent shows new mail.
