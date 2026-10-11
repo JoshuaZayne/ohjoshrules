@@ -5,6 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: 2a81be7d-ff9a-4949-b8c8-9ddedac0cd1a
+  modified: 2026-10-11T10:17:22.475Z
 ---
 
 `~/repos/Brokers/RUN_TRACKER.md` is the launch + session-resume hub for broker data jobs:
@@ -25,6 +26,16 @@ Two recurring "it ran fine last week" causes, both hit on 2026-06-03:
    logins; it deletes the old token then fails, leaving none. Authoritative token file the
    container reads = `data/schwab/schwab_token.json` (NOT ~/.schwab_token.json, which is locked/empty).
    Health: `scripts/schwab/health_check.py` / `refresh_cron.py`.
+   **Desktop re-auth that WORKED 2026-10-11 (branch Dimaskus_Surface_merge):** the host's Anaconda
+   schwab-py is 0.0.0a25 (too old for login_flow.py), so run it in Docker via
+   `scripts/schwab/login_flow_docker.py`: `docker compose ... run --rm --no-deps -p 127.0.0.1:8284:8285
+   -e SCHWAB_CALLBACK_URL=https://127.0.0.1:8284 -v <repo>/scripts:/app/scripts:ro --entrypoint python
+   schwab-puller -m scripts.schwab.login_flow_docker`, read the `AUTH_URL:` line from its output and
+   open it on the host (Start-Process). It forwards the in-container callback; token lands in
+   `<checkout>/data/schwab/schwab_token.json`. The checkout needs `.env.secrets` (copy from the main
+   checkout; gitignored). Token issued 2026-10-11 10:14 UTC, 9 accounts, dies ~2026-10-18.
+   pull_history only extends stores FORWARD; `scripts/schwab/backfill_gaps.py` fills holes inside
+   Schwab's depth (1m 50 d, 30m 260 d) and pulls daily bars.
 2. Stale Docker image after editing code/watchlist/portfolios. The snapshot container bakes
    `broker_platform/config/portfolios.json` (and `data/universe/` is .dockerignored, so the
    canonical watchlist is NOT used; portfolios.json drives the pull). Symptom:
