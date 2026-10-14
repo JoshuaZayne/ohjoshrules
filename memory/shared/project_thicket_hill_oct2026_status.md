@@ -20,3 +20,5 @@ Verified facts (sources: Olivia's Gmail via MCP, Josh's joshua.a.zayne@hotmail.c
 
 **Why:** the user drafted a termination email with wrong numbers and a unilateral-termination framing that would forfeit $22,250+.
 **How to apply:** use these figures, not the draft's; recommend a Texas real estate attorney review (open since June, TODO-2) before anything is sent.
+
+Update 2026-10-14 15:40 MDT: Draft 3.1 (documents/DRAFT_mutual_termination_request_v3_1_2026-10-14_153900.md, commit 567919e) is current; Olivia reviewed Draft 3 at 14:29 MDT and her edits are folded in. Deposit mismatch: receipts show $22,250 paid ($1,000 + $21,250) but the Sales Agreement and lender worksheet say $22,220. Destiny never acknowledged the Bath 3/5 sheet error in writing (old drafts wrongly said she did). Brick: we asked to wait for White River Rock on Sep 8, Highland answered Sep 11. Math checker: scripts/verify_email_math.py (5 methods, 31/31 pass).
