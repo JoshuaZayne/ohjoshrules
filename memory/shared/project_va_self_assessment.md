@@ -14,5 +14,10 @@ Source email: "Writing Self-Assessments VISN 19 DONE BEFORE 10/7/26", from Joshu
 
 The user wants the self-assessment to highlight that they started using **LEAF** (Light Electronic Action Framework) for **Community Care (CC) audit follow ups**, which made facility responses faster. Their phrase "increasing the response times" means faster; the linter flags that wording as reversed.
 
+**Tools (added 2026-10-15)** in the same repo, each ONE stdlib-only .py + .bat for the VA work PC (no pip there), output DPAPI-encrypted (.vmi/.bis) with an in-memory localhost viewer; guide at tools/START_HERE.md:
+1. tools/va_mail_insights: Outlook scan via pywin32 or embedded PowerShell (-EncodedCommand), sent folders first so bodies are only pulled for my threads; follow ups, response days, LEAF vs email, categories from an editable .ini.
+2. tools/bisl_reader (v2 of the BISLWebScraper20260101 repo, copied unchanged to legacy/): the SAT Audit Facility Dashboard at vaww.pbi.cdw.va.gov/PBI_RS is a PAGINATED (SSRS) report, so it uses URL access export (?/path&rs:Format=XML|CSV), REST /api/v2.0 folder listing, SOAP GetItemParameters for the dependent Facility list, and PowerShell Invoke-WebRequest -UseDefaultCredentials for Windows sign-in. The web service virtual dir on the VA server is UNKNOWN; Discover probes candidates. Tested only against tests/bisl_mock_server.py.
+3. Gotcha: configparser read_string(defaults)+read(file) MERGES sections, so deleted facilities/categories came back; list sections are now replaced, not merged.
+
 **Why:** numbers must come from the follow up export (`data/cc_audit_followups.csv`, gitignored), never typed in or guessed; unfilled facts stay as [[TODO]].
 **How to apply:** pending from the user as of 2026-10-15: prior year text, the CSV, LEAF go live date, real counts. Coworker names go in gitignored `private/names_to_flag.txt`. Roadmap: CodeMapping_Brain/content/roadmaps/2026-10-15_143139_va-self-assessment-builder.md. See [[reference_check_email_outlook_com]].
