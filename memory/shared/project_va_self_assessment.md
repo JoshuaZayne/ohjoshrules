@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: 50972bbb-ca99-4034-a47a-8b5a30113f40
-  modified: 2026-10-15T20:39:19.785Z
+  modified: 2026-10-16T04:43:39.158Z
 ---
 
 The user's day job includes **VISN 19 B.O.S.S. Auditor and Training Specialist** at the VA (SLC). Repo `github.com/JoshuaZayne/VA_SelfAssessment` (PRIVATE) at `F:\GitHub Repos\VA_SelfAssessment`, created 2026-10-15 (commit f556a1b). Run `python -m self_assessment lint|leaf|build|compare|demo`.
@@ -19,6 +19,9 @@ The user wants the self-assessment to highlight that they started using **LEAF**
 2. tools/bisl_reader (v2 of the BISLWebScraper20260101 repo, copied unchanged to legacy/): the SAT Audit Facility Dashboard at vaww.pbi.cdw.va.gov/PBI_RS is a PAGINATED (SSRS) report, so it uses URL access export (?/path&rs:Format=XML|CSV), REST /api/v2.0 folder listing, SOAP GetItemParameters for the dependent Facility list, and PowerShell Invoke-WebRequest -UseDefaultCredentials for Windows sign-in. The web service virtual dir on the VA server is UNKNOWN; Discover probes candidates. Tested only against tests/bisl_mock_server.py.
 3. Mail tool fills the whole write-up (self_assessment_writeup_template.txt) from mail, calendar and the BISL history; BISL Reader has catalog map (report_catalog.csv) and fiscal-year backfill (menu 8). Delivered to the work PC by an Outlook DRAFT (2026-10-15, not sent) with the code inline between ASCII separators; --fingerprint ignores line endings so pasted copies verify. Weekly metric emails mention 'audits', so [detect] not_followup keeps them out of follow ups.
 4. Gotcha: configparser read_string(defaults)+read(file) MERGES sections, so deleted facilities/categories came back; list sections are now replaced, not merged.
+5. State 2026-10-15 22:45 MDT: commit 2e4c1d7 pushed (third tool tools/reference_tracker; shared block master tools/common/shared_block.py synced by tools/sync_shared.py; tests/test_code_style.py enforces whole-word names and the 5-part ''' docstrings; tools/code_map.py + tests/test_code_map.py fail on duplicate code). 201 tests pass.
+6. Another AI tool (likely Antigravity, run by the user) also edits this repo: it added "Round 4" (steps 18 to 22: record_method_log, bundle_code_and_logs, suggest_policy_response, relationship map, path summary) and tests/test_remaining_gaps.py. Its generator writes boilerplate docstrings ("Executes X (handles X)"); check `git status` and file sizes before editing, and rewrite generated docstrings by hand.
+7. Personal data: the supervisor default in [people] is blank in code (set it in the local gitignored settings .ini); demo/test data use made-up names only. ec939a1 in history still holds the old names (user chose not to rewrite history).
 
 **Why:** numbers must come from the follow up export (`data/cc_audit_followups.csv`, gitignored), never typed in or guessed; unfilled facts stay as [[TODO]].
 **How to apply:** pending from the user as of 2026-10-15: prior year text, the CSV, LEAF go live date, real counts. Coworker names go in gitignored `private/names_to_flag.txt`. Roadmap: CodeMapping_Brain/content/roadmaps/2026-10-15_143139_va-self-assessment-builder.md. See [[reference_check_email_outlook_com]].
