@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: c5bc23de-465d-409f-8b0e-7a173ca7df9b
-  modified: 2026-10-17T21:19:25.643Z
+  modified: 2026-10-17T22:13:44.920Z
 ---
 
 Folder `F:\GitHub Repos\TicketProcessing\ATV_accident\` (branch `atv-accident`, commits aedddb2 + c8345da, created 2026-10-17, not pushed, not merged to main).
@@ -15,6 +15,8 @@ Facts: 2021 Can-Am Outlander XMR 1000R, VIN 3JBLWAX49MJ000547, rented via Side B
 Mail: the claim emails are in joshua.a.zayne@hotmail.com, the shop emails in ojoshrules@hotmail.com, and the platform account is dimaskusllc@gmail.com (its Outlook store had only synced through 2026-09-20).
 
 Tools: `damages.py` (3 claim sizes: $977 / $3,042 / $3,654), `find_utah_attorneys.py` (Utah Bar licensee directory POST to services.utahbar.org/cv5/cgi-bin/utilities.dll/CustomList, "First~" / "~Last~" wildcards; active = "Active Attorney" + "Paid"). Run them with the Anaconda `python` (py -3.12 lacks requests).
+
+**SENT 2026-10-17 16:12** from dimaskusllc@gmail.com (CC copy saved in evidence/emails/2026-10-17_161244_*). Its ask: A plan $2,818.41 + B renter up to the $6,000 deductible $3,181.59 + C second day $200 = $6,200 through the platform, plus D $522.94 owed by the renter directly. Total owed $6,722.94, before the cargo box. Reply deadline **2026-10-30**. Still open: dates for 3 of the 4 lost rental days, and the cargo box quote from Karl Malone (Carson). Branch atv-accident pushed to origin (not merged to main).
 
 Platform reply email: built by `platform_email.py` and checked by `verify_email_numbers.py` (15 checks). The user wants it sent **from dimaskusllc@gmail.com with CC joshua.a.zayne@hotmail.com**. Draft created 2026-10-17 in `\\dimaskusllc@gmail.com\[Gmail]\Drafts` using the DeliveryStore Drafts + InvokeMember SendUsingAccount method. That Outlook store had stopped syncing on 2026-09-20, so confirm delivery by checking that the CC copy arrived.
 
