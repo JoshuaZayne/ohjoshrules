@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: 14d8c2e4-2676-420c-84f6-9a0d482f370a
-  modified: 2026-08-14T09:21:11.438Z
+  modified: 2026-10-23T21:03:07.029Z
 ---
 
 The resume repo is `github.com/JoshuaZayne/resumes` (PRIVATE). It lives at
@@ -45,6 +45,21 @@ content for ~34 other target roles.
 python-docx patcher that hardcoded a source path to a specific February 2026
 MooMoo docx, and it produced the April 2026 FUTU resume outside the generator,
 which is why that version was unreproducible.
+
+## resume_engine (built 2026-10-23, branch jd-resume-engine)
+
+`_src/resume_engine/` tailors a resume to a job description: 8 steps, 268
+checks (30+ per step, enforced by a test), 4 decision modes, grounded LLM
+summary (any number/name/credential not on the resume rejects it). Run from
+`_src`: `python -m resume_engine.cli preview|tailor --job-file ../job.txt`.
+Output goes to `output/engine_runs/<ts>_<job>/`; it never edits base YAML.
+Data in `content/engine/*.yaml`. Tests: `python -m pytest tests/resume_engine -q`
+(86 passed). Guide `_docs/RESUME_ENGINE.md`, agent rules `AGENTS.md`.
+It replaced a Qwen Code prototype whose memory falsely claimed 30/30 steps
+done. The two variants disagree on years (8+ clearing_vp, 9+ director); do
+not reconcile without asking. Roadmap:
+CodeMapping_Brain/content/roadmaps/2026-10-23_141217_resumes-job-description-engine-rebuild.md.
+See [[project_local_llm_coding_setup]] for the gemma4 runaway gotcha.
 
 ## Employment context
 
