@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: 14d8c2e4-2676-420c-84f6-9a0d482f370a
-  modified: 2026-10-23T21:03:07.029Z
+  modified: 2026-10-23T21:58:53.824Z
 ---
 
 The resume repo is `github.com/JoshuaZayne/resumes` (PRIVATE). It lives at
@@ -60,6 +60,19 @@ done. The two variants disagree on years (8+ clearing_vp, 9+ director); do
 not reconcile without asking. Roadmap:
 CodeMapping_Brain/content/roadmaps/2026-10-23_141217_resumes-job-description-engine-rebuild.md.
 See [[project_local_llm_coding_setup]] for the gemma4 runaway gotcha.
+
+Decision tree improvements (2026-10-23, branch decision-tree-improvements):
+benchmark = the 10 `*/JOB_DESCRIPTION.md` files (label = their folder), run
+`python -m resume_engine.cli evaluate --no-llm`. Before: right resume first
+2/10. After: top1 100%, leave-one-out 90% (keyword and gemma4). Top1 is partly
+recognition (each resume was written for its posting); leave-one-out
+(intended-role match with the own resume removed) is the honest metric.
+Base selection now reads every category folder's newest .docx (34 + InsightGlobal
++ MooMoo). GOTCHA: all legacy resumes were regenerated 2026-08-14 with the Futu
+surveillance role on top, so their full text all reads "surveillance"; the
+archetype profile uses only lines shared by fewer than half the resumes. `tune`
+best weights did not beat current weights on leave-one-job-out, so not applied.
+`feedback --audit ... --base ...` grows content/engine/labels.yaml. 283 checks, 108 tests.
 
 ## Employment context
 
