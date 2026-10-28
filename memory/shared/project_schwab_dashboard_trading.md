@@ -1,6 +1,6 @@
 ---
 name: project_schwab_dashboard_trading
-description: "Schwab dashboard on Brokers branch Dimaskus_Surface_merge (worktree F:\\GitHub Repos\\Brokers_merge; origin at a4071056; local 752c04ea, 4d2c23b9, dd84f874, d8ed382a, 177e5938): futures terminal, live-computed 100-Touch backtest page (/backtest),, trade panel, Accounts P/L, 59 Data health checks on Schwab's own data, built 3m/1h/2h/4h stores, the tick recorder as the account's ONE Schwab stream (lease file), schwab-ohlc fixed, daily stamps one row per day; how to run tests, Schwab quote/daily-bar/1m-request semantics, runtime gotchas, open user decisions"
+description: "Schwab dashboard on Brokers branch Dimaskus_Surface_merge (worktree F:\\GitHub Repos\\Brokers_merge; origin at c97d41b8 (pushed 2026-10-28 02:42 UTC)): futures terminal, live-computed 100-Touch backtest page (/backtest),, trade panel, Accounts P/L, 59 Data health checks on Schwab's own data, built 3m/1h/2h/4h stores, the tick recorder as the account's ONE Schwab stream (lease file), schwab-ohlc fixed, daily stamps one row per day; how to run tests, Schwab quote/daily-bar/1m-request semantics, runtime gotchas, open user decisions"
 metadata:
   node_type: memory
   type: project
