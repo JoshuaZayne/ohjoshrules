@@ -74,6 +74,17 @@ archetype profile uses only lines shared by fewer than half the resumes. `tune`
 best weights did not beat current weights on leave-one-job-out, so not applied.
 `feedback --audit ... --base ...` grows content/engine/labels.yaml. 283 checks, 108 tests.
 
+## Quant Trader / Quant Researcher (built 2026-10-30)
+
+`content/quant_trader.yaml` and `content/quant_researcher.yaml` (v3.0.0, both 2
+pages) replace the 2026-08-14 generator output, which was 95% identical between
+the two. Added a `projects` section kind to schema.py/renderer.py (uncommitted on
+branch decision-tree-improvements as of 2026-10-30). GOTCHA: every legacy resume
+links github.com/JoshuaZayne/{Efficient_Frontier,black-scholes,
+alpha-signal-analysis,did-banking-analysis}; the last three do not exist and
+Efficient_Frontier is private, so the links fail for a recruiter. The new YAMLs
+carry no project URLs until a repo is made public.
+
 ## Employment context
 
 He is VP of Trade Surveillance at **Futu Clearing Inc.** (Moomoo's US clearing

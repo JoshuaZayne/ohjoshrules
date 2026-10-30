@@ -1,6 +1,6 @@
 ---
 name: project_atv_rollover_claim
-description: "ATV rollover claim vs Side By Side Share and renter Conner Corbin: point-by-point reply SENT 2026-10-20 19:02 demanding $2,818.41 plan + $3,697.92 from renter; SxS answer due 2026-10-30; lives in TicketProcessing/ATV_accident"
+description: "ATV rollover claim vs Side By Side Share and renter Conner Corbin: reply SENT 2026-10-20; SxS answered 2026-10-29 11:50 with revised $3,023.66 offer, still refuses renter collection; renter balance now $3,492.67; lives in TicketProcessing/ATV_accident"
 metadata:
   node_type: memory
   type: project
@@ -18,7 +18,9 @@ Decisions the user made: keep the $200 second day and $750 loss of use (do not s
 
 Hazards: the Josh S texts (`evidence/private_do_not_send/`, git-ignored) discuss paying delivery/helmets by Venmo; the Terms say fee bypass voids coverage for all the owner's vehicles: never send them to SxS. SxS Box folders are view-only (itemDownload=false), so no photo metadata. The "pre-booking" frames show mud splatter and light scuffs, no cracks. An old garbled 2026-10-17 draft ("Booking 6aa385a7 ... confirmations needed") is still in dimaskusllc Drafts: never send it.
 
-Next if SxS refuses by 10-30: sign with the reservation line, collect $2,818.41, demand letter to the renter for $3,697.92, then Utah small claims (limit $20,000). Disputes with SxS itself go to FairClaims arbitration.
+**SxS REPLIED 2026-10-29 11:50** (to hotmail CC; saved, not yet committed, in `evidence/emails/2026-10-29_115047_joshua.a.zayne_Re_Final_Claim_Resolution_revised_3023.66/`): revised total $3,023.66 = repairs $2,665.52 + partial payouts $198.14 (RH rear fender $64.57, LH radiator support $35.25, Kemimoto backrest $90, rear mudguards $3.12/$5.20) + loss of use $160 (09-15/16 booking $200 less $40 fee). Declines second day (departure form return 11:59 next day), declines renter collection, says pre-rental photos show prior damage so "NONE" does not control. Acceptance page says "full and final resolution of this claim". New shop RO dated 10-28 ($2,526.10 incl. $144.99 customer-pay winch rope) shows radiator support 705016599 and handguard pair at qty 0 even though SxS approved them ($274.98). Under the user's numbers the renter balance becomes $3,492.67 (repair $2,702.67 + loss of use $590 + second day $200). The user's 10-26 nudge from dimaskusllc showed sender name "Joshua Johnson".
+
+Next (was: if SxS refuses by 10-30): sign with the reservation line, collect $2,818.41, demand letter to the renter for $3,697.92, then Utah small claims (limit $20,000). Disputes with SxS itself go to FairClaims arbitration.
 
 Mail access: claim mail is in joshua.a.zayne@hotmail.com; the dimaskusllc@gmail.com Outlook store has not synced since 2026-09-20 (sending still works; verify via the hotmail CC). See [[reference_check_email_outlook_com]].
 
