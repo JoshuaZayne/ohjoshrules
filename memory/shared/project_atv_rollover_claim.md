@@ -1,11 +1,11 @@
 ---
 name: project_atv_rollover_claim
-description: "ATV rollover claim vs Side By Side Share and renter Conner Corbin: reply SENT 2026-10-20; SxS answered 2026-10-29 11:50 with revised $3,023.66 offer, still refuses renter collection; renter balance now $3,492.67; lives in TicketProcessing/ATV_accident"
+description: "ATV rollover claim vs Side By Side Share and renter Conner Corbin: notice of dispute SENT 2026-10-31 21:35 MT (asks $750 loss of use, charge renter $1,555.71+, pay $3,023.66 on account); SxS response due Mon 2026-11-02 17:00 MT; lives in TicketProcessing/ATV_accident"
 metadata:
   node_type: memory
   type: project
   originSessionId: c5bc23de-465d-409f-8b0e-7a173ca7df9b
-  modified: 2026-11-01T02:47:41.604Z
+  modified: 2026-11-01T03:36:08.836Z
 ---
 
 Folder `F:\GitHub Repos\TicketProcessing\ATV_accident\`, branch `atv-accident` (pushed; latest d4c0f14 on 2026-10-20; not merged to main). Plan and step list: `docs/COURT_PLAN_2026-10-20.md`. Older guide: `docs/UTAH_LEGAL_GUIDE.md`.
@@ -58,6 +58,50 @@ The fact checker was updated (T24, "Signed under protest" exemption, Oct 20 hist
    6. "Rentals" is now singular.
    7. $5,601.58 is described as the claimed Repair Order lines, not the Repair Order.
 3. The checker now reads the letter's own "Date:" line for day counts (LETTER_DATE, DOWN_TIME_START).
+
+**2026-10-31 20:58 v8:** current letter is `output/platform_reply_draft_2026-10-31_205821.txt`.
+1. The user wants times to the second wherever possible. Email times now carry seconds from the email headers, in Mountain Time (the PC's time zone is Mountain).
+2. The A14 text to Luke (11:29 PM) and the A13 screenshots have no seconds, so they stay to the minute.
+3. Box upload times are minute-only, in UTC: 03:45 to 03:47 UTC on 09-30, which is 9:45 to 9:47 PM MDT on 09-29.
+4. Header times for reference:
+   1. B2: 09-12 23:55:41, sent from the user's hotmail.
+   2. A6: 09-13 00:54:26.
+   3. A5 Dillon: 09-13 02:46:46.
+   4. A7 payout: 09-14 00:01:00.
+   5. A4: 09-11 09:20:57.
+   6. Renter's booking message: 09-10 22:38:11.
+   7. B1: 09-04 11:49:49.
+   8. SxS emails: 10-17 15:34:17, 10-19 11:36:55 and 10-29 11:50:47.
+   9. Our letters: 10-17 16:12:44 and 10-20 19:02:14.
+5. Checker M13 now FAILs a time given to the second that doesn't match its evidence folder's second.
+
+**2026-10-31 21:23 v9:** current letter is `output/platform_reply_draft_2026-10-31_212332.txt` (in the Outlook draft, not sent). This was the final consistency pass. Fixes:
+1. The $40 was deducted from the $200 booking, not from the $160 (Part I.2, C7).
+2. New VIII.9(d): fees charged to the Renter belong to SxS, not to the owner.
+3. Neither proposal applies a deductible (checked both PDFs), so IX.1(b) now says "exclusions, betterment scale, loss of use cap".
+4. VIII.1 no longer says "most of the balance"; $1,555.71 of $3,527.92 is 44%.
+5. The second day's basis is Part VII, not T15/T16.
+6. "Changed three times" became "changed with each review".
+7. Added [sic] to "turned to quickly".
+8. B2 is described as sent from hotmail.
+9. XII.2 now refers to Part I items 1 and 2.
+
+**2026-10-31 21:29 v10:** current letter is `output/platform_reply_draft_2026-10-31_212914.txt` (in the Outlook draft, not sent).
+1. The $40 is SxS's Owner Service Fee (20% of Vehicle Fees), shown on A7 and A4 as "Side By Side Share fee -40.00".
+2. Part III.3 now explains what the fee is, why SxS applied it, why it doesn't apply, and when it matters. It matters only if loss of use stays at one booking; at $750 it drops out.
+3. New Schedule A entry T25 (Service Fees).
+4. Part III.1(d)-(f) rejects the "good-faith accommodation" label: the payment is owed under T15, good faith is a duty under T19 and Florida's implied covenant (T23). The letter asks SxS to state the payment as loss of use under T15.
+5. The user says TWO further rentals were lost. Only 6aa41c4d is on the platform; Sept 22 exists only in the private texts. The user chose GENERIC wording: "lost further rentals while it stood in the shop", claimed as T16 down time. Never name Sept 22 or the customer.
+6. The checker now accepts any T number that exists in Schedule A.
+
+**2026-10-31 21:31 v11:** current letter is `output/platform_reply_draft_2026-10-31_213149.txt` (in the Outlook draft, not sent). Final check passed with 0 FAIL. It now says "owed under T15" throughout, and III.3(d) cites T25 to show the fee is taken "within 24 hours of when the Renter arrives"; for 6aa41c4d no renter arrived.
+
+**SENT 2026-10-31 21:35:09 MT**, from dimaskusllc to admin@sidebysideshare.com, CC hotmail (received 21:35:17 with B1 and B2 intact).
+1. Record: `evidence/emails/2026-10-31_213509_dimaskusllc_SENT_RE_Final_Claim_Resolution_notice_of_dispute/`.
+2. Text: `output/platform_reply_final_2026-10-31_213509.txt`.
+3. Not committed yet: the fact-check scripts, the 10-29 evidence and the sent folder are untracked on branch atv-accident.
+4. RESPONSE DUE Mon 2026-11-02 17:00 MT. If there is no answer, every request is treated as declined: pursue the Renter (demand letter, then Utah small claims) and FairClaims arbitration against SxS (Part XII.5).
+5. The user still owes the Karl Malone cargo box quote, and should ask the shop to check the LH radiator support for bending, the frame and mounts, steering and alignment, and oil in the air intake.
 
 **Why:** the user wants to recover the full loss from the renter via the platform, or in court if needed. Related: [[project_ticketprocessing_mesa_court]], [[feedback_legal_letter_style]].
 **How to apply:** check joshua.a.zayne@hotmail.com for SxS's reply before 2026-10-30; save it under evidence/emails and answer it the same point-by-point way.
