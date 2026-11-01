@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: a9e289a4-d2cb-453d-8b06-5e7ae5ca6722
-  modified: 2026-08-03T14:44:57.552Z
+  modified: 2026-11-01T04:57:20.302Z
 ---
 
 Repo: `C:\Users\ohjos\repos\Yearly_and_monthly_spend_per_CC` (private GitHub JoshuaZayne/…, default branch **master**, runs on **Python 3.13** only — the Windows Store install; conda base 3.14/3.9 lack pyarrow / are too old).
@@ -24,6 +24,9 @@ py -3.13 -m spend_report.data_io.fidelity_statement_organizer          # dry run
 py -3.13 -m spend_report.data_io.fidelity_statement_organizer --move   # sweeps ~/Downloads
 ```
 Fidelity names every statement `Statement<MMDDYYYY>.pdf`, so downloads collide as `Statement12312025 (3).pdf` — the **`(n)` suffix means a DIFFERENT ACCOUNT or granularity, never a copy**. Never dedupe these by filename or byte hash: a re-downloaded statement has different PDF metadata but identical text, so the organizer compares **extracted text**. It also skips quarterly/year-end reports at load time because they restate the same activity as the monthlies (only monthly statements feed the ledger).
+
+## AMEX card folders (updated 2026-10-31)
+`accounts/AMEX (Joshua & Olivia)/monthly/` = the ONLY card PDFs the ledger reads (`load_amex` globs `monthly/*.pdf`), now 2026-01-14..2026-10-14. `screen_reader_versions/` = AMEX "Screen Reader Optimized" re-downloads of May-Sep 2026: different bytes but identical parsed transactions, so intake's byte-hash dedupe misses them and would OVERWRITE the same-named file in `monthly/`; compare `amex_pdf.parse()` output first. `activity_csv/<closing>_activity.csv` = AMEX website CSV exports per cycle (not parsed; tie to PDFs to the cent; carry card member 31005/31013/31021, merchant city/zip, and airline passenger/ticket/From/To): use them for trip lookups. Fidelity Visa 1012 data stops 2026-06-24 (needs fresh export). Antigravity has a repo nav rules file at `.agents/rules/repo-quick-navigation.md`. Ad hoc questions: read newest `output/report_<ts>.parquet` instead of rebuilding (~7 min).
 
 ## Parsed accounts & their folders (each has its own parser + a sheet)
 - **Schwab brokerage** (`accounts/Charles Schwab Brokerage - <name> (<suf>)/Brokerage Statements/<YYYY-MM-DD>.pdf`): Pure Gains (620), Insurance (604), Options (765), Vehicles (060). Parser `schwab_brokerage_pdf`.
