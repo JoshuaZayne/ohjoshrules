@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: a9e289a4-d2cb-453d-8b06-5e7ae5ca6722
-  modified: 2026-11-01T04:57:20.302Z
+  modified: 2026-11-01T06:47:52.865Z
 ---
 
 Repo: `C:\Users\ohjos\repos\Yearly_and_monthly_spend_per_CC` (private GitHub JoshuaZayne/…, default branch **master**, runs on **Python 3.13** only — the Windows Store install; conda base 3.14/3.9 lack pyarrow / are too old).
@@ -24,6 +24,12 @@ py -3.13 -m spend_report.data_io.fidelity_statement_organizer          # dry run
 py -3.13 -m spend_report.data_io.fidelity_statement_organizer --move   # sweeps ~/Downloads
 ```
 Fidelity names every statement `Statement<MMDDYYYY>.pdf`, so downloads collide as `Statement12312025 (3).pdf` — the **`(n)` suffix means a DIFFERENT ACCOUNT or granularity, never a copy**. Never dedupe these by filename or byte hash: a re-downloaded statement has different PDF metadata but identical text, so the organizer compares **extracted text**. It also skips quarterly/year-end reports at load time because they restate the same activity as the monthlies (only monthly statements feed the ledger).
+
+## Citi card + Schwab 086 gap fill + Dallas trips (2026-11-01)
+**Citi Costco Anywhere Visa** = account `CITI-CC`, parser `citi_cc_csv`, folder `accounts/Citi Credit Card/`. Citi downloads arrive as `Year to date.CSV`; intake detects them by header and renames to `Citi_CC_<first>_to_<last>.csv`. Citi writes amounts UNQUOTED with thousands commas (`-$ 1,186.53`), so plain csv/pandas breaks; Olivia's card member name is OLIVIA BURDETTE. Windows gotcha: never glob `*.csv` AND `*.CSV` (same file twice, doubles rows past `_dedup_cc`).
+**Schwab 086 PDFs:** intake names them `Bank Statement <date>.pdf` (space) while Schwab names them `Bank Statement_<date>_086.PDF`; the loader now reads both, and gap-fills dates OUTSIDE the CSV's span within a month (the CSV ending 2026-07-02 used to hide all of July). `ls | tail` hides the space-named files (space sorts before underscore).
+**Dallas trips** (Jun 19-22, Jul 29-Aug 1 2026): `scripts/build/trip_spend_dallas_2026.py` -> `output/Dallas_Trips_Jun_Jul_2026_<ts>.xlsx`. June = Thompson Dallas by Hyatt (AMEX FHR DIRRZZ, $353.32/night base, $1,082.52 net) + Alamo via Costco Travel C493900010 ($176.43). July lodging and rental (Enterprise, per ERACTOLL) NOT found in any card or mailbox; Citi COSTCO TRAVEL $496.24 on 2026-07-20 is the unverified candidate. Booking mail lives in Outlook SUBFOLDERS (`Inbox\Shopping`, `Inbox\Banks\American Express`): search recursively, and build Restrict dates with `(Get-Date ...).ToString('g')` because the PC's locale reads `06/05` day-first. Frontier mail goes to Olivia's Gmail (the connected Gmail).
+**Another tool edits this repo concurrently** (2026-11-01 it deleted Fidelity Visa folder files as dupes); verify each deletion by byte/text/row content before committing. Two it deleted were NOT dupes and were left uncommitted: `1012_2025_AAS.csv` and the hand-annotated `Fedility Credit Card - 1012_11-05-2024_12-09-2025.csv`.
 
 ## AMEX card folders (updated 2026-10-31)
 `accounts/AMEX (Joshua & Olivia)/monthly/` = the ONLY card PDFs the ledger reads (`load_amex` globs `monthly/*.pdf`), now 2026-01-14..2026-10-14. `screen_reader_versions/` = AMEX "Screen Reader Optimized" re-downloads of May-Sep 2026: different bytes but identical parsed transactions, so intake's byte-hash dedupe misses them and would OVERWRITE the same-named file in `monthly/`; compare `amex_pdf.parse()` output first. `activity_csv/<closing>_activity.csv` = AMEX website CSV exports per cycle (not parsed; tie to PDFs to the cent; carry card member 31005/31013/31021, merchant city/zip, and airline passenger/ticket/From/To): use them for trip lookups. Fidelity Visa 1012 data stops 2026-06-24 (needs fresh export). Antigravity has a repo nav rules file at `.agents/rules/repo-quick-navigation.md`. Ad hoc questions: read newest `output/report_<ts>.parquet` instead of rebuilding (~7 min).
