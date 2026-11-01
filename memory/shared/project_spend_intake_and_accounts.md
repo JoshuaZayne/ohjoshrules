@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: a9e289a4-d2cb-453d-8b06-5e7ae5ca6722
-  modified: 2026-11-01T06:47:52.865Z
+  modified: 2026-11-01T09:56:31.806Z
 ---
 
 Repo: `C:\Users\ohjos\repos\Yearly_and_monthly_spend_per_CC` (private GitHub JoshuaZayne/…, default branch **master**, runs on **Python 3.13** only — the Windows Store install; conda base 3.14/3.9 lack pyarrow / are too old).
@@ -29,6 +29,7 @@ Fidelity names every statement `Statement<MMDDYYYY>.pdf`, so downloads collide a
 **Citi Costco Anywhere Visa** = account `CITI-CC`, parser `citi_cc_csv`, folder `accounts/Citi Credit Card/`. Citi downloads arrive as `Year to date.CSV`; intake detects them by header and renames to `Citi_CC_<first>_to_<last>.csv`. Citi writes amounts UNQUOTED with thousands commas (`-$ 1,186.53`), so plain csv/pandas breaks; Olivia's card member name is OLIVIA BURDETTE. Windows gotcha: never glob `*.csv` AND `*.CSV` (same file twice, doubles rows past `_dedup_cc`).
 **Schwab 086 PDFs:** intake names them `Bank Statement <date>.pdf` (space) while Schwab names them `Bank Statement_<date>_086.PDF`; the loader now reads both, and gap-fills dates OUTSIDE the CSV's span within a month (the CSV ending 2026-07-02 used to hide all of July). `ls | tail` hides the space-named files (space sorts before underscore).
 **Dallas trips** (Jun 19-22, Jul 29-Aug 1 2026): `scripts/build/trip_spend_dallas_2026.py` -> `output/Dallas_Trips_Jun_Jul_2026_<ts>.xlsx`. June = Thompson Dallas by Hyatt (AMEX FHR DIRRZZ, $353.32/night base, $1,082.52 net) + Alamo via Costco Travel C493900010 ($176.43). July lodging and rental (Enterprise, per ERACTOLL) NOT found in any card or mailbox; Citi COSTCO TRAVEL $496.24 on 2026-07-20 is the unverified candidate. Booking mail lives in Outlook SUBFOLDERS (`Inbox\Shopping`, `Inbox\Banks\American Express`): search recursively, and build Restrict dates with `(Get-Date ...).ToString('g')` because the PC's locale reads `06/05` day-first. Frontier mail goes to Olivia's Gmail (the connected Gmail).
+**Categorization (2026-11-01, commits a2bc72c + 994d5ab):** uncategorized card spend all years 2.6%, 2025 0.3%, 2026 0.6%. Reconciliation now FAILS if any year >= 2025 exceeds 5% (it used to only print [info], which let 2026 drift to 10.3%). TSP payouts are transfer_in (not income; 2026 income $141,407), Citi payments are Card Payment, AMEX "RETURNED CHECK/DECLINED BANK" is a payment reversal (not spend). Canonical names only: "Firearms & Shooting Sports", "Education & Professional". Before adding a rule, replay it against the ledger to see what it would re-file (a "brooker" keyword stole a DoorDash order). A punctuation-insensitive match pass was tried and rejected (tiny gain, false positives).
 **Another tool edits this repo concurrently** (2026-11-01 it deleted Fidelity Visa folder files as dupes); verify each deletion by byte/text/row content before committing. Two it deleted were NOT dupes and were left uncommitted: `1012_2025_AAS.csv` and the hand-annotated `Fedility Credit Card - 1012_11-05-2024_12-09-2025.csv`.
 
 ## AMEX card folders (updated 2026-10-31)
