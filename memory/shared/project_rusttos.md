@@ -1,11 +1,11 @@
 ---
 name: project_rusttos
-description: "RustTOS repo (F:\\GitHub Repos\\RustTOS, private JoshuaZayne/RustTOS): standalone all-Rust thinkorswim-style platform with wgpu GPU charting; phase 0 done 2026-11-01 (commit 042e984); rules enforced by cargo test"
+description: "RustTOS repo (F:\\GitHub Repos\\RustTOS, private JoshuaZayne/RustTOS): all-Rust thinkorswim-style app; GPU chart with studies and drawings, Schwab in Rust, live real data read from the Brokers data folder (pushed e8d6981, 2026-11-01)"
 metadata:
   node_type: memory
   type: project
   originSessionId: dfe8eb70-bebc-45d2-b981-4703bed5ae51
-  modified: 2026-11-01T23:44:20.322Z
+  modified: 2026-11-02T06:48:34.694Z
 ---
 
 RustTOS: standalone Rust app meant to do what thinkorswim does, plus GPU native charting (wgpu, since the desktop GPU is an AMD RX 7900 XTX, so no CUDA), a stronger indicator engine, and live broker API data. Started 2026-11-01. Roadmap: `RustTOS/docs/ROADMAP.md` is the ONLY roadmap. The CodeMapping_Brain roadmap file is just a pointer; never copy steps back into it, and commit Roadmap References name `docs/ROADMAP.md`. Phase 0 done (commit 042e984, pushed). Next up is phase 1: feature catalog, and decoding the `@v10@` chart CONFIGURATION payload by comparing read-only copies of the ~30 workspace XML files TOS has already saved. Never ask the user to change or save anything in TOS.
@@ -18,7 +18,10 @@ Rules the user set for this repo, all enforced by `cargo test` through `crates/r
 
 4. The repo is independent (user, 2026-11-01 17:07 MST: "make this repo independent from anything else"; decision D0008). It must not name other repos, CodeMapping_Brain, personal folders or memory paths, and no code may read from or import outside it; `crates/repo-tools/src/independence.rs` fails `cargo test` on any outside reference. The global rules that apply are written into its own CLAUDE.md. Because of this, the reuse-before-writing rule means reuse inside RustTOS, never import from other repos.
 5. TOS safety: the user worries their Schwab account could be blocked or blacklisted. CLAUDE.md rule 7: TOS is read-only (copy files to a temp folder and read the copy, never write to the TOS folder), with no automation of, injection into, or attaching to TOS, and no capturing its traffic or calling its servers. Live data comes only from official broker APIs.
+6. Screenshots of TOS: the user said on 2026-11-01 at about 23:08 MST "there is nothing propriatary you are capturing. there is no need to "delete" the image". Passive screen captures of TOS windows are fine and should be KEPT, saved with timestamped names in the git ignored `RustTOS/data/` folder for layout reference. Do not commit them.
 
 **Why:** the user explicitly asked for an all-Rust repo with everything tracked, and later for everything to run locally. Their goal is a TOS-like app that accepts ANY data feed or indicator and charts it better than TOS does.
 
 **How to apply:** cargo lives at `C:\Users\ohjos\.cargo\bin`, which is not on the default PATH of the Bash/PowerShell tools, so prepend it. TOS is studied clean room only (decision D0001): never decompile the jars in `C:\Program Files\thinkorswim\usergui\<build>`. Schwab has no official Rust SDK. The lead crate is `schwab-sdk` (jonathan-g-davis), with `rustyschwab` as runner up; the pick is deferred to phase 2.
+
+**State 2026-11-01 23:50 MST (pushed e8d6981):** GPU chart (`crates/rusttos-chart`: studies window with lower panes, 16 drawing tools, time frames, chart types, TOS style header/bubbles/bottom bar) and Schwab in Rust (`crates/rusttos-schwab`, read only quotes + price history). Real data: `cargo run --release -p rusttos-chart -- --market-data "F:\GitHub Repos\Brokers_merge\data" --symbol 6E` reads the Brokers Parquet store (`parquet/ohlcv_history/timeframe=1_min/<SYM>.parquet`), fills the gap from Schwab, then follows the recorder's live `schwab/ticks/<SYM>.csv`. Rules (decision D0012, `docs/schwab_port_plan.md`): RustTOS ports Brokers' Schwab code to Rust (never copies Python), reads that folder read only, never writes the shared token `data/schwab/schwab_token.json`, and never opens a second Schwab stream while `schwab/stream_lease.json` is fresh (one streaming login per account). The repo itself must still not name that path (independence check). TOS layout map: `docs/tos_decode/05_charts_tab_layout_map.md`; TOS screenshots kept in RustTOS `data/tos_reference/`. Schwab login was 5.84 days old at 2026-11-01 23:45 MST: browser login due by about 2026-11-03 03:30 MST. Next: RustTOS-owned history store, Rust streamer (lease aware), option chains, accounts read only, TOS menus/dialogs (roadmap 3.6.12).
