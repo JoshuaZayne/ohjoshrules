@@ -116,7 +116,7 @@ The fact checker was updated (T24, "Signed under protest" exemption, Oct 20 hist
 
 **2026-11-04 01:02 LEGAL restructure (CURRENT, not sent):** at the user's request the rebuttal was rebuilt in the format of the Thicket Hill "Request for Mutual Termination" PDF sent to Highland 2026-11-02 (see [[project_thicket_hill_oct2026_status]]): letterhead/addressee (Two Steps Twice LLC d/b/a Side By Side Share), defined terms incl. Business Day / Decision Deadline (Thu 2026-11-05 5 p.m. MT), I Requested Action, II Statement of Facts 1 to 16, III Governing Provisions (T and F numbers kept from the Oct 31 letter, all quoted), IV.A to F analysis (position / Response / Supporting record), V Proposed Resolution, VI Deadlines and Down Time, VII Communications, VIII Other Matters, IX No Accord and Satisfaction / Reservation / Preservation / Dispute Resolution, X Summary of Requests, Exhibits (A1 to A15, B1, B2, C, D1 to D6), Attachment 1 Collection Instruction and Response Form. Text: `output/platform_rebuttal_LEGAL_draft_2026-11-04_011500.txt`; PDF: `output/platform_rebuttal_LEGAL_draft_2026-11-04_011500_PDF_2026-11-04_010251.pdf` (21 pages). New typesetter `build_letter_pdf.py` (reportlab; .txt stays the source the fact checker reads; `--footer` text + Page X of Y). The 00:50 draft is superseded. Nothing committed.
 
-**2026-11-04 08:42 revision (CURRENT, not sent):** `output/platform_rebuttal_LEGAL_draft_2026-11-04_084212.txt`, PDF `..._084212_PDF_2026-11-04_084617.pdf` (25 pages), opened for the user. Supersedes the 01:15 LEGAL draft. Changes:
+**2026-11-04 08:42 revision (superseded by 15:17):** `output/platform_rebuttal_LEGAL_draft_2026-11-04_084212.txt`, PDF `..._084212_PDF_2026-11-04_084617.pdf` (25 pages), opened for the user. Supersedes the 01:15 LEGAL draft. Changes:
 1. Section IV.F was rewritten on SxS's non-response. It has a correspondence timeline table and six pattern points:
    1. Information requests never answered.
    2. Dillon wrote on 09-13: "Our team has reached out to Conner as well." What the Renter said has never been disclosed.
@@ -136,3 +136,31 @@ The fact checker was updated (T24, "Signed under protest" exemption, Oct 20 hist
    4. The response block is kept together.
    5. Check boxes use non-breaking spaces.
 8. Checker: remaining FAILs are known limits, plus $205.25 (= 3023.66 - 2818.41) and 33 or 52 day counts measured from 09-13.
+
+**2026-11-04 15:17 revision (superseded by 15:36):** `output/platform_rebuttal_LEGAL_draft_2026-11-04_151733.txt`, PDF `..._151733_PDF_2026-11-04_151734.pdf` (28 pages), opened for the user. Changes:
+1. Triple check of every figure against the source emails and PDFs. The dollar math was all correct. Wording fixes:
+   1. "nearly eight weeks" became "more than seven weeks" (52 days).
+   2. The 10/28 Order has the RH radiator support 705016599 at qty 0, and does NOT list the OEM handguard pair 715001706 at all ($234.99 + $39.99 = $274.98 pre-tax; with tax $294.92 = $2,665.52 approved - $2,370.60 order damage total).
+   3. Nov 3 quoted one sentence (T32) and one phrase (T31), not two sentences.
+   4. Second day: declined 10-17, maintained 10-19, declined again 10-29.
+2. Renter now identified as Conner Corbin ("Conner C"), 385-505-1007 (letterhead, definitions, Attachment 1). Mailing address and email are still unknown.
+3. New Attachment 2: the 10/28 Order line by line, with a Note column and totals. build_letter_pdf.py now ends the Attachment 1 KeepTogether at the next ATTACHMENT heading, and has width rules for the Part number, Labor and Summary tables. NOT committed.
+4. Every Terms quote was verified against the live page fetched 2026-11-04 15:18 MT.
+5. OPEN DECISION: the 10/28 Order prices RAGEFABCANAM at $149.99, but the letter uses SxS's 09-30 $104.50. Switching would make C1 $814.50 (+$48.79) and the total $6,600.37.
+
+**2026-11-04 15:36 revision (CURRENT, not sent):** `output/platform_rebuttal_LEGAL_draft_2026-11-04_153640.txt`, PDF `..._153640_PDF_2026-11-04_153641.pdf` (30 pages, FILLABLE: 27 AcroForm fields), opened for the user.
+1. User decisions (2026-11-04):
+   1. The $55 Venmo is argued as two separate charges (helmet and ramp), each under the ~$50 Return Form figure. The per item split is NOT in the evidence; ask the user for it.
+   2. Rage mount: the Renter's share uses the shop's $149.99 (10/28 Order RAGEFABCANAM); SxS's own reference was $104.50.
+   3. "Challenge anything not claimed": the LH front mudguard 705006988 is now claimed ($39.99, $42.89 with tax). The LH air deflector 709401304 is claimed only if the OEM pair 715001706 doesn't fit (C11, not in the totals). The shop is asked to price 705013850.
+2. New figures:
+   1. Loss $6,643.26 ($91.68 over the Oct 31 $6,551.58).
+   2. Plan repair ask $4,878.76 (+$2,015.10); plan total $5,038.76.
+   3. Renter minimum $1,604.50 + $62.58 fee; C1 $814.50; Renter at the current offer $3,619.60; C6 $81.85.
+3. Repo changes (NOT committed):
+   1. claim_after_platform_reply.py: RAGE line moved to 149.99, and a new 705006988-LH line.
+   2. claim_after_revised_proposal.py: the plan ask set.
+   3. fact_check_registers.py: formulas.
+   4. build_letter_pdf.py: fillable fields and table widths.
+   5. NEW approval_crosscheck.py: five method check of SxS approvals. Approved parts reconcile to $1,583.71 and partials to $198.14.
+4. Lawyer package: `output/ATV_claim_package_for_counsel_2026-11-04_153853.zip` (189 files, 140 MB). Excludes private_do_not_send.
