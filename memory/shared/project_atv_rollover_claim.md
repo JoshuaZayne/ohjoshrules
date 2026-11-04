@@ -115,3 +115,24 @@ The fact checker was updated (T24, "Signed under protest" exemption, Oct 20 hist
 4. fact_check_letter.py M15 now allows "Venmo" only on a line tied to the $55 helmet/ramp/Return Form (still FAILs with delivery, trailer, $125, $35, Josh S). Remaining checker FAILs on this draft are known limits (handwriting, attachment filename, "90 days" read as a day count, $274.98 and $10,600 = 53 x $200).
 
 **2026-11-04 01:02 LEGAL restructure (CURRENT, not sent):** at the user's request the rebuttal was rebuilt in the format of the Thicket Hill "Request for Mutual Termination" PDF sent to Highland 2026-11-02 (see [[project_thicket_hill_oct2026_status]]): letterhead/addressee (Two Steps Twice LLC d/b/a Side By Side Share), defined terms incl. Business Day / Decision Deadline (Thu 2026-11-05 5 p.m. MT), I Requested Action, II Statement of Facts 1 to 16, III Governing Provisions (T and F numbers kept from the Oct 31 letter, all quoted), IV.A to F analysis (position / Response / Supporting record), V Proposed Resolution, VI Deadlines and Down Time, VII Communications, VIII Other Matters, IX No Accord and Satisfaction / Reservation / Preservation / Dispute Resolution, X Summary of Requests, Exhibits (A1 to A15, B1, B2, C, D1 to D6), Attachment 1 Collection Instruction and Response Form. Text: `output/platform_rebuttal_LEGAL_draft_2026-11-04_011500.txt`; PDF: `output/platform_rebuttal_LEGAL_draft_2026-11-04_011500_PDF_2026-11-04_010251.pdf` (21 pages). New typesetter `build_letter_pdf.py` (reportlab; .txt stays the source the fact checker reads; `--footer` text + Page X of Y). The 00:50 draft is superseded. Nothing committed.
+
+**2026-11-04 08:42 revision (CURRENT, not sent):** `output/platform_rebuttal_LEGAL_draft_2026-11-04_084212.txt`, PDF `..._084212_PDF_2026-11-04_084617.pdf` (25 pages), opened for the user. Supersedes the 01:15 LEGAL draft. Changes:
+1. Section IV.F was rewritten on SxS's non-response. It has a correspondence timeline table and six pattern points:
+   1. Information requests never answered.
+   2. Dillon wrote on 09-13: "Our team has reached out to Conner as well." What the Renter said has never been disclosed.
+   3. Unkept promises: the 09-13 promise to charge the deductible, and the 10-17 "We'll review the extra-unit payment separately with the renter".
+   4. 10-19: "any terms you quote do not apply".
+   5. New grounds raised in week 8.
+   6. "Final" not meaning final: the offer rose $205.25 after "maintaining that amount without changes".
+2. IV.F also gives four legal reasons: T22 informal resolution, the agent's duty to account (T2, T3, T5), the Florida covenant of good faith (T23), and the Owner's own T19 cooperation.
+3. IV.F ends with a 28-row request status table: 19 never answered, 5 partly answered, 4 declined. Items 5 to 13 have been asked since the Oct 20 letter.
+4. New Fact 16 covers the Oct 16 to Oct 29 correspondence; the old Fact 16 is now Fact 17.
+5. Down time is now consistent everywhere: $750 as T15 loss of use, $160 Plan plus $590 Renter.
+6. Attachment 1 has a 4th response item for the IV.F requests.
+7. build_letter_pdf.py fixes:
+   1. The phone number is no longer treated as a heading.
+   2. URL and fill-in-blank lines are set flush left.
+   3. Column widths added for the "No." and "When" tables.
+   4. The response block is kept together.
+   5. Check boxes use non-breaking spaces.
+8. Checker: remaining FAILs are known limits, plus $205.25 (= 3023.66 - 2818.41) and 33 or 52 day counts measured from 09-13.
