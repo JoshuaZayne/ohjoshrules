@@ -164,3 +164,9 @@ The fact checker was updated (T24, "Signed under protest" exemption, Oct 20 hist
    4. build_letter_pdf.py: fillable fields and table widths.
    5. NEW approval_crosscheck.py: five method check of SxS approvals. Approved parts reconcile to $1,583.71 and partials to $198.14.
 4. Lawyer package: `output/ATV_claim_package_for_counsel_2026-11-04_153853.zip` (189 files, 140 MB). Excludes private_do_not_send.
+
+**2026-11-04 18:39 revision (CURRENT, not sent):** `output/platform_rebuttal_LEGAL_draft_2026-11-04_183930.txt`, PDF `..._183930_PDF_2026-11-04_183930.pdf` (30 pages, 27 fields). Supersedes 15:36. Changes:
+1. IV.D restores the Oct 31 Part IV item 3 "both sides" argument: SxS approved RH damage ("dented, chipped", "bent/chipped near connection with bumper", bracket "RH side only") but denies the LH side the Vehicle landed on.
+2. Legal hardening: general denial of every Nov 3 assertion not admitted (IV opening); express denial of circumvention, "in the alternative", "upon information and belief" (IV.A); waiver and estoppel on the substitution (IV.B) and inspection form (IV.C) grounds.
+3. Scratchpad syntax_scan.py: 0 real findings. Fact checker: same known false positives, money checks 0 FAIL.
+Reply email DRAFTED in Outlook (dimaskusllc Drafts, RE: Final Claim Resolution, To admin@, CC hotmail), NOT sent. Attachments staged in `output/sxs_reply_email_2026-11-04_183656/`: the letter PDF and `Exhibits_D1_to_D6_2026-11-04_183656.pdf` (one PDF, since Gmail cannot preview .msg).
