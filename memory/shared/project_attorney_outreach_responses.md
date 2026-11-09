@@ -31,3 +31,11 @@ Attorney outreach for the 1725 Thicket Hill dispute (repo ThicketHillProperty), 
 **Why:** the user said "make sure we are only sending emails that can help us, improve the checks and update the memory of responses."
 
 **How to apply:** build every future recipient list with prepare_attorney_outreach.py (fit gate on by default), add any firm that declines to --declined-firms, log replies in ATTORNEY_RESPONSES.xlsx by exact full name (a first-name match once wrote Dial's reply onto Karl Rybicki's row), and keep the send safeguards in [[feedback_outlook_com_send_rate]]. Related: [[project_thicket_hill_oct2026_status]], [[feedback_outlook_drafts_recipe]].
+
+## Outcome (2026-11-09, about 15:30 MST)
+
+1. **Retained as dual counsel:** Frank Fleming (solo, Dallas, 214-373-1234, lawyerfcf@gmail.com, $350/hr, $5,000 deposit replenished) and Mary Melle (Calhoun Bhella LLP, John Price's Dallas colleague, 214-577-3447, mmelle@calhounbhella.com, $695/hr).
+2. **Paid 2026-11-09:** Melle $695.00 (AMEX via LawPay to the firm trust account, transaction 177553805); Fleming $350.00 (Zelle from Schwab, confirmation ending 7227) against his invoice "Atty Fees 01". Total $1,045.00. Recorded in documents/attorney_pricing.json "payments" and the workbook Pricing tab.
+3. **Both received** the clean counsel package (documents/counsel_package/clean_2026-11-09_151242/, three zips) on 2026-11-09, 15:16 to 15:23 MST.
+4. **Open with counsel:** deadlines (Erick and Riney both warned of limitation periods), Friday 2026-11-13 flooring selection, the Highland HomeLoans Adobe Sign request for a revised VA-26-1880 (do not sign before asking), Fleming's 2004 discipline record.
+5. **Gotchas learned:** lawyers may answer inside our quoted email (update_replies reads inline answers only when they say so); Gmail blocks zips containing .js; emailed wire instructions should be confirmed by phone (pay by card link instead).
