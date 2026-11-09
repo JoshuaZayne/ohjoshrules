@@ -1,12 +1,14 @@
 ---
 name: feedback_reuse_existing_code
-description: "Before writing any new function/module, check the code brain for existing code and import/reuse it instead of writing a new copy"
+description: "check the code brain before writing any new function"
 metadata: 
   node_type: memory
   type: feedback
   originSessionId: 34178c54-c10f-43c6-b548-81ced589d7ee
   modified: 2026-09-19T21:32:29.608Z
 ---
+
+**Summary moved from the memory index (2026-11-08):** Before writing any new function/module, check the code brain for existing code and import/reuse it instead of writing a new copy
 
 Before writing or creating any new function, class, script or module, check whether the user already has code for it, and reuse or import it instead of writing a new copy.
 

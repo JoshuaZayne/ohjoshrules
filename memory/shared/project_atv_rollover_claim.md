@@ -1,12 +1,14 @@
 ---
 name: project_atv_rollover_claim
-description: "ATV rollover claim vs Side By Side Share and renter Conner Corbin: Nov 4 rebuttal SENT 2026-11-04 19:25:28 MT (asks coverage confirmed, $3,023.66 on account, charge renter $1,604.50 + $62.58, 28 requests); SxS response due Thu 2026-11-05 17:00 MT; else FairClaims + Utah small claims; lives in TicketProcessing/ATV_accident"
+description: "vs Side By Side Share and renter; rebuttal sent 2026-11-04; TicketProcessing/ATV_accident"
 metadata:
   node_type: memory
   type: project
   originSessionId: c5bc23de-465d-409f-8b0e-7a173ca7df9b
   modified: 2026-11-01T03:36:08.836Z
 ---
+
+**Summary moved from the memory index (2026-11-08):** ATV rollover claim vs Side By Side Share and renter Conner Corbin: Nov 4 rebuttal SENT 2026-11-04 19:25:28 MT (asks coverage confirmed, $3,023.66 on account, charge renter $1,604.50 + $62.58, 28 requests); SxS response due Thu 2026-11-05 17:00 MT; else FairClaims + Utah small claims; lives in TicketProcessing/ATV_accident
 
 Folder `F:\GitHub Repos\TicketProcessing\ATV_accident\`, branch `atv-accident` (pushed; latest d4c0f14 on 2026-10-20; not merged to main). Plan and step list: `docs/COURT_PLAN_2026-10-20.md`. Older guide: `docs/UTAH_LEGAL_GUIDE.md`.
 

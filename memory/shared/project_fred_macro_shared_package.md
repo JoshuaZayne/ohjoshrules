@@ -1,12 +1,14 @@
 ---
 name: project_fred_macro_shared_package
-description: FredMacroData repo (fred_macro package) = the ONE shared FRED downloader; used by Brokers and MarketCommentaryResearch (created 2026-10-02)
+description: "FredMacroData: the ONE shared FRED downloader"
 metadata:
   node_type: memory
   type: project
   originSessionId: cbe75536-e18b-4367-9ec3-e6cd6153689b
   modified: 2026-10-03T06:45:15.629Z
 ---
+
+**Summary moved from the memory index (2026-11-08):** FredMacroData repo (fred_macro package) = the ONE shared FRED downloader; used by Brokers and MarketCommentaryResearch (created 2026-10-02)
 
 **FredMacroData** (private, `JoshuaZayne/FredMacroData`, desktop clone `F:\GitHub Repos\FredMacroData`) holds the `fred_macro` package: 31 FRED series in 10 groups + derived 10s30s/20s30s/5s10s/2s30s spreads, keyless `fredgraph.csv` endpoint, `fred-macro` CLI, 9 offline tests. Editable-installed into Anaconda on the desktop.
 

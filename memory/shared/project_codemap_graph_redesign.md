@@ -1,11 +1,13 @@
 ---
 name: project-codemap-graph-redesign
-description: Active roadmap to redesign CodeMapping_Brain graph into Repo > Code > Outputs > Agents/Skills layers to surface wrapper overlap and code-reuse opportunities
+description: "roadmap: Repo > Code > Outputs > Agents/Skills layers"
 metadata: 
   node_type: memory
   type: project
   originSessionId: 95bde9f9-b52d-4edc-9fb3-c617c6135c1e
 ---
+
+**Summary moved from the memory index (2026-11-08):** Active roadmap to redesign CodeMapping_Brain graph into Repo > Code > Outputs > Agents/Skills layers to surface wrapper overlap and code-reuse opportunities
 
 Active codemap graph redesign roadmap.
 

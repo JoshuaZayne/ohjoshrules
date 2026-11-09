@@ -1,11 +1,13 @@
 ---
 name: feedback-roadmap-default
-description: Every non-trivial planning task must default to creating a TODO roadmap .md in CodeMapping_Brain/content/roadmaps and updating it as work progresses
+description: "non-trivial plans get a TODO roadmap in CodeMapping_Brain/content/roadmaps"
 metadata: 
   node_type: memory
   type: feedback
   originSessionId: e2ef58d5-9b19-4f19-aef7-7007c021715a
 ---
+
+**Summary moved from the memory index (2026-11-08):** Every non-trivial planning task must default to creating a TODO roadmap .md in CodeMapping_Brain/content/roadmaps and updating it as work progresses
 
 Whenever Claude does any non-trivial planning, design, or multi-step task, the FIRST action is to create a TODO roadmap markdown file at `~/repos/CodeMapping_Brain/content/roadmaps/YYYY-MM-DD_HHMMSS_<slug>.md`, then update it as steps complete.
 

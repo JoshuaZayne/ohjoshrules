@@ -1,12 +1,14 @@
 ---
 name: project_dumptruck_business_buildout
-description: "DumpTruckBusinessBuildout repo state — Van Alstyne TX dump trailer/hauling business cost model, trailer scraper, customer leads, confirmed Ram financing"
+description: "Van Alstyne TX hauling cost model, scraper, leads, Ram financing"
 metadata: 
   node_type: memory
   type: project
   originSessionId: b2013cb2-4779-4a74-ad01-d910345c66d3
   modified: 2026-08-21T07:56:45.722Z
 ---
+
+**Summary moved from the memory index (2026-11-08):** DumpTruckBusinessBuildout repo state — Van Alstyne TX dump trailer/hauling business cost model, trailer scraper, customer leads, confirmed Ram financing
 
 Repo: `~/repos/DumpTruckBusinessBuildout` (private, github.com/JoshuaZayne/DumpTruckBusinessBuildout).
 A sourced costing/pricing/econometric model (not a business plan) for a dump

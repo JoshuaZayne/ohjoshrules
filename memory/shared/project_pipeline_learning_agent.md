@@ -1,11 +1,13 @@
 ---
 name: project-pipeline-learning-agent
-description: "Active overlay roadmap that adds step instrumentation, PyTorch failure classifier, step-decomposer LLM agent, and diagnostic LLM agent over every broker pipeline. Goal is highest practical automation. Sits alongside the main brokers market-data pipeline roadmap."
+description: "overlay roadmap: instrumentation, failure classifier, LLM agents over broker pipelines"
 metadata: 
   node_type: memory
   type: project
   originSessionId: ab66236a-9f95-4d9e-a400-58c56960bc39
 ---
+
+**Summary moved from the memory index (2026-11-08):** Active overlay roadmap that adds step instrumentation, PyTorch failure classifier, step-decomposer LLM agent, and diagnostic LLM agent over every broker pipeline. Goal is highest practical automation. Sits alongside the main brokers market-data pipeline roadmap.
 
 Active subsystem under construction: a self-monitoring + self-healing overlay for every broker pipeline.
 

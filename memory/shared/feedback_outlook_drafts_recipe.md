@@ -1,12 +1,14 @@
 ---
 name: feedback_outlook_drafts_recipe
-description: "Outlook must never be crashed again: use ThicketHillProperty/scripts/create_outlook_draft.ps1 ONCE (it preflights and stops); never New-Object Outlook.Application, never retry loops, never Start-Process OUTLOOK.EXE repeatedly; recovery from 'exhausted all shared resources'"
+description: "use create_outlook_draft.ps1 once; no retry loops; never crash Outlook"
 metadata:
   node_type: memory
   type: feedback
   originSessionId: 2edaab43-0968-4b37-b12b-0e3dca580b74
   modified: 2026-11-07T12:18:20.691Z
 ---
+
+**Summary moved from the memory index (2026-11-08):** Outlook must never be crashed again: use ThicketHillProperty/scripts/create_outlook_draft.ps1 ONCE (it preflights and stops); never New-Object Outlook.Application, never retry loops, never Start-Process OUTLOOK.EXE repeatedly; recovery from 'exhausted all shared resources'
 
 The user said 2026-11-07: "update agy memory so it doesnt crash outlook anymore". On 2026-11-06 agy spent about 100 actions trying to "open the draft in Outlook"; every retry opened a new MAPI session (headless `OUTLOOK.EXE -Embedding` copies) until Outlook showed "Outlook has exhausted all shared resources" and could not start again, even after restarts, because Word, Excel and OneNote (open for days, last reboot 2026-10-01) kept the MAPI shared memory alive. The draft could not be created at all.
 

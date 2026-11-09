@@ -1,11 +1,13 @@
 ---
 name: project_home_scrapping_dfw_foreclosures
-description: "Home_Scrapping repo - DFW foreclosure auction workbook with per-property sheets, candidates, and validated links"
+description: "Home_Scrapping auction workbook, candidates, validated links"
 metadata: 
   node_type: memory
   type: project
   originSessionId: 9963e99d-85bd-4489-930c-72590fb5ce89
 ---
+
+**Summary moved from the memory index (2026-11-08):** Home_Scrapping repo - DFW foreclosure auction workbook with per-property sheets, candidates, and validated links
 
 `~/repos/Home_Scrapping` builds an Excel workbook of DFW foreclosure-auction picks (June 2 2026 sale). Canonical output: `DFW_Foreclosures_June_2026_FULL.xlsx` (~56 sheets: master "Foreclosures" 9 picks + "Equity Ranking" + "DFW Candidates" 34 finds + 8 City tabs + per-property sheets w/ bold DEAL ANALYSIS block, PDF text, embedded notice-of-sale scans + Link Legend).
 

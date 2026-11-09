@@ -1,9 +1,11 @@
 ---
 name: project_ticket_processing
-description: "TicketProcessing private repo - CO summons dict, Grand Junction traffic-attorney finder (OARC license/discipline + Reddit API), footage request generator; court 2026-10-30 8:15"
+description: "summons dict, attorney finder, footage request generator"
 metadata:
   type: project
 ---
+
+**Summary moved from the memory index (2026-11-08):** TicketProcessing private repo - CO summons dict, Grand Junction traffic-attorney finder (OARC license/discipline + Reddit API), footage request generator; court 2026-10-30 8:15
 
 Private repo github.com/JoshuaZayne/TicketProcessing at `F:\GitHub Repos\TicketProcessing` (created 2026-10-04).
 - `ticket_data.py` `TICKET` nested dict for a CSP summons (Mesa County, road 170 MP 21, 2026 Ram 3500, $174.50). Still None: citation_number, time_of_violation, violation_charged, trooper_name/badge.

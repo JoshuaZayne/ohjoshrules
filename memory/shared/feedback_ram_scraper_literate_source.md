@@ -1,12 +1,14 @@
 ---
 name: feedback_ram_scraper_literate_source
-description: "RamMegaCabDataScrapper's scraper/*.py files are literate-programming outputs generated from docs/src/*.md — editing the .py directly gets silently reverted the next time tangle.py runs"
+description: "scraper/*.py are generated from docs/src/*.md; edit the source"
 metadata: 
   node_type: memory
   type: feedback
   originSessionId: 9de44948-f071-4346-89d9-1953e149c42d
   modified: 2026-08-05T21:00:12.857Z
 ---
+
+**Summary moved from the memory index (2026-11-08):** RamMegaCabDataScrapper's scraper/*.py files are literate-programming outputs generated from docs/src/*.md — editing the .py directly gets silently reverted the next time tangle.py runs
 
 In `~/repos/RamMegaCabDataScrapper`, every file under `scraper/` (except
 `scripts/trees/*.py`, which are explicitly plain dev scripts) carries a

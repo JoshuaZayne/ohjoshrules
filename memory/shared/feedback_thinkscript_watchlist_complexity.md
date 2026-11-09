@@ -1,12 +1,14 @@
 ---
 name: feedback_thinkscript_watchlist_complexity
-description: thinkScript watchlist TooComplexException tracks recursion chain depth (shift-register slots = depth 23 failed; working EMA columns = depth 2); only log a pass when the user confirms that exact file runs
+description: "TooComplexException tracks chain depth; log a pass only when the user confirms"
 metadata:
   node_type: memory
   type: feedback
   originSessionId: 83278193-d6eb-4085-ace1-167c2497bcd2
   modified: 2026-10-18T04:35:59.049Z
 ---
+
+**Summary moved from the memory index (2026-11-08):** thinkScript watchlist TooComplexException tracks recursion chain depth (shift-register slots = depth 23 failed; working EMA columns = depth 2); only log a pass when the user confirms that exact file runs
 
 thinkorswim watchlist custom quote columns raise `com.devexperts.tos.thinkscript.runtime.TooComplexException` ("may not be reliable with real-time data"). On 2026-10-17 EVERY Quant Pivots ladder column with a 20- or 50-slot shift register (`slot_k = slot_(k-1)[1]`, recursion chain depth 23 or 53) failed, whatever its size score (349 to 592). The user's working EMA columns have depth 2. The fix that keeps depth at 2: a one-rec Wilder ruler, and reading the completed period as `pHigh[1]` / `pLow[1]` / `pOpen[1]` on the boundary bar instead of chains of previous-period recs. Charts tolerate deep chains.
 

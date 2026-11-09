@@ -1,11 +1,13 @@
 ---
 name: project-brokers-market-data-pipeline
-description: Active multi-phase roadmap to build recurring market-data pipelines across Schwab + IBKR + free-source events calendar + parquet/sqlite/postgres storage + Windows Task Scheduler orchestration. Started 2026-05-22.
+description: "multi-phase roadmap: Schwab + IBKR + events + storage + scheduler"
 metadata: 
   node_type: memory
   type: project
   originSessionId: ab66236a-9f95-4d9e-a400-58c56960bc39
 ---
+
+**Summary moved from the memory index (2026-11-08):** Active multi-phase roadmap to build recurring market-data pipelines across Schwab + IBKR + free-source events calendar + parquet/sqlite/postgres storage + Windows Task Scheduler orchestration. Started 2026-05-22.
 
 Active roadmap building daily/weekly/monthly market-data collection across Schwab (equities + options), IBKR (equities + options + futures + forex), an events calendar (Yahoo earnings, FRED FOMC, BLS CPI/NFP, Treasury auctions), three storage backends (parquet/sqlite/postgres), and Windows Task Scheduler.
 

@@ -1,9 +1,11 @@
 ---
 name: project-eva-gov-outlook-analysis
-description: EmailSearchandCleanup/domain_search scripts that pull all Outlook mail to/from/cc a domain (default eva.gov) and report topics + requests
+description: "domain_search scripts for mail topics + requests"
 metadata:
   type: project
 ---
+
+**Summary moved from the memory index (2026-11-08):** EmailSearchandCleanup/domain_search scripts that pull all Outlook mail to/from/cc a domain (default eva.gov) and report topics + requests
 
 ~/repos/EmailSearchandCleanup/domain_search/: run.ps1 -> 01_extract_domain_mail.ps1 (Classic Outlook COM, JSON) -> 02_analyze.py (report_*.md + requests_*.csv in output/). Domain param default va.gov (there is no eva.gov mail: sender is eva@va.gov, VA VR&E e-VA). Pass comma lists; script splits them because -File passes one string. Roadmap: ~/repos/CodeMapping_Brain/content/roadmaps/2026-09-18_215128_eva-gov-outlook-analysis.md
 

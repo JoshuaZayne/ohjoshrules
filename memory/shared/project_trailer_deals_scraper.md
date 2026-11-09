@@ -1,12 +1,14 @@
 ---
 name: project_trailer_deals_scraper
-description: "TrailerDealsScraper repo (sibling of the Ram scraper): nationwide gooseneck + bumper-pull trailers, 25-35 ft, 12k-30k GVWR, ranked vs fair value; TrailerTrader open JSON API is the backbone (~31 calls for the whole US), API-call ledger + TTL cache + caps"
+description: "nationwide trailers ranked vs fair value; TrailerTrader API, ledger, caps"
 metadata: 
   node_type: memory
   type: project
   originSessionId: 9e031425-83af-46e6-b475-44dffae9f197
   modified: 2026-09-24T08:10:19.349Z
 ---
+
+**Summary moved from the memory index (2026-11-08):** TrailerDealsScraper repo (sibling of the Ram scraper): nationwide gooseneck + bumper-pull trailers, 25-35 ft, 12k-30k GVWR, ranked vs fair value; TrailerTrader open JSON API is the backbone (~31 calls for the whole US), API-call ledger + TTL cache + caps
 
 Built 2026-09-24 at `~/repos/TrailerDealsScraper` (sibling of [[project_ram_megacab_scraper]]; same 3-container Docker isolation, cascade fast>api>human>unlocker, bandit, method cache, url_health). Run with `GET-TRAILERS.bat`, output `output/trailers/latest/trailers.xlsx`. Roadmap: `CodeMapping_Brain/content/roadmaps/2026-09-24_013139_trailer-deals-scraper.md`.
 

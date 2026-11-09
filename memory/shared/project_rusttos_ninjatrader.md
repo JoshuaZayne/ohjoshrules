@@ -1,12 +1,14 @@
 ---
 name: project_rusttos_ninjatrader
-description: "RustTOS NinjaTrader lane (crate rusttos-ninjatrader, docs/ninjatrader, branch agent/ninjatrader in worktree RustTOS_agents/ninjatrader): desktop OIF files, read only C# bridge kept as a Rust constant, database reader, Trade API and market data; practice accounts only; nothing yet run against a real NinjaTrader or login (2026-11-08)"
+description: "branch agent/ninjatrader: OIF files, read only C# bridge as a Rust constant, Trade API; practice only; not yet run live"
 metadata:
   node_type: memory
   type: project
   originSessionId: e716c090-6953-47c5-a5b3-26ff91284361
   modified: 2026-11-08T23:22:12.613Z
 ---
+
+**Summary moved from the memory index (2026-11-08):** RustTOS NinjaTrader lane (crate rusttos-ninjatrader, docs/ninjatrader, branch agent/ninjatrader in worktree RustTOS_agents/ninjatrader): desktop OIF files, read only C# bridge kept as a Rust constant, database reader, Trade API and market data; practice accounts only; nothing yet run against a real NinjaTrader or login (2026-11-08)
 
 Built 2026-11-08 by session ohjos-4d on branch `agent/ninjatrader` from e664b86 (worktree `F:\GitHub Repos\RustTOS_agents\ninjatrader`), not pushed, not merged; the coordinator merges. Crate `crates/rusttos-ninjatrader`, docs `docs/ninjatrader` (README plus pages 01 to 09), worklog `docs/worklog/2026-11-08_151917_ninjatrader.md`. 113 tests, 593 checks. Programs: `rusttos-ninjatrader-check` (`--money`, `--contracts`, `--live-data`, `--install-bridge`, can't send) and `rusttos-ninjatrader-order` (rehearses unless `--send`).
 

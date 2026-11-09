@@ -1,12 +1,14 @@
 ---
 name: project_dcu_truck_loan_pending
-description: "REMIND USER: the new truck loan is with DCU (Digital Federal Credit Union); they still need to hand over its statements so it can be added to the spend repo (as of 2026-11-01)"
+description: "REMIND USER: hand over DCU loan statements for the spend repo"
 metadata:
   node_type: memory
   type: project
   originSessionId: f9b1edcd-3d91-4270-869f-f703e95eef0c
   modified: 2026-11-01T08:44:22.339Z
 ---
+
+**Summary moved from the memory index (2026-11-08):** REMIND USER: the new truck loan is with DCU (Digital Federal Credit Union); they still need to hand over its statements so it can be added to the spend repo (as of 2026-11-01)
 
 The new truck loan (the 2026 Ram 3500, see [[project_ram3500_autonation_deal]] and [[project_truck_financing_ram3500]]) is held by **DCU (Digital Federal Credit Union)**. On 2026-11-01 the user asked to be reminded that they still need to give me the DCU loan statements/export so the loan can be added to the Yearly_and_monthly_spend_per_CC ledger ([[project_spend_intake_and_accounts]]).
 

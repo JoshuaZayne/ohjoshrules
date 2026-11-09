@@ -1,12 +1,14 @@
 ---
 name: project_futu_compensation_scenarios
-description: "FUTU job compensation planning, TX/MFJ/5-kids tax scenarios at $160k/200k/215k/250k base, 401k+HSA maxed, and Feb performance bonus tiers"
+description: "TX/MFJ/5 kids tax scenarios at $160k to $250k, bonus tiers"
 metadata: 
   node_type: memory
   type: project
   originSessionId: d4155661-cdca-45c2-a55e-56db0253aed8
   modified: 2026-08-01T01:49:45.059Z
 ---
+
+**Summary moved from the memory index (2026-11-08):** FUTU job compensation planning, TX/MFJ/5-kids tax scenarios at $160k/200k/215k/250k base, 401k+HSA maxed, and Feb performance bonus tiers
 
 User works at FUTU (parent of MooMoo, [[project_moomoo_quota]]). Comparing base salary
 scenarios of $160k / $200k / $215k / $250k under TX residency (no state income tax),

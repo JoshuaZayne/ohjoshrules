@@ -1,12 +1,14 @@
 ---
 name: project_ram3500_autonation_deal
-description: "Ongoing negotiation to buy a 2026 Ram 3500 Limited from AutoNation (Littleton CO), incl. contacts, target, trades, and deal docs"
+description: "Littleton CO negotiation: contacts, target, trades, docs"
 metadata: 
   node_type: memory
   type: project
   originSessionId: c20cac6a-98c1-41e5-9601-db94a22bcc15
   modified: 2026-08-03T13:36:32.536Z
 ---
+
+**Summary moved from the memory index (2026-11-08):** Ongoing negotiation to buy a 2026 Ram 3500 Limited from AutoNation (Littleton CO), incl. contacts, target, trades, and deal docs
 
 Buying a **2026 Ram 3500 Limited Mega Cab 4x4** from **AutoNation Dodge Ram Broadway, Littleton CO**. Stock **TG332645**, VIN **3C63R3PL0TG332645**. Listed **$91,497** (MSRP $104,665), **NEW**, and it's been on the lot ~105 days (since Mar 30, 2026). Loaded: HO Cummins, Limited Level 1 group, Night Edition, power sunroof, gooseneck/5th-wheel prep, new 8-speed HD. cars.com detail id `4d4770d1-14c8-4cd2-9a10-5eafcf169648`.
 

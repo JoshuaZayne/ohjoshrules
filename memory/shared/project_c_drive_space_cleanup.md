@@ -1,12 +1,14 @@
 ---
 name: project_c_drive_space_cleanup
-description: "C: drive filled to 6 GB free (2026-08-05) — the WSL crash-dump cause, the reusable cleanup script, and what is still large"
+description: "WSL crash dump cause, cleanup script, what's still large (2026-08-05)"
 metadata: 
   node_type: memory
   type: project
   originSessionId: 7692375f-e49d-4ed1-8bc1-03287f3594d3
   modified: 2026-08-06T06:39:03.261Z
 ---
+
+**Summary moved from the memory index (2026-11-08):** C: drive filled to 6 GB free (2026-08-05) — the WSL crash-dump cause, the reusable cleanup script, and what is still large
 
 On 2026-08-05 the desktop's C: (3,723 GB) was down to **6.3 GB free**. Cleared to **641 GB free** in one session.
 

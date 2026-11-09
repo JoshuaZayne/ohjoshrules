@@ -1,12 +1,14 @@
 ---
 name: project-securityexam-tc-access-deadline
-description: Training Consultants (SIE/Series7 courseware) access expires 2026-10-26 — hard deadline for any remaining live scrapes.
+description: "Training Consultants access expired 2026-10-26"
 metadata: 
   node_type: memory
   type: project
   originSessionId: 6cd0fa16-e03e-4905-a791-4728577bc69a
   modified: 2026-08-19T05:46:05.684Z
 ---
+
+**Summary moved from the memory index (2026-11-08):** Training Consultants (SIE/Series7 courseware) access expires 2026-10-26 — hard deadline for any remaining live scrapes.
 
 User's Training Consultants courseware access (courses.trainingconsultants.com) expires **2026-10-26**. Confirmed 2026-08-18 that stored credentials in `~/repos/SecurityExamPrep/.env` still authenticate (`python -m scraper.login` succeeded, `.auth/state.json` refreshed).
 

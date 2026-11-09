@@ -1,12 +1,14 @@
 ---
 name: project_schwab_dashboard_trading
-description: "Schwab dashboard on Brokers branch Dimaskus_Surface_merge (worktree F:\\GitHub Repos\\Brokers_merge; origin at 8e4f45f8 (pushed 2026-10-28 07:18 UTC)): futures terminal, live-computed 100-Touch backtest page (/backtest),, trade panel, Accounts P/L, 59 Data health checks on Schwab's own data, built 3m/1h/2h/4h stores, the tick recorder as the account's ONE Schwab stream (lease file), schwab-ohlc fixed, daily stamps one row per day; how to run tests, Schwab quote/daily-bar/1m-request semantics, runtime gotchas, open user decisions"
+description: "Brokers_merge dashboard: terminal, backtest page, recorder, tests, gotchas, open decisions"
 metadata:
   node_type: memory
   type: project
   originSessionId: d8a60bec-334c-4db0-9f39-6d64b4103cad
   modified: 2026-10-15T08:14:17.439Z
 ---
+
+**Summary moved from the memory index (2026-11-08):** Schwab dashboard on Brokers branch Dimaskus_Surface_merge (worktree F:\GitHub Repos\Brokers_merge; origin at 8e4f45f8 (pushed 2026-10-28 07:18 UTC)): futures terminal, live-computed 100-Touch backtest page (/backtest),, trade panel, Accounts P/L, 59 Data health checks on Schwab's own data, built 3m/1h/2h/4h stores, the tick recorder as the account's ONE Schwab stream (lease file), schwab-ohlc fixed, daily stamps one row per day; how to run tests, Schwab quote/daily-bar/1m-request semantics, runtime gotchas, open user decisions
 
 Brokers branch `Dimaskus_Surface_merge`, worktree `F:\GitHub Repos\Brokers_merge`. Commits pushed to GitHub remote `JoshuaZayne/Brokers` on 2026-10-12 include: 3cf26f98 data capture + coverage, 83d4e6e7 Accounts (P/L from trades only, Sharpe), c6a9f79a Data currency watchlists + chart days back, b83b576f COT links, 5c6b2b40 drawing tools, d135497e live strategy showcasing and standalone visualizer, plus /backtest Flask route (origin was at a4071056 on 2026-10-13). Local, not pushed: 752c04ea (2026-10-13 17:25 MDT) Data health on Schwab's own data, 3m/1h/2h/4h stores built by scripts/dashboard/derived_stores.py from bars.session_bars in their own timeframe folders, writer fixes, recorder on Schwab's month (derived_stores.py and the first store_maintenance.py had been swept into another session's f8e1988e, the derived job into b9afa5e9). Data health futures_all 2026-10-13 23:08:54 UTC: 0 critical, 19 warnings (CSV copies 10, IronBeam ticks 4, SR1/SR3/ZQ roll jumps 3, CL expiry 1, RB volume 1 fixed after). Launch: `schwab_dashboard.bat` or `python scripts/dashboard/schwab_dashboard.py` (http://127.0.0.1:8765; `--no-trading`, `--no-assistant`, `--no-browser`). Restart cleanly with POST /api/stop (Origin http://127.0.0.1:8765), which also stops the dash-trade container; open pages reconnect.
 

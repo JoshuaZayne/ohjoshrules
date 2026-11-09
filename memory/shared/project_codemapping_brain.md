@@ -1,12 +1,14 @@
 ---
 name: project_codemapping_brain
-description: "CodeMapping_Brain = the user's 'code base map': the code brain (codemap.py) that indexes every function/folder on a machine, finds duplicates, and powers the reuse-before-writing hook"
+description: "codemap.py indexes functions, finds duplicates, powers the reuse hook"
 metadata: 
   node_type: memory
   type: project
   originSessionId: 34178c54-c10f-43c6-b548-81ced589d7ee
   modified: 2026-09-19T21:32:23.945Z
 ---
+
+**Summary moved from the memory index (2026-11-08):** CodeMapping_Brain = the user's 'code base map': the code brain (codemap.py) that indexes every function/folder on a machine, finds duplicates, and powers the reuse-before-writing hook
 
 When the user says **"run code base map"**, "code base", "codemap", "code map", "brain map" or similar, they mean the repo **JoshuaZayne/CodeMapping_Brain** (desktop clone: `F:\GitHub Repos\CodeMapping_Brain`, cloned 2026-09-19). Run it with `python codemap.py run` (scan + similar + fix dry run); `python run_all.py --continue-on-error` runs that plus the older Obsidian/Quartz vault pipeline (22 phases).
 

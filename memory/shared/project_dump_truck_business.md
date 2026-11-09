@@ -1,11 +1,13 @@
 ---
 name: project_dump_truck_business
-description: "DumpTruckBusinessBuildout repo - Van Alstyne TX dump trailer business model, and the 299-lb CDL finding that blocks the original plan"
+description: "business model and the 299-lb CDL finding"
 metadata: 
   node_type: memory
   type: project
   originSessionId: f19d5582-3a75-4095-a4c3-e99e11bce98c
 ---
+
+**Summary moved from the memory index (2026-11-08):** DumpTruckBusinessBuildout repo - Van Alstyne TX dump trailer business model, and the 299-lb CDL finding that blocks the original plan
 
 Private repo **JoshuaZayne/DumpTruckBusinessBuildout**, local at `C:\Users\ohjos\DumpTruckBusinessBuildout`.
 Costing/pricing/econometric model for a dump trailer + material delivery + debris hauling business

@@ -1,12 +1,14 @@
 ---
 name: feedback_legal_letter_style
-description: "How the user wants dispute/demand letters written: formal legal prose, their position quoted then answered, 3+ cited facts per section, closing summary with every ask and dollar amount"
+description: "formal prose, quote then answer, 3+ cited facts, closing asks and amounts"
 metadata:
   node_type: memory
   type: feedback
   originSessionId: d8ed1be6-d8ad-421c-89b2-6627095a9bea
   modified: 2026-10-21T01:03:47.745Z
 ---
+
+**Summary moved from the memory index (2026-11-08):** How the user wants dispute/demand letters written: formal legal prose, their position quoted then answered, 3+ cited facts per section, closing summary with every ask and dollar amount
 
 For dispute or demand letters (first used on the Side By Side Share ATV claim, 2026-10-20), the user wants:
 1. Formal, flowing "lawyer" prose, written in the company's name (e.g. "Dimaskus LLC"), not casual first person.

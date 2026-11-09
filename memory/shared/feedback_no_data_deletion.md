@@ -1,12 +1,14 @@
 ---
 name: feedback_no_data_deletion
-description: "Never delete data if it can be helped: convert text (JSON, CSV, logs) to verified Parquet, set aside removed rows, keep dated rollback copies"
+description: "convert to verified Parquet, set rows aside, keep dated rollback copies"
 metadata:
   node_type: memory
   type: feedback
   originSessionId: dfe8eb70-bebc-45d2-b981-4703bed5ae51
   modified: 2026-11-07T15:58:35.142Z
 ---
+
+**Summary moved from the memory index (2026-11-08):** Never delete data if it can be helped: convert text (JSON, CSV, logs) to verified Parquet, set aside removed rows, keep dated rollback copies
 
 Do not delete data when it can be kept. When something must get out of the way, convert it to a smaller format (Parquet with compression) and only remove the original after the copy reads back with the same rows and content; rows a repair or merge removes go to a set aside store; files about to be replaced (binaries, folders) get a dated copy first.
 

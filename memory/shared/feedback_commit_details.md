@@ -1,12 +1,14 @@
 ---
 name: feedback_commit_details
-description: All git commits must be extremely detailed: exact files, exact lines, before vs after, technical reasoning, runtime isolation, and test verification
+description: "extremely detailed commits: files, lines, before/after, reasoning, tests"
 metadata: 
   node_type: memory
   type: feedback
   originSessionId: ee66bb5c-78a6-42fe-93f2-3a4be8d8057c
   modified: 2026-10-11T05:40:00.000Z
 ---
+
+**Summary moved from the memory index (2026-11-08):** All git commits must be extremely detailed: exact files, exact lines, before vs after, technical reasoning, runtime isolation, and test verification
 
 Whenever authoring or amending git commits, write **extremely detailed commit comments**:
 1. Itemize every single file that was modified, added, renamed, or deleted with exact line ranges and code symbols.

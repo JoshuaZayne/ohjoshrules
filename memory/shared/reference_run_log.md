@@ -1,11 +1,13 @@
 ---
 name: reference-run-log
-description: Pipeline run history and per-script ask/output is captured in data/run_log.json and rendered into content/memory/run_observations.md and content/scripts/<name>.md
+description: "data/run_log.json renders run_observations.md and script pages"
 metadata: 
   node_type: memory
   type: reference
   originSessionId: e2ef58d5-9b19-4f19-aef7-7007c021715a
 ---
+
+**Summary moved from the memory index (2026-11-08):** Pipeline run history and per-script ask/output is captured in data/run_log.json and rendered into content/memory/run_observations.md and content/scripts/<name>.md
 
 The CodeMapping_Brain pipeline (`run_all.py`) writes every phase invocation to `~/repos/CodeMapping_Brain/data/run_log.json` (via `scripts/run_logger.py`) with: `phase`, `cmd`, `rc`, `duration_s`, `ts_start`, `ts_end`, `stdout_tail`, `stderr_tail` (last 40 lines).
 

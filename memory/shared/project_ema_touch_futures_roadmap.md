@@ -1,12 +1,14 @@
 ---
 name: project_ema_touch_futures_roadmap
-description: "EMA Touch Counter futures accuracy, cross-currency inverse DXY proof, random forest ribbon folding cross-validation, 100 to 200 EMA conditional touch probabilities, 22 EMA daily overextension streaks, and standalone interactive web visualizers"
+description: "touch counter accuracy, DXY proof, random forest ribbon, touch odds, visualizers"
 metadata:
   node_type: memory
   type: project
   originSessionId: a981feae-b13a-47c4-a2a2-18ce9032dcc7
   modified: 2026-10-12T23:35:00.000Z
 ---
+
+**Summary moved from the memory index (2026-11-08):** EMA Touch Counter futures accuracy, cross-currency inverse DXY proof, random forest ribbon folding cross-validation, 100 to 200 EMA conditional touch probabilities, 22 EMA daily overextension streaks, and standalone interactive web visualizers
 
 Active Roadmaps:
 1. `F:\GitHub Repos\CodeMapping_Brain\content\roadmaps\2026-10-08_182227_ema-touch-futures-accuracy-and-watchlist-loading.md`

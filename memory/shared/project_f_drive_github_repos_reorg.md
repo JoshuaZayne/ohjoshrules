@@ -1,11 +1,13 @@
 ---
 name: project_f_drive_github_repos_reorg
-description: "On the desktop, F: git repos were consolidated into F:\\GitHub Repos\\ (2026-07-20), which can break hardcoded F:\\<repo> paths"
+description: "repos moved to F:\\GitHub Repos (2026-07-20); may break old paths"
 metadata: 
   node_type: memory
   type: project
   originSessionId: 588efd0d-54a5-4bef-9cba-a0656b7a30f5
 ---
+
+**Summary moved from the memory index (2026-11-08):** On the desktop, F: git repos were consolidated into F:\GitHub Repos\ (2026-07-20), which can break hardcoded F:\<repo> paths
 
 On 2026-07-20 the desktop's F: drive was reorganized: all 34 top-level git repos
 (clones of github.com/JoshuaZayne) were moved into **F:\GitHub Repos\<repo>**.

@@ -1,12 +1,14 @@
 ---
 name: project_thicket_hill_oct2026_status
-description: "1725 Thicket Hill (Highland Homes) exit: Nov 2 letter + Release SENT 2026-11-02; certified copy MAILED 2026-11-04 (9589 0710 5270 3672 9132 86); no-response follow-up SENT 2026-11-04 19:15 MST; Steve Dennis (Highland, title unknown) replied 2026-11-05 asking for a call; Buyers' email-only reply SENT 2026-11-05 14:46 MST; decision deadline Thu 2026-11-05 5 p.m. CT; TODOs in register.json"
+description: "letters sent, Highland reply 2026-11-05; TODOs in register.json"
 metadata:
   node_type: memory
   type: project
   originSessionId: a4d8c151-e007-4906-92d0-6c4cf014a223
   modified: 2026-11-01T08:49:00.588Z
 ---
+
+**Summary moved from the memory index (2026-11-08):** 1725 Thicket Hill (Highland Homes) exit: Nov 2 letter + Release SENT 2026-11-02; certified copy MAILED 2026-11-04 (9589 0710 5270 3672 9132 86); no-response follow-up SENT 2026-11-04 19:15 MST; Steve Dennis (Highland, title unknown) replied 2026-11-05 asking for a call; Buyers' email-only reply SENT 2026-11-05 14:46 MST; decision deadline Thu 2026-11-05 5 p.m. CT; TODOs in register.json
 
 As of 2026-10-14 the user wants OUT of the Highland Homes contract for 1725 Thicket Hill Drive (see [[project_thicket_hill_contract]], [[project_thicket_hill_texas_home]]). Draft request saved at `C:\Users\ohjos\ThicketHillProperty\documents\DRAFT_mutual_termination_request_2026-10-14_105504.md` (not sent as of writing).
 

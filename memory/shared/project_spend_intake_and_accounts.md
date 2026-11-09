@@ -1,12 +1,14 @@
 ---
 name: project_spend_intake_and_accounts
-description: Document intake dropbox + the parsed-account/statement structure in the Yearly_and_monthly_spend_per_CC repo (how to add new statements and have the report build off them)
+description: "document dropbox and how to add statements"
 metadata: 
   node_type: memory
   type: project
   originSessionId: a9e289a4-d2cb-453d-8b06-5e7ae5ca6722
   modified: 2026-11-01T09:56:31.806Z
 ---
+
+**Summary moved from the memory index (2026-11-08):** Document intake dropbox + the parsed-account/statement structure in the Yearly_and_monthly_spend_per_CC repo (how to add new statements and have the report build off them)
 
 Repo: `C:\Users\ohjos\repos\Yearly_and_monthly_spend_per_CC` (private GitHub JoshuaZayne/…, default branch **master**, runs on **Python 3.13** only — the Windows Store install; conda base 3.14/3.9 lack pyarrow / are too old).
 

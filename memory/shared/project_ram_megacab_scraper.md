@@ -1,12 +1,14 @@
 ---
 name: project_ram_megacab_scraper
-description: "Running & extending the RamMegaCabDataScrapper (nationwide RAM 2500/3500 Mega Cab Limited finder), incl. per-state coverage architecture and ops gotchas"
+description: "nationwide finder: per-state coverage and ops gotchas"
 metadata: 
   node_type: memory
   type: project
   originSessionId: 468393e6-4a1e-4823-b465-9c38783b1153
   modified: 2026-08-09T01:08:50.193Z
 ---
+
+**Summary moved from the memory index (2026-11-08):** Running & extending the RamMegaCabDataScrapper (nationwide RAM 2500/3500 Mega Cab Limited finder), incl. per-state coverage architecture and ops gotchas
 
 **>>> READ `docs/FINDINGS.md` FIRST (added 2026-08-08). <<<** It is the consolidated, measured record of what is actually broken vs only apparently broken: the parseability-vs-reachability bug class (`SUPPORTS_HUMAN=False` barring a source from the only tier that could reach it, then demoting it for yielding nothing — hit TrueCar States, iSeeCars States, Cars.com States), why the challenge taxonomy was recording nothing (`challenges.json` did not exist; `safe_get` discarded every non-200 body so only 200-served walls were ever diagnosed), the TWO different cars.com walls (fast tier 403 `ip_block` wants a new exit IP; browser tier 200 "Just a moment" `js_challenge` wants a cleared session), how to read a wall out of `output/cache/html_cache/*.json` via `fp_len` + `fingerprint` (visible text, no HTML stored), and the environment gotchas (PowerShell 5.1, .NET relative paths resolving to the process CWD, `"cars.com" in url` matching `iseecars.com`). Prefer updating that file over growing this memory.
 

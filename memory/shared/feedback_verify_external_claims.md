@@ -1,12 +1,14 @@
 ---
 name: feedback_verify_external_claims
-description: "Use other repos (especially Brokers) as leads, never as truth: every fact taken in gets 50+ numerical checks, time series checks, edge case flags, and a verdict from the tally"
+description: "other repos are leads, not truth; 50+ numeric checks per fact taken in"
 metadata:
   node_type: memory
   type: feedback
   originSessionId: dfe8eb70-bebc-45d2-b981-4703bed5ae51
   modified: 2026-11-07T15:58:40.658Z
 ---
+
+**Summary moved from the memory index (2026-11-08):** Use other repos (especially Brokers) as leads, never as truth: every fact taken in gets 50+ numerical checks, time series checks, edge case flags, and a verdict from the tally
 
 Treat what another repo or tool says (above all the Brokers repo) as good information to test, not as fact. Every claim RustTOS relies on gets at least 50 independent numerical checks, and the verdict comes from how many agree (all, a majority, or not confirmed), with every disagreeing check listed. Include time series checks (at least 3 families), edge case flags with how each is handled, broker tag checks, and checks that no data was lost or overwritten. Fix what can be fixed; flag the rest.
 

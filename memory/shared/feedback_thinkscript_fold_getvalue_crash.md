@@ -1,12 +1,14 @@
 ---
 name: feedback_thinkscript_fold_getvalue_crash
-description: "thinkScript gotcha: reading a fold accumulator inside GetValue() crashes the thinkorswim compiler; run thinkscript_capabilities.py before handing over any study"
+description: "fold accumulator in GetValue() crashes the compiler; run thinkscript_capabilities.py first"
 metadata:
   node_type: memory
   type: feedback
   originSessionId: 83278193-d6eb-4085-ace1-167c2497bcd2
   modified: 2026-10-18T03:51:35.659Z
 ---
+
+**Summary moved from the memory index (2026-11-08):** thinkScript gotcha: reading a fold accumulator inside GetValue() crashes the thinkorswim compiler; run thinkscript_capabilities.py before handing over any study
 
 Reading a `fold` accumulator inside `GetValue(...)` (for example `fold i = 0 to n with s = start do GetValue(x, BarNumber() - s, 100000)`) crashes thinkorswim's compiler: `UnexpectedASMException`, `NullPointerException: field` at `FoldingSubGenerator.putFoldingAccumulatorRead`. Hit on 2026-10-17 in the Quant Pivots H4/L4 watchlist column. It passed every static rule we had at the time.
 

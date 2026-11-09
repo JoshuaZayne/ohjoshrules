@@ -1,12 +1,14 @@
 ---
 name: feedback-no-abbreviations-detailed-docstrings
-description: "PERMANENT code style: no abbreviated names anywhere (variables, parameters, functions), and every def/class gets a detailed ''' docstring with what it does, what it calls, step by step loops and counts, and a plain-English section for a non-coder"
+description: "PERMANENT: whole word names; every def/class fully documented with plain English"
 metadata:
   node_type: memory
   type: feedback
   originSessionId: 50972bbb-ca99-4034-a47a-8b5a30113f40
   modified: 2026-10-16T01:01:22.160Z
 ---
+
+**Summary moved from the memory index (2026-11-08):** PERMANENT code style: no abbreviated names anywhere (variables, parameters, functions), and every def/class gets a detailed ''' docstring with what it does, what it calls, step by step loops and counts, and a plain-English section for a non-coder
 
 Two permanent rules for ALL code written for the user (stated 2026-10-15, VA_SelfAssessment repo, "now for memory permenantly"):
 

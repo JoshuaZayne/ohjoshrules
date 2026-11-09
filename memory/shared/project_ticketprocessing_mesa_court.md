@@ -1,12 +1,14 @@
 ---
 name: project_ticketprocessing_mesa_court
-description: "TicketProcessing repo for Colorado State Patrol summons (Mesa County Court, Oct 30 2026 appearance): attorney outreach, license/discipline verification, docket counts, dash/bodycam requests, consultation tracking, Trace Tyler $1k retainer top pick"
+description: "CSP summons: attorneys, verification, footage requests, consultations"
 metadata: 
   node_type: memory
   type: project
   originSessionId: d1c6b679-98d4-4a7a-8daa-33841a6e8f56
   modified: 2026-10-05T17:54:00.000Z
 ---
+
+**Summary moved from the memory index (2026-11-08):** TicketProcessing repo for Colorado State Patrol summons (Mesa County Court, Oct 30 2026 appearance): attorney outreach, license/discipline verification, docket counts, dash/bodycam requests, consultation tracking, Trace Tyler $1k retainer top pick
 
 ## TicketProcessing: Colorado State Patrol Summons (Mesa County Court)
 

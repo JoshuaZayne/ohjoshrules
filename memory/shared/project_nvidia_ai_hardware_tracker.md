@@ -1,9 +1,11 @@
 ---
 name: project_nvidia_ai_hardware_tracker
-description: "NvidiaAIHardwareTracker repo - GB10 boxes (DGX Spark, ASUS GX10, ...) vs RTX PRO 6000 comparison + snapshot price tracker, built 2026-09-27"
+description: "GB10 boxes vs RTX PRO 6000 + price tracker"
 metadata:
   type: project
 ---
+
+**Summary moved from the memory index (2026-11-08):** NvidiaAIHardwareTracker repo - GB10 boxes (DGX Spark, ASUS GX10, ...) vs RTX PRO 6000 comparison + snapshot price tracker, built 2026-09-27
 
 Repo `F:\GitHub Repos\NvidiaAIHardwareTracker` (GitHub: JoshuaZayne/NvidiaAIHardwareTracker, PRIVATE, pushed 2026-09-28). Built 2026-09-27 as "the Ram 3500 + trailers code, but for NVIDIA DGX Spark / GX10 (GB10 chip) and RTX PRO 6000".
 

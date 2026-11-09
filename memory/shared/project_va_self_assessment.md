@@ -1,12 +1,14 @@
 ---
 name: project_va_self_assessment
-description: "VA_SelfAssessment repo (private, F:\\GitHub Repos\\VA_SelfAssessment): VISN 19 BOSS auditor ePerformance self-assessment linter + LEAF CC audit follow up metrics + draft builder, built 2026-10-15"
+description: "BOSS auditor linter + LEAF metrics + draft builder"
 metadata:
   node_type: memory
   type: project
   originSessionId: 50972bbb-ca99-4034-a47a-8b5a30113f40
   modified: 2026-10-21T21:14:47.049Z
 ---
+
+**Summary moved from the memory index (2026-11-08):** VA_SelfAssessment repo (private, F:\GitHub Repos\VA_SelfAssessment): VISN 19 BOSS auditor ePerformance self-assessment linter + LEAF CC audit follow up metrics + draft builder, built 2026-10-15
 
 The user's day job includes **VISN 19 B.O.S.S. Auditor and Training Specialist** at the VA (SLC). Repo `github.com/JoshuaZayne/VA_SelfAssessment` (PRIVATE) at `F:\GitHub Repos\VA_SelfAssessment`, created 2026-10-15 (commit f556a1b). Run `python -m self_assessment lint|leaf|build|compare|demo`.
 

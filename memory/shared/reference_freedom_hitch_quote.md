@@ -1,12 +1,14 @@
 ---
 name: reference_freedom_hitch_quote
-description: "Freedom Hitch inquiry and email thread in ojoshrules@hotmail.com: Ram 3500 Mega Cab setup, gooseneck and fifth-wheel towing without unloading truck bed, factory-direct pricing pending receiver height and 5th-wheel GVWR"
+description: "ojoshrules@hotmail.com thread: Ram 3500 hitch setup, pricing pending"
 metadata: 
   node_type: memory
   type: reference
   originSessionId: d1c6b679-98d4-4a7a-8daa-33841a6e8f56
   modified: 2026-10-05T17:25:00.000Z
 ---
+
+**Summary moved from the memory index (2026-11-08):** Freedom Hitch inquiry and email thread in ojoshrules@hotmail.com: Ram 3500 Mega Cab setup, gooseneck and fifth-wheel towing without unloading truck bed, factory-direct pricing pending receiver height and 5th-wheel GVWR
 
 ## Freedom Hitch Communication & Rig Specifications
 

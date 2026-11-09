@@ -1,9 +1,11 @@
 ---
 name: Windows case-insensitive folder collisions during reorg
-description: Avoid creating new folders whose names collide with Windows standard folders; use distinctive versioned names and verify before moving files
+description: "avoid names colliding with Windows standard folders in a reorg"
 type: feedback
 originSessionId: 15eafbc4-9b2a-4224-8d55-91df6f86ddf9
 ---
+
+**Summary moved from the memory index (2026-11-08):** Avoid creating new folders whose names collide with Windows standard folders; use distinctive versioned names and verify before moving files
 When organizing files on Windows, never create a new top-level folder whose name matches (case-insensitive) an existing Windows standard folder. NTFS is case-insensitive, so `mkdir documents` silently resolves to the existing `Documents\` and files get merged into unrelated content.
 
 **Why:** During the 2026-04-23 reorg of `C:\Users\ohjos\`, I created `documents\` to hold `DD214.pdf` and `bullet trap building build.pdf`. The mkdir folded into the Windows `Documents\` folder and the two PDFs ended up mixed among ~80 pre-existing personal files. User explicitly asked that we "have a name and version control so we dont merge files like that again."

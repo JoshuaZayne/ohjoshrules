@@ -1,11 +1,13 @@
 ---
 name: project_travel_expenses_may2026
-description: "Travel expense report for the May 10-22 2026 Jersey City NJ trip; repo Travel_expenses, Delta+Sonesta amounts still pending"
+description: "Jersey City trip; Delta + Sonesta amounts pending"
 metadata: 
   node_type: memory
   type: project
   originSessionId: 1b737734-5063-4aa8-9b83-fa47a43e091d
 ---
+
+**Summary moved from the memory index (2026-11-08):** Travel expense report for the May 10-22 2026 Jersey City NJ trip; repo Travel_expenses, Delta+Sonesta amounts still pending
 
 Travel expense report for the **May 10 to 22, 2026** Jersey City NJ trip. Repo: `~/repos/Travel_expenses`. Builder: `scripts/build_report.py`. Output: `output/Travel_Expense_Report_<timestamp>.xlsx` (tabs: All Expenses, Daily Summary, Category Summary). Roadmap: `~/repos/CodeMapping_Brain/content/roadmaps/2026-05-28_205800_travel-expenses-may-trip.md`.
 

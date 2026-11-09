@@ -1,12 +1,14 @@
 ---
 name: project_resume_builder
-description: "The resumes repo — two working copies (iCloud is live, GitHub Repos is stale), and the new YAML-driven resume_builder that supersedes the monolithic generator"
+description: "iCloud copy live, GitHub stale; YAML-driven resume_builder"
 metadata: 
   node_type: memory
   type: project
   originSessionId: 14d8c2e4-2676-420c-84f6-9a0d482f370a
   modified: 2026-10-23T21:58:53.824Z
 ---
+
+**Summary moved from the memory index (2026-11-08):** The resumes repo — two working copies (iCloud is live, GitHub Repos is stale), and the new YAML-driven resume_builder that supersedes the monolithic generator
 
 The resume repo is `github.com/JoshuaZayne/resumes` (PRIVATE). It lives at
 **`F:\GitHub Repos\resumes`** and is fully pushed.

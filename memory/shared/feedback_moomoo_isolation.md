@@ -1,8 +1,10 @@
 ---
 name: Broker Docker + venv isolation requirement
-description: ALL broker code (all 13 brokers) must run inside Docker with a Python venv, never on local hardware. Exception: the RustTOS repo runs everything locally (user decision 2026-11-01).
+description: "all broker code in Docker with venv; RustTOS is the exception (local)"
 type: feedback
 ---
+
+**Summary moved from the memory index (2026-11-08):** ALL broker code (all 13 brokers) must run inside Docker with a Python venv, never on local hardware. Exception: the RustTOS repo runs everything locally (user decision 2026-11-01).
 
 All broker-related code must run inside Docker with a Python virtual environment. Never run any broker code directly on local hardware. This applies to ALL 13 brokers: IBKR, IronBeam, TastyTrade, Schwab, MooMoo, Coinbase, E*Trade, Fidelity, NinjaTrader, TradeStation, Vanguard, Webull, FIX.
 

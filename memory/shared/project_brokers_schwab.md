@@ -1,12 +1,14 @@
 ---
 name: project_brokers_schwab
-description: "Brokers repo (multi-broker trading platform) — where the Schwab auth/data code and its authoritative runbook live, and the .env placeholder gotcha"
+description: "where Schwab auth/data code and runbook live; .env placeholder gotcha"
 metadata: 
   node_type: memory
   type: project
   originSessionId: b4172c67-98c7-4893-b78b-d46ae378a41f
   modified: 2026-08-10T04:19:19.705Z
 ---
+
+**Summary moved from the memory index (2026-11-08):** Brokers repo (multi-broker trading platform) — where the Schwab auth/data code and its authoritative runbook live, and the .env placeholder gotcha
 
 Repo: `F:\GitHub Repos\Brokers` (private, `JoshuaZayne/Brokers`). Multi-broker platform (Schwab, IBKR, IronBeam, TastyTrade, MooMoo, etc.) with one CLI entry point `run.py`.
 

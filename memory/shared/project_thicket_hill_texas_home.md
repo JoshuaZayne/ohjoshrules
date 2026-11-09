@@ -1,12 +1,14 @@
 ---
 name: project_thicket_hill_texas_home
-description: "The Texas home repo (ThicketHillProperty) - the TSP package and the DocuSign signature-detection gotcha, its pricing tooling, and the broken Outlook mail access"
+description: "TSP package, DocuSign gotcha, pricing tools, Outlook access"
 metadata: 
   node_type: memory
   type: project
   originSessionId: 866729e7-342d-4b93-bc80-546234a59ff2
   modified: 2026-08-12T04:53:11.578Z
 ---
+
+**Summary moved from the memory index (2026-11-08):** The Texas home repo (ThicketHillProperty) - the TSP package and the DocuSign signature-detection gotcha, its pricing tooling, and the broken Outlook mail access
 
 **The "Texas home" repo is `C:\Users\ohjos\ThicketHillProperty`** (git, private) for **1725 Thicket Hill Drive, Van Alstyne, TX 75495** - Highland Homes **Leyland / Elevation CB**, Job **00896-087**, Thompson Farm 60s, Grayson County. Buyers Joshua and Olivia Zayne plus co-borrower Kevin Peccorini. Sales counselor **Pat Boyd (she/her)**, lender Hank Jackson at Highland HomeLoans.
 

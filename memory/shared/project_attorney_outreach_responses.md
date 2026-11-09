@@ -1,12 +1,14 @@
 ---
 name: project_attorney_outreach_responses
-description: "Highland Homes attorney outreach (2026-11-07): who was emailed, who replied (Dial and Ventura declined), what each reply taught, and the fit gate (attorney_search/fit.py) that now screens every lawyer before sending"
+description: "Highland Homes outreach 2026-11-07: replies and the fit gate (attorney_search/fit.py)"
 metadata:
   node_type: memory
   type: project
   originSessionId: 2edaab43-0968-4b37-b12b-0e3dca580b74
   modified: 2026-11-07T15:31:41.925Z
 ---
+
+**Summary moved from the memory index (2026-11-08):** Highland Homes attorney outreach (2026-11-07): who was emailed, who replied (Dial and Ventura declined), what each reply taught, and the fit gate (attorney_search/fit.py) that now screens every lawyer before sending
 
 Attorney outreach for the 1725 Thicket Hill dispute (repo ThicketHillProperty), sent 2026-11-07 from joshua.a.zayne@hotmail.com through Microsoft Graph (scripts/send_attorney_inquiries.ps1), CC Olivia, Kevin, joshua.a.zayne@gmail.com. Reply requested by Mon 2026-11-09; Highland's flooring default deadline is Fri 2026-11-13.
 

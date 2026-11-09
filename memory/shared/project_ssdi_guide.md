@@ -1,12 +1,14 @@
 ---
 name: project_ssdi_guide
-description: "SSDI repo (F:\\GitHub Repos\\SSDI, private JoshuaZayne/SSDI): disabled-veteran SSDI guide, 54-row state DDS CSV, state lookup script; created 2026-11-07"
+description: "SSDI repo: guide, 54-row DDS CSV, lookup script"
 metadata:
   node_type: memory
   type: project
   originSessionId: 5e772145-f916-4997-8413-2c7846c92379
   modified: 2026-11-08T02:49:02.378Z
 ---
+
+**Summary moved from the memory index (2026-11-08):** SSDI repo (F:\GitHub Repos\SSDI, private JoshuaZayne/SSDI): disabled-veteran SSDI guide, 54-row state DDS CSV, state lookup script; created 2026-11-07
 
 The user (a disabled veteran) asked on 2026-11-07 for a repo on applying for SSDI. Built at `F:\GitHub Repos\SSDI`, pushed as private `JoshuaZayne/SSDI` (first commit 79c02f6).
 
