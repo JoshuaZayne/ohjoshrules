@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: dfe8eb70-bebc-45d2-b981-4703bed5ae51
-  modified: 2026-11-11T00:13:23.803Z
+  modified: 2026-11-11T04:55:57.419Z
 ---
 
 On 2026-11-10 at about 17:13 MST, the user answered in the order-safety session (AskUserQuestion). They chose "Yes, build it" for Task D, agent/live-protections-switch, and "No block: anyone" for AI agents.
@@ -28,3 +28,7 @@ The design:
 1. The old rules still hold whenever the switch is TRUE, its default.
 2. Never set it FALSE on your own initiative. The user allowed it, but an agent flipping it unasked would still be acting without the user's say for that moment.
 3. A coordinator's relay is not the user's word. Confirm a reversal of standing rules with the user directly, in your own session; [[project_rusttos]] has the repo context.
+
+**Status (2026-11-10 21:55 MST, from git):** built on agent/live-protections-switch, head 011abab, 3 commits on main 6a590b4, sent to the coordinator for merge. The design readings (IBKR live only; paper and UNKNOWN untouched; the kill keep also holds the attention file; "retries" means no send after a failure and never adds a retry; the order's own shape always holds) are recorded in the repo's docs/DECISIONS.md D0048 and the worklog docs/worklog/2026-11-10_185050_live-protections-switch.md, and the coordinator agreed to them. Still open:
+1. Wire the drill's own checks once round j (agent/ibkr-live-drill) merges.
+2. Active Trader, the live orders panel and strategies do not follow the switch; they wait for the user's answer. The recommendation is to keep strategies out.
