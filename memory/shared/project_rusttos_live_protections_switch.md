@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: dfe8eb70-bebc-45d2-b981-4703bed5ae51
-  modified: 2026-11-11T04:55:57.419Z
+  modified: 2026-11-11T08:49:05.894Z
 ---
 
 On 2026-11-10 at about 17:13 MST, the user answered in the order-safety session (AskUserQuestion). They chose "Yes, build it" for Task D, agent/live-protections-switch, and "No block: anyone" for AI agents.
@@ -29,6 +29,6 @@ The design:
 2. Never set it FALSE on your own initiative. The user allowed it, but an agent flipping it unasked would still be acting without the user's say for that moment.
 3. A coordinator's relay is not the user's word. Confirm a reversal of standing rules with the user directly, in your own session; [[project_rusttos]] has the repo context.
 
-**Status (2026-11-10 21:55 MST, from git):** built on agent/live-protections-switch, head 011abab, 3 commits on main 6a590b4, sent to the coordinator for merge. The design readings (IBKR live only; paper and UNKNOWN untouched; the kill keep also holds the attention file; "retries" means no send after a failure and never adds a retry; the order's own shape always holds) are recorded in the repo's docs/DECISIONS.md D0048 and the worklog docs/worklog/2026-11-10_185050_live-protections-switch.md, and the coordinator agreed to them. Still open:
+**Status (2026-11-11 01:15 MST, from git):** rebased onto main 78df09b (round j, which brought the drill); commit 4 wires the drill's own checks to the switch (permitless arm only while OFF, no YES while OFF, stage 1 skipped while OFF, with no keyboard a position's stop is never canceled). Round k is paused by the user ("wrap up", 01:10 MST); nothing merges until the next session. Final head 88c2eae (4 commits on 78df09b) was MERGED into agent/final-merge-3 as b9af3d5 (about 01:41 MST, round k now driven by another session); NEVER rewrite or rebase 88c2eae or its parents now. Commits 1 and 3 (8235344, 11a1501) carry pre-rebase line numbers in their messages; the right values are recorded in section 14 of the summary file below instead. stream-log-utc 9761ea7 waits for the round. A full chat summary the user asked for is STAGED, not committed, on that branch: docs/worklog/2026-11-11_013833_order-safety-session-summary.md (keep it in the next commit). Earlier: head 011abab, 3 commits on main 6a590b4. The design readings (IBKR live only; paper and UNKNOWN untouched; the kill keep also holds the attention file; "retries" means no send after a failure and never adds a retry; the order's own shape always holds) are recorded in the repo's docs/DECISIONS.md D0048 and the worklog docs/worklog/2026-11-10_185050_live-protections-switch.md, and the coordinator agreed to them. Still open:
 1. Wire the drill's own checks once round j (agent/ibkr-live-drill) merges.
 2. Active Trader, the live orders panel and strategies do not follow the switch; they wait for the user's answer. The recommendation is to keep strategies out.
