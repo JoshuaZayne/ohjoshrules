@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: 2bfbbc04-5c73-44f0-81de-78c30076bbf2
-  modified: 2026-11-14T09:41:05.119Z
+  modified: 2026-11-14T17:36:35.691Z
 ---
 
 RustTOS build driven by one round driver session with Opus builders. At the stop main was 6b68160 (round au); round av (options pricing core, 38dbf04 on agent/final-merge-3) hung in its chart tests and must be rerun first. Before a computer restart on 2026-11-13 (about 22:00 MST) the whole state was written to `F:\GitHub Repos\RustTOS_agents\HANDOFF_restart_2026-11-13_214903.md`; read it first when resuming. The running record is `F:\GitHub Repos\RustTOS_agents\AGENT_LOG_2026-11-07_235708.md`; open questions for the user are in `F:\GitHub Repos\RustTOS_agents\QUESTIONS_FOR_OWNER_at_2026-11-13_1000.md`; the gap analysis and phases are Plan 2 in the repo at `docs/todo/2026-11-13_014831_plan_2_gap_analysis_five_platforms.md`.
@@ -15,6 +15,10 @@ RustTOS build driven by one round driver session with Opus builders. At the stop
 **Update 2026-11-14 00:55 MST:** round aw landed locally: main and the trunk are 3068315 (tag main-2026-11-14-aw), the IBKR reconnect reconcile pass (desk side only, no screen yet). Still not on GitHub (origin/main 6b68160) until the user adds the new SSH key `~/.ssh/id_ed25519_github.pub` to GitHub. The user asked to start Plan 2 phase 2: lane B `agent/day-loss-history` does the phase 1 leftovers (day loss wiring, account history lock) then phase 2 item 2 readers (account figures, confirm figures, order history). Phase 1 is built but not "done": nothing is proven on a paper Gateway and the risk and reconnect screens are not built.
 
 **Update 2026-11-14 02:45 MST:** rounds ax (f63e070: chart speed second half, deferred extra windows) and ay (2acd1fe: day loss from the account history store, account figures, confirm figures, order history reader) landed locally; tag main-2026-11-14-ay. origin/main still 6b68160 (rounds av to ay unpushed). Nothing from these is installed (chart on screen is round au). Running: lane A `agent/chart-fixes` (the owner's seven chart fixes), lane B `agent/order-chains-templates` (Plan 2 phase 2 item 1: size calculator, full templates, order chains). The round script is copied from `final-merge-3/data/reports/round_av_2026-11-13_213505/run_checks.sh` with the folder name replaced; merges use `repo-tools commit-report --merge BRANCH` and its FILL IN lines must be filled.
+
+**Update 2026-11-14 10:27 MST:** the GitHub SSH key works (the user added it; its comment is now joshua.a.zayne@hotmail.com). The RustTOS `origin` remote was switched to `git@github.com:JoshuaZayne/RustTOS.git` and main was pushed: GitHub main is 3b0d7c2 (round az, tag main-2026-11-14-az: size calculator, order templates, order chains), tags av to az pushed. Pushes now work from SSH (session 0) shells. PowerShell 7.7.0 is installed from the zip at `C:\Program Files\PowerShell\7` (on the machine PATH); winget's msix install fails in session 0.
+
+**Update 2026-11-14 10:36 MST:** both builders had stopped at about 04:12 to 04:25 MST leaving UNCOMMITTED work in two worktrees: `chart-fixes` (item 7 My trades lines; items 1 to 6 committed, 6 commits not on main) and `chain-route-flaky-tests` (flaky test fixes plus the chain route step). Also not on main: `agent/ninjatrader-docs` (1 docs commit) and `agent/todo-status` 7fe845b (Plan 2 "Part 8" progress section, pushed). The other 20 agent branches hold nothing main lacks. Proposed next round (awaiting the user's go): finish chart-fixes item 7, then one round on chart-fixes + ninjatrader-docs + todo-status. Repo commits must follow the `.gitmessage` template headings or the hook refuses them. Questions 17 to 19 were added to the owner questions file.
 
 **Why:** the user asked for a documented stopping point and a way to pick up where the work left off.
 
