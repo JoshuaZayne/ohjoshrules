@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: 2bfbbc04-5c73-44f0-81de-78c30076bbf2
-  modified: 2026-11-14T17:36:35.691Z
+  modified: 2026-11-14T18:32:02.844Z
 ---
 
 RustTOS build driven by one round driver session with Opus builders. At the stop main was 6b68160 (round au); round av (options pricing core, 38dbf04 on agent/final-merge-3) hung in its chart tests and must be rerun first. Before a computer restart on 2026-11-13 (about 22:00 MST) the whole state was written to `F:\GitHub Repos\RustTOS_agents\HANDOFF_restart_2026-11-13_214903.md`; read it first when resuming. The running record is `F:\GitHub Repos\RustTOS_agents\AGENT_LOG_2026-11-07_235708.md`; open questions for the user are in `F:\GitHub Repos\RustTOS_agents\QUESTIONS_FOR_OWNER_at_2026-11-13_1000.md`; the gap analysis and phases are Plan 2 in the repo at `docs/todo/2026-11-13_014831_plan_2_gap_analysis_five_platforms.md`.
@@ -19,6 +19,8 @@ RustTOS build driven by one round driver session with Opus builders. At the stop
 **Update 2026-11-14 10:27 MST:** the GitHub SSH key works (the user added it; its comment is now joshua.a.zayne@hotmail.com). The RustTOS `origin` remote was switched to `git@github.com:JoshuaZayne/RustTOS.git` and main was pushed: GitHub main is 3b0d7c2 (round az, tag main-2026-11-14-az: size calculator, order templates, order chains), tags av to az pushed. Pushes now work from SSH (session 0) shells. PowerShell 7.7.0 is installed from the zip at `C:\Program Files\PowerShell\7` (on the machine PATH); winget's msix install fails in session 0.
 
 **Update 2026-11-14 10:36 MST:** both builders had stopped at about 04:12 to 04:25 MST leaving UNCOMMITTED work in two worktrees: `chart-fixes` (item 7 My trades lines; items 1 to 6 committed, 6 commits not on main) and `chain-route-flaky-tests` (flaky test fixes plus the chain route step). Also not on main: `agent/ninjatrader-docs` (1 docs commit) and `agent/todo-status` 7fe845b (Plan 2 "Part 8" progress section, pushed). The other 20 agent branches hold nothing main lacks. Proposed next round (awaiting the user's go): finish chart-fixes item 7, then one round on chart-fixes + ninjatrader-docs + todo-status. Repo commits must follow the `.gitmessage` template headings or the hook refuses them. Questions 17 to 19 were added to the owner questions file.
+
+**Update 2026-11-14 11:31 MST:** round ba landed and is pushed: main, the trunk and GitHub main are 5f86ab2 (tag main-2026-11-14-ba): the seven chart fixes, NinjaTrader docs, Plan 2 Part 8. Suite 71,199 passed, 0 failed. The first run failed on repo-tools `every_outside_read_of_the_chart_is_listed` (a chart test reading above the chart crate must be listed in `CHART_FILES_READING_OUTSIDE`); builders should run repo-tools tests, not only chart and feed. Still off main: uncommitted work in the `chain-route-flaky-tests` worktree, and `agent/option-history-test` (not for main). Nothing after round au is installed. The earlier "proposed next round" in this file is done.
 
 **Why:** the user asked for a documented stopping point and a way to pick up where the work left off.
 
