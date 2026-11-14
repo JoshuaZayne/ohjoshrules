@@ -1,7 +1,11 @@
 ---
-name: Shared memory sync via ohjoshrules repo
+name: shared-memory-sync-via-ohjoshrules-repo
 description: Where shared cross-device memories live and how to pull/push them
-type: reference
+metadata:
+  node_type: memory
+  type: reference
+  originSessionId: ba63db71-b54f-4229-93b0-785382017f76
+  modified: 2026-11-14T19:12:10.415Z
 ---
 
 The source of truth for memories that need to follow the user across **desktop / laptop / Raspberry Pi** lives in the GitHub repo **`JoshuaZayne/ohjoshrules`**, under `memory/`:
@@ -21,4 +25,4 @@ Device detection is **hostname-first** via `device_registry.json` (e.g. `Dimasku
 
 When saving a memory that should only apply on one device, either drop the file directly into `memory/<device>/` in the repo, or add a line `<!-- device: laptop -->` inside the file and let `--push` route it automatically.
 
-Clone location on each device is anywhere convenient (current laptop copy is at `F:\ohjoshrules`).
+Clone location on each device is anywhere convenient. On the desktop the only clone is `C:\Users\ohjos\ohjoshrules` (the `ClaudeMemorySync` scheduled task runs from it). The old desktop copy at `F:\ohjoshrules` was a stale April 2026 clone, 224 commits behind, and was deleted on 2026-11-14 with the user's approval. Whether the laptop still has its own copy at `F:\ohjoshrules` was not checked.

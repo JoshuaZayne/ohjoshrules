@@ -5,6 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: 588efd0d-54a5-4bef-9cba-a0656b7a30f5
+  modified: 2026-11-14T19:12:12.410Z
 ---
 
 **Summary moved from the memory index (2026-11-08):** On the desktop, F: git repos were consolidated into F:\GitHub Repos\ (2026-07-20), which can break hardcoded F:\<repo> paths
@@ -13,7 +14,7 @@ On 2026-07-20 the desktop's F: drive was reorganized: all 34 top-level git repos
 (clones of github.com/JoshuaZayne) were moved into **F:\GitHub Repos\<repo>**.
 
 Exceptions / notes:
-- **ohjoshrules** was deliberately left at **F:\ohjoshrules** (memory-sync repo — see [[reference_ohjoshrules_memory_sync]]).
+- **ohjoshrules** was left at **F:\ohjoshrules** in July, but that copy was a stale clone and was deleted on 2026-11-14 with the user's approval; the live clone is `C:\Users\ohjos\ohjoshrules` (memory-sync repo, see [[reference_ohjoshrules_memory_sync]]).
 - Loose F:\ root files were sorted into F:\{PDFs,Documents,Spreadsheets,Code,Images,Archives,Misc}. Old `F:\PDF's` was merged into `F:\PDFs`.
 - Full move log: **F:\_reorg_log_2026-07-20.csv** (every move is reversible; temp files went to Recycle Bin).
 - `iCloudDrive`, `iCloudDriveCache`, `.claude` were left untouched.
