@@ -30,12 +30,33 @@ the disk in question was the one the live recorders write to. A build can no lon
 original cause of the 2026-11-12 data loss rather than working around it. The folder already existed with a warm
 cache, so the move cost no cold rebuild.
 
+## BOTH DRIVES MAY BE USED, with a finish and reduce cycle (owner, 2026-11-22 14:47 MST)
+
+The owner: "you can use both drives, but when they get full we need to 'finish' them and then commit and reduce
+them". So build output is NOT confined to C:. Either drive may carry it. What matters is what happens as one
+fills:
+
+1. When a drive passes about 85 percent full, STOP starting new work on it.
+2. FINISH what is in flight: bring the piece to a state where its tests pass.
+3. COMMIT it, so nothing in the build folder is the only copy of anything.
+4. REDUCE: delete that work's build folder. `cargo clean -p <crate>` for one crate, or remove the whole target
+   folder when the piece is done and committed.
+5. Only then start the next piece.
+
+NOTE the trap found the same day: setting `CARGO_TARGET_DIR` with
+`[Environment]::SetEnvironmentVariable(...,'User')` writes the registry but does NOT reach processes that are
+already running, including the shells of the session that set it. Builds kept going to the old drive for hours
+and F: fell from 249 GB free to 164 GB. Either pass `CARGO_TARGET_DIR` on the command itself, or accept that the
+setting only applies to terminals opened afterwards. Check it with `echo $CARGO_TARGET_DIR` in the shell that
+will actually run cargo, not with the registry value.
+
 **How to apply:**
 1. At most four build agents at once, in lanes that do not touch the same code; 6 build jobs each.
 2. Before every build still read free memory and free disk. The old stop levels (20 GB memory, 40 GB disk) are now
    easy to meet; treat them as a floor, not a target, and stop with a checkpoint commit if either is approached.
-3. Cargo output belongs on C:. Do NOT set a target folder on the recorders' drive again, and do not let an agent
-   worktree keep its own target folder there.
+3. Cargo output may go on either drive (see the section above). C: is the better default because it is far larger
+   and is not the drive the live recorders write to, but F: is allowed. What is NOT allowed is letting either
+   drive fill: follow the finish, commit, reduce cycle above.
 4. After a piece lands on main, delete its build folder before starting the next. One agent worktree reached
    93.3 GB on its own.
 5. Never run a test round and agent builds at the same time without a marker the agents check.
