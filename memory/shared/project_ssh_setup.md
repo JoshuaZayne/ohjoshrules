@@ -29,4 +29,14 @@ Remote control and mobile features:
 - Reverse SSH practice labs: Connecting from PC to iPhone and mobile devices (Blink, Termius, iSH).
 - Screen mirroring and remote app launching: Instructions and scripts for VNC/RDP over SSH tunnels and booting applications remotely (including thinkorswim).
 
+Who is using SSH, added 2026-11-22 (all verified working on DimaskusPC):
+- `scripts/ssh_sessions.py`: live "who is on my SSH right now" view. Joins the TCP table and process table (one PowerShell call) to the OpenSSH/Operational event log, so each row shows device, address, user, accepted key fingerprint, session age and the child processes that session is running, then accepted logins and refused attempts over a window. Flags: `--watch --interval`, `--hours`, `--refused-only`, `--export`, `--port`. Reuses `SSH_PATTERNS` and `LOGIN_RESULTS` from `device_activity_monitor.py`; friendly names come from `config/peers.json` plus `logs/device_names.json`. Launcher: `Who_Is_On_My_SSH.bat` at the repo root.
+- `scripts/run_ssh_watch.ps1`: runs `device_activity_monitor.py` continuously, picks a machine wide interpreter (resolves to `C:\Python314\python.exe`, which is correct for a SYSTEM task), logs to `logs/ssh_watch/ssh_watch_<date>.log` with 30 day retention.
+- `scripts/install_ssh_watch_task.ps1` plus self elevating `Install_SSH_Watch_Task.bat`: registers scheduled task `SSH_Watch_DeviceActivity`, SYSTEM, AtStartup (not AtLogon, because SSH logins land in session 0), no execution time limit, restart every minute. `-Status` works unelevated; `-Remove` uninstalls. AS OF 2026-11-22 THE TASK IS NOT YET INSTALLED: the owner has to run the .bat and approve the prompt.
+- `logs/device_names.json` now labels both machines, both tailnet addresses and the router.
+
+Host facts confirmed 2026-11-22: sshd Running, `LogLevel VERBOSE`, `PasswordAuthentication no`, `AuthenticationMethods publickey`, `AllowUsers ohjos`, keys in `C:\ProgramData\ssh\administrators_authorized_keys` (not `~/.ssh`, because ohjos is an administrator; the file is ACL locked and unreadable unelevated). 196 accepted logins from the laptop over the tailnet in 72 hours, zero refused attempts. `Get-NetFirewallRule` returns "Access is denied" unelevated, so firewall claims need the elevated rlink check.
+
+Screen share state 2026-11-22: Sunshine service Running on the desktop, listening on 47984/47989/47990, AMD AMF h264, HEVC and AV1 encoders all found, capture 5120x1440. `sunshine_state.json` already holds ONE paired client named "Laptop" (paired 2026-11-13), so laptop to desktop streaming is paired already. The 2026-11-13 failure in `logs/pairing/` was the REVERSE direction (desktop as client, laptop's Sunshine unpaired). ViGEmBus is NOT installed, so no gamepad input passes to a stream. `apps.json` offers Desktop and Steam Big Picture.
+
 Related: [[user_github_and_devices]], [[project_local_llm_coding_setup]], [[reference_ohjoshrules_memory_sync]]
