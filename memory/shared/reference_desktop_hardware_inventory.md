@@ -1,6 +1,6 @@
 ---
 name: reference-desktop-hardware-inventory
-description: "DimaskusPC hardware, IPs, full C/E/F drive accounting, the 577 GB of stale iPhone backups, and memory state; RAM dropped to ONE 16 GB stick at 3000 on 2026-11-22, drives measured 2026-11-21"
+description: "DimaskusPC hardware, IPs, full C/E/F drive accounting, the 577 GB of stale iPhone backups, and memory state; RAM RECOVERED to all 8 sticks, 128 GB at 2133, measured 2026-11-22 13:10 MST"
 metadata:
   node_type: memory
   type: reference
@@ -36,6 +36,22 @@ Three adapters are up:
 3. VirtualBox Host-Only Network: 192.168.56.1, virtual, no gateway
 
 ## Memory
+
+### CORRECTION, measured 2026-11-22 13:10 MST: ALL EIGHT STICKS ARE BACK, 128 GB
+
+The section below, written at 05:02 MST the same day, is NO LONGER TRUE. It is kept because it records how the
+fault looked and how it was diagnosed, which is worth having if it happens again. What is true now:
+
+1. 127.88 GB total visible, 105.76 GB free. `Win32_PhysicalMemory` lists 8 modules of 16 GB, one in every slot:
+   DIMM 0 and DIMM 1 of P0 CHANNEL A, B, C and D. Eight of eight slots filled, so the board is back in quad channel.
+2. They run at 2133 MT/s, both Speed and ConfiguredClockSpeed, NOT the 3000 the single stick reached. So the trade
+   that was made is all eight sticks at the JEDEC fallback instead of one stick at its rated speed. That is the
+   right way round: 128 GB over four channels beats 16 GB over one, and the earlier note measured the single
+   channel configuration at about 35 percent of the four channel peak bandwidth.
+3. The commit limit is now 143.88 GB, not the 31.88 GB that the 16 GB state produced. The 16,384 MB fixed pagefile
+   is no longer a constraint on parallel builds.
+4. LESSON: do not trust a memory note about this machine's RAM without re-measuring. It changed by 112 GB twice in
+   one day. `Get-CimInstance Win32_PhysicalMemory` lists populated slots only, so count the rows.
 
 ### CURRENT STATE as of 2026-11-22 05:02 MST: only ONE stick is present
 
