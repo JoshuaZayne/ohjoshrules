@@ -36,6 +36,11 @@ The owner: "you can use both drives, but when they get full we need to 'finish' 
 them". So build output is NOT confined to C:. Either drive may carry it. What matters is what happens as one
 fills:
 
+0. FIRST, before reclaiming anything: find out whether another session is using it. The repository has ONE shared
+   working folder, so `<repo>/target` may be the build cache another session is compiling into right now.
+   Deleting it forces them into a full rebuild mid-task. The owner, 2026-11-22 15:10 MST: "wait until sessions
+   finish, and dont repeat todays lesson twice". WAIT. Shared build output is reclaimed only when no other
+   session is working, or when they say they are done.
 1. When a drive passes about 85 percent full, STOP starting new work on it.
 2. FINISH what is in flight: bring the piece to a state where its tests pass.
 3. COMMIT it, so nothing in the build folder is the only copy of anything.
