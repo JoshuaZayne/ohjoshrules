@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: 1bce6fe7-f3f2-4733-a974-2989fee10ed0
-  modified: 2026-11-25T16:11:06.739Z
+  modified: 2026-11-25T18:54:28.938Z
 ---
 
 Read from Outlook on 2026-11-25 (joshua.a.zayne@hotmail.com thread "API Access", and dimaskusllc@gmail.com store). Contact: Brent Murphy, Business Development, brent.murphy@ironbeam.com, 312.765.7236; main 312-765-7200, trading@ironbeam.com.
@@ -17,6 +17,6 @@ Read from Outlook on 2026-11-25 (joshua.a.zayne@hotmail.com thread "API Access",
 5. 2026-03-11: Ironbeam DISABLED the API key, ~2,000 calls/min from an auth retry death loop. User throttled to 1/s. 2026-03-13: limit is 5 requests per second.
 6. 2026-03-17 to 05-13: reminders for driver's license, proof of address, corporate articles, written ownership statement, IRS EIN letter. 2026-06-04: corporate application CANCELED for missing documents.
 
-7. 2026-11-25 ~09:10 MST: owner asked for a Rust Ironbeam WebSocket client in RustTOS feeding the Quantower style desk. Worktree `RustTOS_agents\ironbeam-link`, branch agent/ironbeam-link from agent/chart-redesign cb61a67b, cargo output on F:\RustTOS_targets\ironbeam-link (owner chose F: because C: was 91 percent full; he declined deleting the 1.3 TB of merged session caches). Decisions D0800 to D0809. Orders not built (held). Proven only against fakes until the account is reopened. Official OpenAPI 2.1 spec and reference copied into that worktree's docs/ironbeam/. Old Python client in Brokers repos is mostly guesses; do not port it.
+7. 2026-11-25 ~09:10 MST: owner asked for a Rust Ironbeam WebSocket client in RustTOS feeding the Quantower style desk. Worktree `RustTOS_agents\ironbeam-link`, branch agent/ironbeam-link from agent/chart-redesign cb61a67b, cargo output on F:\RustTOS_targets\ironbeam-link (owner chose F: because C: was 91 percent full; he declined deleting the 1.3 TB of merged session caches). Decisions D0800 to D0809. Orders not built (held). Proven only against fakes until the account is reopened. Official OpenAPI 2.1 spec and reference copied into that worktree's docs/ironbeam/. Old Python client in Brokers repos is mostly guesses; do not port it. Built 2026-11-25: head 5ec5942b (3 commits, 57 files, not pushed or merged), crate crates/rusttos-ironbeam plus rusttos-core request_pacer, 60 tests; check program rusttos_ironbeam_check (dry run default, --connect never run). Preflight exits 1 only on claim overlap with chart-redesign and level2-either-computer. Open owner questions: 4 per second default, 5,000 daily cap, show account reads next, record Ironbeam depth.
 
 **How to apply:** any Ironbeam code needs a hard request cap under 5/s and a backoff that stops on auth failure. Reopening needs a fresh application with those documents (see [[project_dimaskus_llc_entity_docs]]). Python Ironbeam client code exists in Brokers_surface_base (tests/test_ironbeam_client.py).
