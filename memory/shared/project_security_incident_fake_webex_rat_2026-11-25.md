@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: 7510f94d-d9ef-4a28-b04c-06459121f36f
-  modified: 2026-11-25T22:42:02.542Z
+  modified: 2026-11-26T00:18:18.097Z
 ---
 
 On 2026-11-25 (~15:01 to 15:14 MST) DimaskusPC was briefly compromised. The user downloaded `WebexMeeting.Setup.exe` from the fake site **webexlive.cc** (NOT Cisco). It was a renamed **Zoho Assist Unattended Agent** that also installed a **ScreenConnect** client configured for unattended access to attacker host **polarmantar.top = 45.87.61.81** (port 8041). Both are legitimate remote-access tools abused as a RAT. The genuine `Webex.exe` the user also downloaded (Cisco-signed) is fine.
@@ -23,3 +23,9 @@ On 2026-11-25 (~15:01 to 15:14 MST) DimaskusPC was briefly compromised. The user
 4. Gold standard for a hands-on-keyboard RAT is a full Windows reimage; until then treat the machine as not-fully-trusted for sensitive logins.
 
 Why this matters: the real loss vector is stolen credentials/session cookies used from the attacker's own device, which no local firewall stops.
+
+**Toolkit built from this (2026-11-25):** repo `F:\GitHub Repos\DimaskusSecurityToolkit` (committed) holds the reusable tools; live copies run from `C:\Users\ohjos\Scripts`, and double-click launchers are in `C:\Users\ohjos\Desktop\Security Tools`.
+1. `Invoke-SecurityResponse.ps1` (launcher RUN_SECURITY_TOOL): the deep sweep, -Enforce / -Clean / -Online, report-only by default, writes a timestamped Desktop folder with CSVs; has a KnownGoodRegex to suppress RustTOS/dev false positives and an elevated admin-SSH authorized_keys check.
+2. `Inspect-Application.ps1` (launcher INSPECT_APP): STATIC, never runs the file; flags a file named like a meeting/brand app that embeds a different remote-access tool as HIGH RISK (the disguise heuristic that catches this exact scam). Run this on any download BEFORE opening it.
+3. `Invoke-DetonationAnalysis.ps1` (launcher DETONATE_IN_VM): behavioural, VM-ONLY (refuses on non-VM); diffs files/persistence/network, lists imported functions. Win10 Home has no Sandbox/Hyper-V, so use VirtualBox or an online sandbox (VirusTotal/Hybrid Analysis/any.run).
+The IP-analysis + SSH device-ID tools live in [[project_ssh_setup]] (`ip_pid_tracker.py`, `ssh_login_alerts.py`, `ssh_known_keys.json`); the one registered SSH key is the Surface (zaynesurface11) over Tailscale.
