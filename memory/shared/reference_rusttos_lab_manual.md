@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: reference
   originSessionId: 030adbe3-54de-4de0-b8e4-959637b22e49
-  modified: 2026-11-25T12:41:36.692Z
+  modified: 2026-11-27T04:31:22.397Z
 ---
 
 Written 2026-11-25 (about 04:50 to 05:45 MST) at the owner's request for an extreme detail explanation of how
@@ -34,6 +34,15 @@ does not mention it yet (would need a branch and commit).
    search; `docs/ARCHITECTURE.md` sections 12.1 and 13.14 describe the code wrongly.
 6. Nine model modules on `agent/ml-backtesting` (learning_frame, learning_honesty, linear_models and so on)
    have no caller; the build list's "lab command" is what turns them on.
+
+**Build state (2026-11-26 21:31 MST):** `agent/ml-backtesting` is merged into main. Build list items A1 to A3
+(`series_statistics.rs`, `barrier_label.rs`, `barrier_baseline.rs` in `crates/rusttos-indicators/src`, with
+sibling `_tests.rs` files, plus two chi squared tail functions in `probability_math.rs`) are BUILT in the
+worktree `RustTOS_agents\lab-phase-a` on branch `agent/lab-phase-a` and were NOT committed (the owner had not
+asked for a commit). Repo decisions D0980 to D0982, architecture section 70, worklog
+`2026-11-26_212716_lab-phase-a.md`. Next items: A4 excursion table, A5 labelled table, A7 the explore command
+(nothing calls the new modules yet). Lesson measured there: baseline entries closer together than a trade's
+length overlap, and the Jeffreys range is then too narrow.
 
 Code facts in the pages are from `agent/ml-backtesting` at dc821fe3; recheck against the code before relying
 on them. Related: [[project_rusttos]], [[feedback_verifiable_claims]].
