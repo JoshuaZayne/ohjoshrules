@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: reference
   originSessionId: 030adbe3-54de-4de0-b8e4-959637b22e49
-  modified: 2026-11-27T15:59:39.619Z
+  modified: 2026-11-27T23:51:00.309Z
 ---
 
 Written 2026-11-25 (about 04:50 to 05:45 MST) at the owner's request for an extreme detail explanation of how
@@ -35,11 +35,14 @@ does not mention it yet (would need a branch and commit).
 6. Nine model modules on `agent/ml-backtesting` (learning_frame, learning_honesty, linear_models and so on)
    have no caller; the build list's "lab command" is what turns them on.
 
-**Build state (2026-11-27 08:59 MST):** `agent/ml-backtesting` is merged into main. ALL of phase A (A1 to A7)
-is built and COMMITTED on branch `agent/lab-phase-a` (worktree `RustTOS_agents\lab-phase-a`), two commits:
-04b13605 (A1 to A3) and 40b1f854 (A4 excursion table, A5 `labelled_frame.rs`, A6 `bar_readings.rs`, A7
-`rusttos-levels explore` plus `--rows-out` Parquet export). NOT merged to main, NOT pushed (owner had not
-asked). Repo decisions D0980 to D0987, architecture sections 70 and 71. Next: phase B (the lab command that
+**Build state (2026-11-27 16:50 MST):** `agent/ml-backtesting` is merged into main. ALL of phase A (A1 to A7)
+is ON MAIN at 81356ee8 (tag `main-2026-11-27-be`, round be, landed 16:46 MST together with the chart's link to
+pulled copies, `agent/pulled-quotes-chart`). Commits 04b13605 (A1 to A3) and 40b1f854 (A4 excursion table, A5
+`labelled_frame.rs`, A6 `bar_readings.rs`, A7 `rusttos-levels explore` plus `--rows-out` Parquet export).
+Main was NOT pushed (owner asked for the merge only; 6 commits ahead of origin when written). Round be was
+run by hand (clippy, check-all, sharded-test --workspace --big) because `rusttos_round` takes EVERY finished
+`agent/*` branch and cannot be told which ones; it wanted another session's stale branch first.
+Repo decisions D0980 to D0987, architecture sections 70 and 71. Next: phase B (the lab command that
 trains any model on the labelled table, and the reliability table). Lessons measured there: baseline entries
 closer together than a trade's length overlap, so the Jeffreys range is too narrow; at stop 2, target 1, hold
 20 on stored candles (read 2026-11-27 08:52 MST) 15 of 16 sides of ES, NQ, GC, 6E at 5 and 30 minutes win
