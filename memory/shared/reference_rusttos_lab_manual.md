@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: reference
   originSessionId: 030adbe3-54de-4de0-b8e4-959637b22e49
-  modified: 2026-11-27T04:31:22.397Z
+  modified: 2026-11-27T15:59:39.619Z
 ---
 
 Written 2026-11-25 (about 04:50 to 05:45 MST) at the owner's request for an extreme detail explanation of how
@@ -35,14 +35,16 @@ does not mention it yet (would need a branch and commit).
 6. Nine model modules on `agent/ml-backtesting` (learning_frame, learning_honesty, linear_models and so on)
    have no caller; the build list's "lab command" is what turns them on.
 
-**Build state (2026-11-26 21:31 MST):** `agent/ml-backtesting` is merged into main. Build list items A1 to A3
-(`series_statistics.rs`, `barrier_label.rs`, `barrier_baseline.rs` in `crates/rusttos-indicators/src`, with
-sibling `_tests.rs` files, plus two chi squared tail functions in `probability_math.rs`) are BUILT in the
-worktree `RustTOS_agents\lab-phase-a` on branch `agent/lab-phase-a` and were NOT committed (the owner had not
-asked for a commit). Repo decisions D0980 to D0982, architecture section 70, worklog
-`2026-11-26_212716_lab-phase-a.md`. Next items: A4 excursion table, A5 labelled table, A7 the explore command
-(nothing calls the new modules yet). Lesson measured there: baseline entries closer together than a trade's
-length overlap, and the Jeffreys range is then too narrow.
+**Build state (2026-11-27 08:59 MST):** `agent/ml-backtesting` is merged into main. ALL of phase A (A1 to A7)
+is built and COMMITTED on branch `agent/lab-phase-a` (worktree `RustTOS_agents\lab-phase-a`), two commits:
+04b13605 (A1 to A3) and 40b1f854 (A4 excursion table, A5 `labelled_frame.rs`, A6 `bar_readings.rs`, A7
+`rusttos-levels explore` plus `--rows-out` Parquet export). NOT merged to main, NOT pushed (owner had not
+asked). Repo decisions D0980 to D0987, architecture sections 70 and 71. Next: phase B (the lab command that
+trains any model on the labelled table, and the reliability table). Lessons measured there: baseline entries
+closer together than a trade's length overlap, so the Jeffreys range is too narrow; at stop 2, target 1, hold
+20 on stored candles (read 2026-11-27 08:52 MST) 15 of 16 sides of ES, NQ, GC, 6E at 5 and 30 minutes win
+less with no rule than their break even rate (6E 5 minute needs 77.0 percent against 63 to 65).
+Command: `rusttos-levels explore ES,NQ --bars 5_min,30_min --stop 2 --target 1 --hold 20 --out FOLDER`.
 
 Code facts in the pages are from `agent/ml-backtesting` at dc821fe3; recheck against the code before relying
 on them. Related: [[project_rusttos]], [[feedback_verifiable_claims]].
